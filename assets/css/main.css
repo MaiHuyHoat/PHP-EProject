@@ -89,7 +89,98 @@ img{
   .nav-mega .dropdown-menu.mega-menu .media-list .media-heading {
     font-size: 16px;
   }
-
+/*GIỎ HÀNG*/
+.tab-giohang{
+    background-color: aquamarine;
+    width: 30%;
+    float: right;
+    z-index: 100;
+    height: 730px;
+    position: fixed;
+    top: 80px;
+    right: 0px;
+    display: none;
+}
+.tittle-giohang{
+    background-color: #dedede;
+    text-align: center;
+    padding: 15px 0;
+}
+.content-giohang{
+    text-align: center;
+    font-size: 16px;
+    padding-top: 30px;
+}
+/*MUA HÀNG*/
+.giohang-buy{
+    background-color: #ffffff;
+    border: 1px solid #dadada;
+    width: 50%;
+    float: right;
+    z-index: 10000;
+    height: 730px;
+    position: fixed;
+    top: 76px;
+    right: 0px;
+    display: none;
+}
+.tittle-giohang{
+    background-color: #dedede;
+    text-align: center;
+    padding: 15px 0;
+}
+.content-giohang{
+    text-align: center;
+    font-size: 16px;
+    padding-top: 30px;
+}
+.banner-giohang{
+    padding: 40px 30px 10px 40px;
+}
+.name-sanpham{
+    border-bottom: 1px solid #000;
+}
+.name-sanpham h3{
+    font-size: 20px;
+}
+.maso-sanpham{
+    display: flex;
+}
+.selled{
+    padding-left: 180px;
+}
+.color-sanpham {
+    padding-bottom: 30px;
+}
+.color-sanpham ul{
+    display: flex;
+}
+.color-sanpham ul li{
+    padding-right: 10px;
+}
+.color-sanpham ul li img{
+    border: 1px solid #dadada;
+}
+.list-kichco li a{
+    padding: 0 5px;
+    border: 1px solid #dadada;
+}
+.submit-giohang{
+    text-align: center;
+    padding: 15px;
+    background-color: #231f20;
+    margin-top: 20px;
+}
+.submit-giohang button{
+    border: unset;
+}
+.submit-giohang p{
+    background-color: #231f20;
+    margin-bottom: 0;
+    border: unset;
+    color: #fff;
+    font-size: 16px;
+}
 /* BANNER */
 .banner{
     padding-top: 80px;
