@@ -14,7 +14,81 @@ img{
 }
 
  /*     TRANG CHỦ      */
-
+ /*     HEARDER    */
+ .container{
+    padding:0;
+ }
+ .col-md-5{
+    flex:0 0 20%;
+    padding: 0;
+}
+.fix-nav{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 200;
+    background-color: #fff;
+    border-bottom: 1px solid #000;
+}
+ .navbar{
+    padding: 0px;
+ }
+ .navbar-light{
+    padding: 5px 0;
+ }
+ .dropdown-toggle::after{
+    display: none;
+ }
+ .navbar-light .navbar-nav .nav-link {
+    margin: 0 8px;
+    font-size: 19px;
+    color: #000;
+}
+/* .navbar-light .navbar-nav .nav-link:hover {
+    border-bottom: 3px solid #000;
+} */
+.navbar-nav{
+    padding-left: 115px;
+}
+.navbar-right li{
+    padding-left: 10px;
+}
+.item-top-right{
+    padding-top: 5px;
+}
+.nav-mega {
+    width: 100%;
+  }
+  .nav-mega .dropdown {
+    position: static;
+  }
+  .nav-mega .dropdown-menu.mega-menu {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-border-radius-topleft: 0;
+    -webkit-border-top-left-radius: 0;
+    border-top-left-radius: 0;
+    -moz-border-radius-topright: 0;
+    -webkit-border-top-right-radius: 0;
+    border-top-right-radius: 0;
+    min-width: auto;
+    width: 100%;
+    margin-top: 0;
+    padding: 0;
+    border-color: #ccc;
+  }
+  .nav-mega .dropdown-menu.mega-menu > li {
+    padding: 20px;
+  }
+  .nav-mega .dropdown-menu.mega-menu .media-list .media {
+    padding: 10px;
+    font-size: 13px;
+  }
+  .nav-mega .dropdown-menu.mega-menu .media-list .media-heading {
+    font-size: 16px;
+  }
 /*GIỎ HÀNG*/
 .tab-giohang{
     background-color: aquamarine;
@@ -346,23 +420,6 @@ img{
     margin: 20px 0;
 }
 
-/*THANH TOÁN*/
-
-.box-content-dh{
-    border: 1px solid #9e9e9e;
-}
-.title-tt {
-    font-size: 24px;
-}
-.tittle-ttdh{
-    border-bottom: 1px solid #9e9e9e;
-}
-.box-content-dh{
-    padding: 10px;
-}
-.thanhtoan{
-
-}
 /*Reponsive mobile */
 
 @media (min-width: 1200px) {

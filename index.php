@@ -6,14 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
-    <link rel="stylesheet" href="/assets/css/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/header.css">
+    <link rel="stylesheet" href="assets/css/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
     <title>Trang chủ</title>
 </head>
 <body>
-<!--trang cần làm
-    trang admin, trang tìm kiếm, trang thanh toán-->
     <div class="wrapper">
 <!--        HEADER-->
         <div class="header fix-nav">
@@ -21,13 +18,13 @@
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <nav class="navbar navbar-light">
                         <a class="navbar-brand" href="index.html">
-                          <img src="/assets/images/logo.svg" width="73px" alt="">
+                          <img src="assets/images/logo.svg" width="73px" alt="">
                         </a>
                       </nav>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
-
+                  
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                       <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
@@ -57,16 +54,16 @@
         <div class="banner">
             <div class="tips-top"></div>
             <div class="ads-banner">
-                <div><a href="nam.html"><img src="/assets/images/banner1.jpg"></a></div>
-                <div><a href="nu.html"><img src="/assets/images/banner2.jpg"></a></div>
-                <div><a href="treem.html"><img src="/assets/images/banner3.jpg"></a></div>
+                <div><a href="nam.html"><img src="assets/images/banner1.jpg"></a></div>
+                <div><a href="nu.html"><img src="assets/images/banner2.jpg"></a></div>
+                <div><a href="treem.html"><img src="assets/images/banner3.jpg"></a></div>
             </div>
             <div class="category">
                 <div class="row fix-mg-row">
                     <div class="col-md-4">
                         <div class="photo">
                             <a>
-                                <img src="/assets/images/imgcategory1.jpg">
+                                <img src="assets/images/imgcategory1.jpg">
                             </a>
                             <div class="info">
                                 <span>MEN UNDERWEAR</span>
@@ -77,7 +74,7 @@
                     <div class="col-md-4">
                         <div class="photo">
                             <a>
-                                <img src="/assets/images/imgcategory2.jpg">
+                                <img src="assets/images/imgcategory2.jpg">
                             </a>
                             <div class="info">
                                 <span>WOMEN UNDERWEAR</span>
@@ -88,7 +85,7 @@
                     <div class="col-md-4">
                         <div class="photo">
                             <a>
-                                <img src="/assets/images/imgcategory3.jpg">
+                                <img src="assets/images/imgcategory3.jpg">
                             </a>
                             <div class="info">
                                 <span>KIDS</span>
@@ -111,9 +108,7 @@
                         <div class="col-md-5">
                             <div>
                                 <div class="box-item">
-                                    <a href="sanpham1.html">
-                                        <img src="/assets/images/sanpham1.jpg">
-                                    </a>
+                                    <img src="assets/images/sanpham1.jpg">
                                     <div class="click-buy">
                                         <a class="buy-now" href="#">MUA NGAY</a>
                                     </div>
@@ -129,9 +124,7 @@
                         <div class="col-md-5">
                             <div>
                                 <div class="box-item">
-                                    <a href="sanpham1.html">
-                                        <img src="/assets/images/sanpham1.jpg">
-                                    </a>
+                                    <img src="assets/images/sanpham1.jpg">
                                     <div class="click-buy">
                                         <a class="buy-now" href="#">MUA NGAY</a>
                                     </div>
@@ -147,9 +140,7 @@
                         <div class="col-md-5">
                             <div>
                                 <div class="box-item">
-                                    <a href="sanpham1.html">
-                                        <img src="/assets/images/sanpham1.jpg">
-                                    </a>
+                                    <img src="assets/images/sanpham1.jpg">
                                     <div class="click-buy">
                                         <a class="buy-now" href="#">MUA NGAY</a>
                                     </div>
@@ -165,9 +156,7 @@
                         <div class="col-md-5">
                             <div>
                                 <div class="box-item">
-                                    <a href="sanpham1.html">
-                                        <img src="/assets/images/sanpham1.jpg">
-                                    </a>
+                                    <img src="assets/images/sanpham1.jpg">
                                     <div class="click-buy">
                                         <a class="buy-now" href="#">MUA NGAY</a>
                                     </div>
@@ -183,9 +172,7 @@
                         <div class="col-md-5">
                             <div>
                                 <div class="box-item">
-                                    <a href="sanpham1.html">
-                                        <img src="/assets/images/sanpham1.jpg">
-                                    </a>
+                                    <img src="assets/images/sanpham1.jpg">
                                     <div class="click-buy">
                                         <a class="buy-now" href="#">MUA NGAY</a>
                                     </div>
@@ -203,7 +190,7 @@
                 <div class="section1">
                     <div class="banner-content">
                         <a>
-                            <img src="/assets/images/banner-do-lot-1.jpg">
+                            <img src="assets/images/banner-do-lot-1.jpg">
                         </a>
                     </div>
                     <div></div>
@@ -211,14 +198,14 @@
                 <div class="section2">
                     <div class="banner-content">
                         <a>
-                            <img src="/assets/images/banner-quan-ao-2209.jpg">
+                            <img src="assets/images/banner-quan-ao-2209.jpg">
                         </a>
                     </div>
                     <div class="row">
                         <div class="col-md-5">
                             <div>
                                 <div class="box-item">
-                                    <img src="/assets/images/mau1.jpg">
+                                    <img src="assets/images/mau1.jpg">
                                     <div class="click-buy">
                                         <a href="#">MUA NGAY</a>
                                     </div>
@@ -234,7 +221,7 @@
                         <div class="col-md-5">
                             <div>
                                 <div class="box-item">
-                                    <img src="/assets/images/mau2.jpg">
+                                    <img src="assets/images/mau2.jpg">
                                     <div class="click-buy">
                                         <a href="#">MUA NGAY</a>
                                     </div>
@@ -250,7 +237,7 @@
                         <div class="col-md-5">
                             <div>
                                 <div class="box-item">
-                                    <img src="/assets/images/mau3.jpg">
+                                    <img src="assets/images/mau3.jpg">
                                     <div class="click-buy">
                                         <a href="#">MUA NGAY</a>
                                     </div>
@@ -266,7 +253,7 @@
                         <div class="col-md-5">
                             <div>
                                 <div class="box-item">
-                                    <img src="/assets/images/mau2.jpg">
+                                    <img src="assets/images/mau2.jpg">
                                     <div class="click-buy">
                                         <a href="#">MUA NGAY</a>
                                     </div>
@@ -282,7 +269,7 @@
                         <div class="col-md-5">
                             <div>
                                 <div class="box-item">
-                                    <img src="/assets/images/mau1.jpg">
+                                    <img src="assets/images/mau1.jpg">
                                     <div class="click-buy">
                                         <a class="buy-now" href="#">MUA NGAY</a>
                                     </div>
@@ -300,7 +287,7 @@
                 <div class="section3">
                     <div class="banner-content">
                         <a>
-                            <img src="/assets/images/sock-260422-1.jpg">
+                            <img src="assets/images/sock-260422-1.jpg">
                         </a>
                     </div>
                     <div class="text-center">
@@ -310,7 +297,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="images-st2">
-                                <img src="/assets/images/tencel-2021-01.jpg" alt="">
+                                <img src="assets/images/tencel-2021-01.jpg" alt="">
                                 <div class="info-img">
                                     <h4>COTTON TENCEL</h4>
                                     <p>Chất liệu Cotton tencel là sự kết hợp hài hòa giữa Tencel và Cotton giúp phát huy tối đa ưu điểm của mỗi loại chất liệu:
@@ -325,7 +312,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="images-st2">
-                                <img src="/assets/images/cotton-2021-01.jpg" alt="">
+                                <img src="assets/images/cotton-2021-01.jpg" alt="">
                                 <div class="info-img">
                                     <h4>COTTON USA</h4>
                                     <p>Cotton USA được ví như loại chất liệu “biết thở” – Breathable bởi khả năng thấm hút vượt trội cùng cơ chế làm mát tự nhiên giúp cân bằng độ ẩm,
@@ -469,7 +456,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6 banner-giohang">
-                    <img src="/assets/images/nam1.jpg" alt="">
+                    <img src="assets/images/nam1.jpg" alt="">
                 </div>
                   <div class="col-md-6">
                     <div class="name-sanpham">
@@ -488,10 +475,10 @@
                         <div class="color-sanpham">
                             <p>Màu sắc</p>
                             <ul>
-                                <li><a href="#"><img src="/assets/images/1.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="/assets/images/2.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="/assets/images/3.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="/assets/images/4.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="assets/images/1.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="assets/images/2.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="assets/images/3.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="assets/images/4.jpg" alt=""></a></li>
                             </ul>
                         </div>
                         <div class="color-sanpham">
@@ -525,9 +512,9 @@
         </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="/assets/js/js/bootstrap.min.js"></script>
+    <script src="assets/js/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/174b5524b1.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
-    <script src="/assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
