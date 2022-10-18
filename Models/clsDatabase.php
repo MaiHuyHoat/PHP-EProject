@@ -3,7 +3,7 @@ class clsDatabase
 {
 	public $conn = NULL;
 	public $pdo_stm = NULL;
-	function Connecting()
+	function clsDatabase()
 	{
 		try
 		{
@@ -15,11 +15,11 @@ class clsDatabase
 			echo "<h3>" . $ex->getMessage() . "</h3>";
 			die("<h3> LỖI KẾT NỐI CSDL </h3>");
 		}
-		return $this->conn;
+		
 	}
 	function ThucthiSQL($sql, $data=NULL)
 	{
-		$this->conn->Connecting();
+		
 		$this->pdo_stm = $this->conn->prepare($sql);
 		$ketqua=false;
 		if($data!=NULL)

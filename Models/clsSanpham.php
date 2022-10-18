@@ -12,7 +12,7 @@ class clsSanpham
     function LayDanhSachSanpham($id)
 	{
         $sql = "SELECT * FROM product WHERE id=$id";
-		$ketqua = $this->db->
+		$ketqua = $this->db->ThucthiSQL($sql);
 		$this->data=NULL;
 		if($ketqua==TRUE)
 			$this->data = $this->db->pdo_stm->fetchAll(PDO::FETCH_BOTH);

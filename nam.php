@@ -112,7 +112,7 @@
                             <?php
                             require_once("Models/clsSanpham.php");
                             $sanpham = new clsSanpham();
-                            $ketqua = $sanpham->LayDanhSachSanPham(2);//2 ở đây là id ạ
+                            $ketqua = $sanpham->LayDanhSachSanPham(110);
                             $rows = $sanpham->data;
                             foreach($rows as $row)
                             {
