@@ -17,7 +17,7 @@
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <nav class="navbar navbar-light">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="index.php">
                           <img src="assets/images/logo.svg" width="73px" alt="">
                         </a>
                       </nav>
@@ -28,7 +28,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                       <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="nam.html">NAM</a>
+                            <a class="nav-link" href="nam.php">NAM</a>
                         <li class="nav-item">
                             <a class="nav-link" href="nu.html">NỮ</a>
                         <li class="nav-item">
