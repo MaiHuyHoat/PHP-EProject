@@ -113,7 +113,8 @@
                             require_once("Models/clsSanpham.php");
                             $sanpham = new clsSanpham();
                             $ketqua = $sanpham->LayDanhSachSanPham(110);
-                            $rows = $sanpham->data;
+                            $rows = $sanpham->data->string;
+                            echo $sanpham->data;
                             foreach($rows as $row)
                             {
                             ?>
