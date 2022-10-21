@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 18, 2022 at 02:56 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th10 21, 2022 lúc 02:58 PM
+-- Phiên bản máy phục vụ: 10.4.25-MariaDB
+-- Phiên bản PHP: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,51 +18,53 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `project2`
+-- Cơ sở dữ liệu: `project2`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Cấu trúc bảng cho bảng `admin`
 --
 
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
-  `role_id` int(11) DEFAULT NULL,
   `user_name` varchar(255) DEFAULT NULL,
   `password` int(11) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `deleted` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Cấu trúc bảng cho bảng `category`
 --
 
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
+  `gender` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `category`
+-- Đang đổ dữ liệu cho bảng `category`
 --
 
-INSERT INTO `category` (`id`, `name`) VALUES
-(1, 'male'),
-(2, 'female'),
-(3, 'children');
+INSERT INTO `category` (`id`, `gender`, `name`) VALUES
+(1, 0, 'male'),
+(2, 0, 'female'),
+(3, 0, 'children');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `feedback`
+-- Cấu trúc bảng cho bảng `feedback`
 --
 
 CREATE TABLE `feedback` (
   `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
   `fullname` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `phone_number` varchar(255) DEFAULT NULL,
@@ -73,7 +75,7 @@ CREATE TABLE `feedback` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `galery`
+-- Cấu trúc bảng cho bảng `galery`
 --
 
 CREATE TABLE `galery` (
@@ -82,24 +84,15 @@ CREATE TABLE `galery` (
   `thumbnail` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `galery`
---
-
-INSERT INTO `galery` (`id`, `product_id`, `thumbnail`) VALUES
-(1, 110, 'nam1.jpg'),
-(2, 134, 'nam2.jpg'),
-(3, 222, 'nam3.jpg'),
-(4, 156, 'nam4.jpg');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
+-- Cấu trúc bảng cho bảng `order`
 --
 
 CREATE TABLE `order` (
   `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
   `fullname` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `phone_number` varchar(255) DEFAULT NULL,
@@ -112,7 +105,7 @@ CREATE TABLE `order` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orderdetail`
+-- Cấu trúc bảng cho bảng `orderdetail`
 --
 
 CREATE TABLE `orderdetail` (
@@ -127,7 +120,7 @@ CREATE TABLE `orderdetail` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Cấu trúc bảng cho bảng `product`
 --
 
 CREATE TABLE `product` (
@@ -141,84 +134,66 @@ CREATE TABLE `product` (
   `deleted` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `product`
---
-
-INSERT INTO `product` (`id`, `category_id`, `title`, `price`, `description`, `created_at`, `updated_at`, `deleted`) VALUES
-(110, 1, 'Clothes for high', 300, 'wuihfuiwgvwvbjsbvjbsdkbvgiwebdbhvsdbv jhsduyvybahjcbajhbav iadgvyhaevbcah', '2022-10-04 08:37:41', '2022-10-20 08:37:41', 1),
-(134, 1, 'Clothes for man', 300, 'wuihfuiwgvwvbjsbvjbsdkbvgiwebdbhvsdbv jhsduyvybahjcbajhbav iadgvyhaevbcah', '2022-10-04 08:37:41', '2022-10-20 08:37:41', 1),
-(156, 2, 'Clothes for woman', 300, 'wuihfuiwgvwvbjsbvjbsdkbvgiwebdbhvsdbv jhsduyvybahjcbajhbav iadgvyhaevbcah', '2022-10-04 08:37:41', '2022-10-20 08:37:41', 1),
-(222, 3, 'Clothes for child', 300, 'wuihfuiwgvwvbjsbvjbsdkbvgiwebdbhvsdbv jhsduyvybahjcbajhbav iadgvyhaevbcah', '2022-10-04 08:37:41', '2022-10-20 08:37:41', 1);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role`
---
-
-CREATE TABLE `role` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
+-- Cấu trúc bảng cho bảng `user`
 --
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `role_id` int(11) DEFAULT NULL,
   `user_name` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `fullname` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `phone_number` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `point` int(11) NOT NULL DEFAULT 0,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `admin`
+-- Chỉ mục cho bảng `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `category`
+-- Chỉ mục cho bảng `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `feedback`
+-- Chỉ mục cho bảng `feedback`
 --
 ALTER TABLE `feedback`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `galery`
+-- Chỉ mục cho bảng `galery`
 --
 ALTER TABLE `galery`
   ADD PRIMARY KEY (`id`),
   ADD KEY `product_id` (`product_id`);
 
 --
--- Indexes for table `order`
+-- Chỉ mục cho bảng `order`
 --
 ALTER TABLE `order`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `orderdetail`
+-- Chỉ mục cho bảng `orderdetail`
 --
 ALTER TABLE `orderdetail`
   ADD PRIMARY KEY (`id`),
@@ -226,80 +201,74 @@ ALTER TABLE `orderdetail`
   ADD KEY `order_id` (`order_id`);
 
 --
--- Indexes for table `product`
+-- Chỉ mục cho bảng `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
   ADD KEY `category_id` (`category_id`);
 
 --
--- Indexes for table `role`
---
-ALTER TABLE `role`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user`
+-- Chỉ mục cho bảng `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `feedback`
+-- AUTO_INCREMENT cho bảng `feedback`
 --
 ALTER TABLE `feedback`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `galery`
+-- AUTO_INCREMENT cho bảng `galery`
 --
 ALTER TABLE `galery`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `orderdetail`
+-- AUTO_INCREMENT cho bảng `orderdetail`
 --
 ALTER TABLE `orderdetail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `admin`
+-- Các ràng buộc cho bảng `feedback`
 --
-ALTER TABLE `admin`
-  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`id`) REFERENCES `role` (`id`);
+ALTER TABLE `feedback`
+  ADD CONSTRAINT `feedback_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
--- Constraints for table `galery`
+-- Các ràng buộc cho bảng `galery`
 --
 ALTER TABLE `galery`
   ADD CONSTRAINT `galery_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
 
 --
--- Constraints for table `orderdetail`
+-- Các ràng buộc cho bảng `order`
+--
+ALTER TABLE `order`
+  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Các ràng buộc cho bảng `orderdetail`
 --
 ALTER TABLE `orderdetail`
   ADD CONSTRAINT `orderdetail_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
   ADD CONSTRAINT `orderdetail_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`);
 
 --
--- Constraints for table `product`
+-- Các ràng buộc cho bảng `product`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
-
---
--- Constraints for table `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id`) REFERENCES `role` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
