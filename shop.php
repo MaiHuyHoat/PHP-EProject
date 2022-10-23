@@ -276,6 +276,16 @@
                                         <div role="tabpanel" class="tab-pane active" id="home">
                                             <div class="shop-tab">
                                                 <div class="row">
+                                                    <?php
+                                                    require("Models/clsSanpham.php");
+                                                    $rows = getListProduct();
+                                                    if($rows == NULL)
+                                                    {
+                                                        die("<p>ERROR IN DATABSEing</p>");
+                                                    }
+                                                    foreach($rows as $row)
+                                                    {
+                                                    ?>
                                                     <!-- single-product start -->
                                                     <div class="col-lg-6 col-xl-4 col-md-6 col-sm-12">
                                                         <div class="tb-product-item-inner tb2 pct-last">
@@ -284,64 +294,11 @@
                                                             <div class="tb-content">
                                                                 <div class="tb-it">
                                                                     <div class="tb-beg">
-                                                                        <a href="#">Leather Bag</a>
+                                                                        <a href="#"><?=$row["title"]?></a>
                                                                     </div>
                                                                     <div class="tb-product-wrap-price-rating">
                                                                         <div class="tb-product-price font-noraure-3">
-                                                                            <span class="amount">$180.00</span>
-                                                                            <span class="amount2 ana">$170.00</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="last-cart l-mrgn">
-                                                                        <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                                        <a class="las4" href="#">Add To Cart</a>
-                                                                        <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- single-product end -->				
-                                                    <!-- single-product start -->
-                                                    <div class="col-lg-6 col-xl-4 col-md-6 col-sm-12">
-                                                        <div class="tb-product-item-inner tb2 pct-last">
-                                                            <span class="onsale two">Sale!</span>
-                                                            <img alt="" src="img/product/9.jpg">
-                                                            <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                                            <div class="tb-content">
-                                                                <div class="tb-it">
-                                                                    <div class="tb-beg">
-                                                                        <a href="#">Glasses</a>
-                                                                    </div>
-                                                                    <div class="tb-product-wrap-price-rating">
-                                                                        <div class="tb-product-price font-noraure-3">
-                                                                            <span class="amount2 ana">$79.00 - </span>
-                                                                            <span class="amount2 ana">$100.00</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="last-cart l-mrgn">
-                                                                        <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                                        <a class="las4" href="#">Add To Cart</a>
-                                                                        <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- single-product end -->	
-                                                    <!-- single-product start -->
-                                                    <div class="col-lg-6 col-xl-4 col-md-6 col-sm-12">
-                                                        <div class="tb-product-item-inner tb2 pct-last">
-                                                            <span class="onsale">Sale!</span>
-                                                            <img alt="" src="img/product/7.jpg">
-                                                            <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                                            <div class="tb-content">
-                                                                <div class="tb-it">
-                                                                    <div class="tb-beg">
-                                                                        <a href="#">Skin Shoulder Bag</a>
-                                                                    </div>
-                                                                    <div class="tb-product-wrap-price-rating">
-                                                                        <div class="tb-product-price font-noraure-3">
+                                                                            <span class="amount"><?=$row["price"]?></span>
                                                                             <span class="amount2 ana">$170.00</span>
                                                                         </div>
                                                                     </div>
@@ -355,159 +312,18 @@
                                                         </div>
                                                     </div>
                                                     <!-- single-product end -->	
-                                                    <div class="col-lg-6 col-xl-4 col-md-6 col-sm-12">
-                                                        <div class="tb-product-item-inner tb2 pct-last">
-                                                            <img alt="" src="img/product/5.jpg">
-                                                            <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                                            <div class="tb-content">
-                                                                <div class="tb-it">
-                                                                    <div class="tb-beg">
-                                                                        <a href="#">Luxury Leather Bag</a>
-                                                                    </div>
-                                                                    <div class="tb-product-wrap-price-rating">
-                                                                        <div class="tb-product-price font-noraure-3">
-                                                                            <span class="amount2 ana">$150.00</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="last-cart l-mrgn">
-                                                                        <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                                        <a class="las4" href="#">Add To Cart</a>
-                                                                        <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- single-product end -->	
-                                                    <!-- single-product start -->
-                                                    <div class="col-lg-6 col-xl-4 col-md-6 col-sm-12">
-                                                        <div class="tb-product-item-inner tb2 pct-last">
-                                                            <span class="onsale two">Sale!</span>
-                                                            <img alt="" src="img/product/3.jpg">
-                                                            <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                                            <div class="tb-content">
-                                                                <div class="tb-it">
-                                                                    <div class="tb-beg">
-                                                                        <a href="#">Vintage Lambskin Shoe</a>
-                                                                    </div>
-                                                                    <div class="tb-product-wrap-price-rating">
-                                                                        <div class="tb-product-price font-noraure-3">
-                                                                            <span class="amount">$180.00</span>
-                                                                            <span class="amount2 ana">$170.00</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="last-cart l-mrgn">
-                                                                        <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                                        <a class="las4" href="#">Add To Cart</a>
-                                                                        <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-xl-4 col-md-6 col-sm-12">
-                                                        <div class="tb-product-item-inner tb2 pct-last">
-                                                            <span class="onsale">Sale!</span>
-                                                            <img alt="" src="img/product/4.jpg">
-                                                            <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                                            <div class="tb-content">
-                                                                <div class="tb-it">
-                                                                    <div class="tb-beg">
-                                                                        <a href="#">Skin Shoulder Bag</a>
-                                                                    </div>
-                                                                    <div class="tb-product-wrap-price-rating">
-                                                                        <div class="tb-product-price font-noraure-3">
-                                                                            <span class="amount2 ana">$170.00</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="last-cart l-mrgn">
-                                                                        <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                                        <a class="las4" href="#">Add To Cart</a>
-                                                                        <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-xl-4 col-md-6 col-sm-12">
-                                                        <div class="tb-product-item-inner tb2 pct-last">
-                                                            <span class="onsale two">Sale!</span>
-                                                            <img alt="" src="img/product/10.jpg">
-                                                            <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                                            <div class="tb-content">
-                                                                <div class="tb-it">
-                                                                    <div class="tb-beg">
-                                                                        <a href="#">Vintage Lambskin Shoe</a>
-                                                                    </div>
-                                                                    <div class="tb-product-wrap-price-rating">
-                                                                        <div class="tb-product-price font-noraure-3">
-                                                                            <span class="amount2 ana">$170.00</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="last-cart l-mrgn">
-                                                                        <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                                        <a class="las4" href="#">Add To Cart</a>
-                                                                        <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- single-product end -->				
-                                                    <!-- single-product start -->
-                                                    <div class="col-lg-6 col-xl-4 col-md-6 col-sm-12">
-                                                        <div class="tb-product-item-inner tb2 pct-last">
-                                                            <img alt="" src="img/product/2.jpg">
-                                                            <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                                            <div class="tb-content">
-                                                                <div class="tb-it">
-                                                                    <div class="tb-beg">
-                                                                        <a href="#">Leather Shoe</a>
-                                                                    </div>
-                                                                    <div class="tb-product-wrap-price-rating">
-                                                                        <div class="tb-product-price font-noraure-3">
-                                                                            <span class="amount2 ana">$220.00</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="last-cart l-mrgn">
-                                                                        <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                                        <a class="las4" href="#">Add To Cart</a>
-                                                                        <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- single-product end -->	
-                                                    <!-- single-product start -->
-                                                    <div class="col-lg-6 col-xl-4 col-md-6 col-sm-12">
-                                                        <div class="tb-product-item-inner tb2 pct-last res">
-                                                            <span class="onsale two">Sale!</span>
-                                                            <img alt="" src="img/product/8.jpg">
-                                                            <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                                            <div class="tb-content">
-                                                                <div class="tb-it">
-                                                                    <div class="tb-beg">
-                                                                        <a href="#">Vintage Shoulder Bag</a>
-                                                                    </div>
-                                                                    <div class="tb-product-wrap-price-rating">
-                                                                        <div class="tb-product-price font-noraure-3">
-                                                                            <span class="amount2 ana">$99.00</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="last-cart l-mrgn">
-                                                                        <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                                        <a class="las4" href="#">Add To Cart</a>
-                                                                        <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    <?php
+                                                    }
+                                                    ?>
+
                                                 </div>
                                             </div>
                                         </div>
                                         <div role="tabpanel" class="tab-pane" id="profile">
+                                            <?php
+                                            foreach($rows as $row)
+                                            {
+                                            ?>
                                             <div class="li-item">
                                                 <div class="row">
                                                     <div class="col-lg-4 col-md-4">
@@ -547,159 +363,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="li-item">
-                                                <div class="row">
-                                                    <div class="col-lg-4 col-md-4">
-                                                        <div class="tb-product-item-inner tb2 pct-last">
-                                                            <span class="onsale two">Sale!</span>
-                                                            <img alt="" src="img/product/6.jpg">
-                                                            <a class="la-icon ts"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-8 col-md-8">
-                                                        <div class="f-fix">
-                                                            <div class="tb-beg">
-                                                                <a href="#">Vintage Glasses</a>
-                                                            </div>
-                                                            <div class="tb-product-wrap-price-rating">
-                                                                <div class="tb-product-price font-noraure-3">
-                                                                    <span class="amount2 ana">$120.00</span>
-                                                                </div>
-                                                            </div>
-                                                            <p class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo  </p>
-                                                            <div class="last-cart l-mrgn ns">
-                                                                <a class="las4" href="#">Add To Cart</a>
-                                                            </div>
-                                                            <div class="tb-product-btn">
-                                                                <a href="#">
-                                                                    <i class="fa fa-eye"></i>
-                                                                </a>
-                                                                <a href="#">
-                                                                    <i class="fa fa-heart"></i>
-                                                                </a>
-                                                                <a href="#">
-                                                                    <i class="fa fa-retweet"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="li-item">
-                                                <div class="row">
-                                                    <div class="col-lg-4 col-md-4">
-                                                        <div class="tb-product-item-inner tb2 pct-last">
-                                                            <span class="onsale two">Sale!</span>
-                                                            <img alt="" src="img/product/10.jpg">
-                                                            <a class="la-icon ts"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-8 col-md-8">
-                                                        <div class="f-fix">
-                                                            <div class="tb-beg">
-                                                                <a href="#">Vintage Lambskin Shoe</a>
-                                                            </div>
-                                                            <div class="tb-product-wrap-price-rating">
-                                                                <div class="tb-product-price font-noraure-3">
-                                                                    <span class="amount2 ana">$170.00</span>
-                                                                </div>
-                                                            </div>
-                                                            <p class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo  </p>
-                                                            <div class="last-cart l-mrgn ns">
-                                                                <a class="las4" href="#">Add To Cart</a>
-                                                            </div>
-                                                            <div class="tb-product-btn">
-                                                                <a href="#">
-                                                                    <i class="fa fa-eye"></i>
-                                                                </a>
-                                                                <a href="#">
-                                                                    <i class="fa fa-heart"></i>
-                                                                </a>
-                                                                <a href="#">
-                                                                    <i class="fa fa-retweet"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="li-item">
-                                                <div class="row">
-                                                    <div class="col-lg-4 col-md-4">
-                                                        <div class="tb-product-item-inner tb2 pct-last">
-                                                            <span class="onsale two">Sale!</span>
-                                                            <img alt="" src="img/product/5.jpg">
-                                                            <a class="la-icon ts"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-8 col-md-8">
-                                                        <div class="f-fix">
-                                                            <div class="tb-beg">
-                                                                <a href="#">Luxury Leather Bag</a>
-                                                            </div>
-                                                            <div class="tb-product-wrap-price-rating">
-                                                                <div class="tb-product-price font-noraure-3">
-                                                                    <span class="amount2 ana">$190.00</span>
-                                                                </div>
-                                                            </div>
-                                                            <p class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo  </p>
-                                                            <div class="last-cart l-mrgn ns">
-                                                                <a class="las4" href="#">Add To Cart</a>
-                                                            </div>
-                                                            <div class="tb-product-btn">
-                                                                <a href="#">
-                                                                    <i class="fa fa-eye"></i>
-                                                                </a>
-                                                                <a href="#">
-                                                                    <i class="fa fa-heart"></i>
-                                                                </a>
-                                                                <a href="#">
-                                                                    <i class="fa fa-retweet"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="li-item">
-                                                <div class="row">
-                                                    <div class="col-lg-4 col-md-4">
-                                                        <div class="tb-product-item-inner tb2 pct-last">
-                                                            <span class="onsale two">Sale!</span>
-                                                            <img alt="" src="img/product/9.jpg">
-                                                            <a class="la-icon ts"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-8 col-md-8">
-                                                        <div class="f-fix res">
-                                                            <div class="tb-beg">
-                                                                <a href="#">Glasses</a>
-                                                            </div>
-                                                            <div class="tb-product-wrap-price-rating">
-                                                                <div class="tb-product-price font-noraure-3">
-                                                                    <span class="amount2 ana">$79.00 - </span>
-                                                                    <span class="amount2 ana">$100.00</span>
-                                                                </div>
-                                                            </div>
-                                                            <p class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo  </p>
-                                                            <div class="last-cart l-mrgn ns">
-                                                                <a class="las4" href="#">Add To Cart</a>
-                                                            </div>
-                                                            <div class="tb-product-btn">
-                                                                <a href="#">
-                                                                    <i class="fa fa-eye"></i>
-                                                                </a>
-                                                                <a href="#">
-                                                                    <i class="fa fa-heart"></i>
-                                                                </a>
-                                                                <a href="#">
-                                                                    <i class="fa fa-retweet"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <?php
+                                            }
+                                            ?>
+                                        
                                         </div>
                                     </div>
                                     <div class="shop-all-tab-nor">
