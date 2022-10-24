@@ -278,14 +278,12 @@
                                                 <div class="row">
                                                     <?php
                                                     require("Models/clsSanpham.php");
-                                                    $rows = getListProduct();
+                                                    $Sanpham= new clsSanpham();
+                                                    $rows = $Sanpham->getListProduct();
                                                     if($rows == NULL)
 
                                                         die("<p>ERROR IN DATABSE</p>");
 
-                                                    {
-                                                        die("<p>ERROR IN DATABSEing</p>");
-                                                    }
                                                     foreach($rows as $row)
                                                     {
                                                     ?>
