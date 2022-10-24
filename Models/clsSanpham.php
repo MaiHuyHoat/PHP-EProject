@@ -41,14 +41,20 @@ class clsSanpham{
              
                  $rows[$i]["thumbnail"]=$this->getImageById($rows[$i]["id"]);
             }
-            return array_unique($rows);
+            $ids=[];
+            $arrLength=count($rows);
+          for ($i=0; $i < $arrLength; $i++) { 
+            if(in_array($rows[$i]["id"],$ids))unset($rows[$i]);
+            else{
+                $ids[]=$rows[$i]["id"];
+            }
+          }
+         return $rows;
             
         }
     }
 }
-$sp=new clsSanpham();
-$imgs=$sp->getListProduct();
-echo json_encode($imgs);
+
 
 
 ?>

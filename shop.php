@@ -283,7 +283,7 @@
                                                     if($rows == NULL)
 
                                                         die("<p>ERROR IN DATABSE</p>");
-
+                                                  
                                                     foreach($rows as $row)
                                                     {
                                                     ?>
@@ -319,7 +319,7 @@
                                                     <?php
                                                     }
                                                     ?>
-                                                    <p><?=json_encode($rows)?></p>
+                                                  
 
                                                 </div>
                                             </div>
