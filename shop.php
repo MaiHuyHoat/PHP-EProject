@@ -290,7 +290,7 @@
                                                     <!-- single-product start -->
                                                     <div class="col-lg-6 col-xl-4 col-md-6 col-sm-12">
                                                         <div class="tb-product-item-inner tb2 pct-last">
-                                                            <img alt="" src="<?=$row["thumbnail"]?>">
+                                                            <img alt="" src="<?=$row["thumbnail"][0]?>">
                                                             <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
                                                             <div class="tb-content">
                                                                 <div class="tb-it">
