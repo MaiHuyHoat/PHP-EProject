@@ -280,7 +280,12 @@
                                                     require("Models/clsSanpham.php");
                                                     $rows = getListProduct();
                                                     if($rows == NULL)
+
                                                         die("<p>ERROR IN DATABSE</p>");
+
+                                                    {
+                                                        die("<p>ERROR IN DATABSEing</p>");
+                                                    }
                                                     foreach($rows as $row)
                                                     {
                                                     ?>
@@ -298,6 +303,9 @@
                                                                         <div class="tb-product-price font-noraure-3">
                                                                             <span class="amount">£100.00</span>
                                                                             <span class="amount2 ana">£<?=$row["price"]?></span>
+
+                                                                            <span class="amount"><?=$row["price"]?></span>
+                                                                            <span class="amount2 ana">$170.00</span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="last-cart l-mrgn">
@@ -314,6 +322,7 @@
                                                     }
                                                     ?>
                                                     <p><?=json_encode($rows)?></p>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -342,6 +351,7 @@
                                                                 </div>
                                                             </div>
                                                             <p class="desc"><?=$row["description"]?></p>
+                                                            <p class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo  </p>
                                                             <div class="last-cart l-mrgn ns">
                                                                 <a class="las4" href="#">Add To Cart</a>
                                                             </div>
