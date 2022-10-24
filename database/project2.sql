@@ -1,11 +1,7 @@
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
---
--- Máy chủ: localhost
--- Thời gian đã tạo: Th10 24, 2022 lúc 04:41 AM
--- Phiên bản máy phục vụ: 10.4.21-MariaDB
--- Phiên bản PHP: 8.1.6
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -26,14 +22,8 @@ SET time_zone = "+00:00";
 --
 -- Cấu trúc bảng cho bảng `admin`
 --
-
-CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
-  `user_name` varchar(255) DEFAULT NULL,
-  `password` int(11) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `deleted` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- Error reading structure for table project2.admin: #1142 - SHOW command denied to user &#039;&#039;@&#039;localhost&#039; for table &#039;admin&#039;
+-- Error reading data for table project2.admin: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#039;FROM `project2`.`admin`&#039; at line 1
 
 -- --------------------------------------------------------
 
@@ -62,34 +52,24 @@ INSERT INTO `category` (`id`, `gender`, `type`) VALUES
 (8, 1, 'Shoes'),
 (9, 1, 'Shorts'),
 (10, 1, 'Jeans');
+-- Error reading structure for table project2.category: #1142 - SHOW command denied to user &#039;&#039;@&#039;localhost&#039; for table &#039;category&#039;
+-- Error reading data for table project2.category: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#039;FROM `project2`.`category`&#039; at line 1
 
 -- --------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `feedback`
 --
-
-CREATE TABLE `feedback` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `fullname` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `phone_number` varchar(255) DEFAULT NULL,
-  `subject_name` varchar(255) DEFAULT NULL,
-  `note` longtext DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- Error reading structure for table project2.feedback: #1142 - SHOW command denied to user &#039;&#039;@&#039;localhost&#039; for table &#039;feedback&#039;
+-- Error reading data for table project2.feedback: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#039;FROM `project2`.`feedback`&#039; at line 1
 
 -- --------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `galery`
 --
-
-CREATE TABLE `galery` (
-  `id` int(11) NOT NULL,
-  `product_id` int(11) DEFAULT NULL,
-  `thumbnail` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- Error reading structure for table project2.galery: #1142 - SHOW command denied to user &#039;&#039;@&#039;localhost&#039; for table &#039;galery&#039;
+-- Error reading data for table project2.galery: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#039;FROM `project2`.`galery`&#039; at line 1
 
 --
 -- Đang đổ dữ liệu cho bảng `galery`
@@ -147,39 +127,23 @@ INSERT INTO `galery` (`id`, `product_id`, `thumbnail`) VALUES
 --
 -- Cấu trúc bảng cho bảng `order`
 --
-
-CREATE TABLE `order` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `fullname` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `phone_number` varchar(255) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `note` longtext DEFAULT NULL,
-  `order_date` datetime DEFAULT NULL,
-  `status` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- Error reading structure for table project2.order: #1142 - SHOW command denied to user &#039;&#039;@&#039;localhost&#039; for table &#039;order&#039;
+-- Error reading data for table project2.order: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#039;FROM `project2`.`order`&#039; at line 1
 
 -- --------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `orderdetail`
 --
-
-CREATE TABLE `orderdetail` (
-  `id` int(11) NOT NULL,
-  `order_id` int(11) DEFAULT NULL,
-  `product_id` int(11) DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
-  `num` int(11) DEFAULT NULL,
-  `total_money` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- Error reading structure for table project2.orderdetail: #1142 - SHOW command denied to user &#039;&#039;@&#039;localhost&#039; for table &#039;orderdetail&#039;
+-- Error reading data for table project2.orderdetail: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#039;FROM `project2`.`orderdetail`&#039; at line 1
 
 -- --------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `product`
 --
+<<<<<<< HEAD
 
 CREATE TABLE `product` (
   `id` int(11) NOT NULL,
@@ -191,6 +155,10 @@ CREATE TABLE `product` (
   `updated_at` datetime DEFAULT NULL,
   `deleted` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+=======
+-- Error reading structure for table project2.product: #1142 - SHOW command denied to user &#039;&#039;@&#039;localhost&#039; for table &#039;product&#039;
+-- Error reading data for table project2.product: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#039;FROM `project2`.`product`&#039; at line 1
+>>>>>>> 3ba3dc4cdc93a81addfbc9dcd462d1d961c7a0a8
 
 --
 -- Đang đổ dữ liệu cho bảng `product`
@@ -218,6 +186,7 @@ INSERT INTO `product` (`id`, `category_id`, `title`, `price`, `description`, `cr
 --
 -- Cấu trúc bảng cho bảng `user`
 --
+<<<<<<< HEAD
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
@@ -348,6 +317,10 @@ ALTER TABLE `orderdetail`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
+=======
+-- Error reading structure for table project2.user: #1142 - SHOW command denied to user &#039;&#039;@&#039;localhost&#039; for table &#039;user&#039;
+-- Error reading data for table project2.user: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#039;FROM `project2`.`user`&#039; at line 1
+>>>>>>> 3ba3dc4cdc93a81addfbc9dcd462d1d961c7a0a8
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
