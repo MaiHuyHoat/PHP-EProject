@@ -50,7 +50,7 @@
         
      
         <?php
-       require("header.php")
+       require("Views/header.php")
        ?>
         <!-- mobile-menu-area end --> 
         <section class="contact-img-area nu-blog">

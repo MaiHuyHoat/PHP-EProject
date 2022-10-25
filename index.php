@@ -47,7 +47,7 @@
     </head>
     <body>
     <?php
-    require("header.php");
+    require("Views/header.php");
     ?>
         <section class="slider-main-area bg-black">
             <div class="main-slider an-si">
@@ -951,7 +951,7 @@
             </div>
         </section>
      <?php
-     require("footer.php");
+     require("Views/footer.php");
      ?>
         
         
