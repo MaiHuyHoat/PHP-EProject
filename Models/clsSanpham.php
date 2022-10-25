@@ -25,11 +25,17 @@ class clsSanpham{
             return $imgs;
         }
     }
-    function getListProduct()
+    function getListProduct($data=null)// mảng điều kiện để lấy danh sách sản phẩm
     {
-        $sql = "SELECT product.id,product.category_id,product.title,product.price,product.description,galery.thumbnail
+     
+        $sql = "SELECT product.id,product.category_id,product.title,product.price_old,product.price,product.description,galery.thumbnail
                 FROM product INNER JOIN galery WHERE galery.product_id=product.id";
-        
+        if(empty($data)==false){
+            foreach ($data as $value ) {
+                # code...
+               $sql.=" AND ".$value;// Cộng thêm điều kiện vào sau câu lệnh sql;
+            }
+        }
         $ketqua =$this->clsDatabase->executeQuery($sql);
         if($ketqua==FALSE)
             return NULL;
@@ -52,9 +58,8 @@ class clsSanpham{
          return $rows;
             
         }
+        
     }
 }
-
-
 
 ?>

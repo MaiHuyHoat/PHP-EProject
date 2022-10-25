@@ -39,6 +39,7 @@
         <link rel="stylesheet" href="css/responsive.css">
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <?php require("Views/head.php")?>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -79,14 +80,15 @@
                                         <th class="low7">Price</th>
                                         <th class="low7">Total</th>
                                     </tr>
+                                  <?php  foreach ($listProduct as $row ) {?>
                                     <tr>
                                         <td class="sop-cart an-shop-cart">
-                                            <a href="#"><img class="primary-image" alt="" src="img/product/3.jpg"></a>
-                                            <a href="#">Vintage Lambskin Shoe</a>
+                                            <a href="#"><img class="primary-image" alt="" src="<?=$row["thumbnail"][0]?>"></a>
+                                            <a href="#"><?=$row["title"]?></a>
                                         </td>
                                         <td class="sop-cart an-sh">
                                             <div class="quantity ray">
-                                                <input class="input-text qty text" type="number" title="Qty" value="2" min="0" step="1">
+                                                <input class="input-text qty text" type="number" title="Qty" value="<?= $_SESSION["cart"][$row["id"]]?>" min="0" step="1">
                                             </div>
                                             <a class="remove" href="#">
                                                 <span>x</span>
@@ -94,36 +96,19 @@
                                         </td>
                                         <td class="sop-cart">
                                             <div class="tb-product-price font-noraure-3">
-                                                <span class="amount">$180.00</span>
+                                                <span class="amount">$<?=$row["price"]?></span>
                                             </div>
                                         </td>
                                         <td class="cen">
-                                            <span class="amount">$180.00</span>
+                                            <span class="amount">$<?=$row["price"]*$_SESSION["cart"][$row["id"]]?></span>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="sop-cart an-shop-cart">
-                                            <a href="#"><img class="primary-image" alt="" src="img/product/6.jpg"></a>
-                                            <a href="#">Vintage Lambskin Shoe</a>
-                                        </td>
-                                        <td class="sop-cart an-sh">
-                                            <div class="quantity ray">
-                                                <input class="input-text qty text" type="number" title="Qty" value="2" min="0" step="1">
-                                            </div>
-                                            <a class="remove" href="#">
-                                                <span>x</span>
-                                            </a>
-                                        </td>
-                                        <td class="sop-cart">
-                                            <div class="tb-product-price font-noraure-3">
-                                                <span class="amount2 ana">$79.00 - </span>
-                                                <span class="amount2 ana">$100.00</span>
-                                            </div>
-                                        </td>
-                                        <td class="cen">
-                                            <span class="amount">$180.00</span>
-                                        </td>
-                                    </tr>
+
+                                                         <?php 
+                                                         }
+                                                        ?>
+                                   
+                                   
                                 </table>
                             </div>
                             <div class="last-check1">
@@ -215,14 +200,14 @@
                                         <tr class="cart-subtotal">
                                             <th>Subtotal:</th>
                                             <td>
-                                                <span class="amount">$297.00</span>
+                                                <span class="amount">$ <?=$subtotal?></span>
                                             </td>
                                         </tr>
                                         <tr class="order-total">
                                             <th>Total:</th>
                                             <td>
                                                 <strong>
-                                                    <span class="amount">$297.00</span>
+                                                    <span class="amount">$ <?=$subtotal?></span>
                                                 </strong>
                                             </td>
                                         </tr>

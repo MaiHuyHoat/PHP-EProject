@@ -485,7 +485,7 @@ h3.hedding-border {
     padding: 25px 15px;
 }
 .cat {
-    display: block;
+    display: flex;
     overflow: hidden;
     position: relative;
     padding: 15px 0 15px 0px;

@@ -183,42 +183,66 @@
                                                         <span class="count co1">2</span>
                                                     </a>
                                                 </div>
-                                                <div class="wish-cart margin">
+                                                <div class="wish-cart margin" style="overflow-y: scroll; height:500px;overflow-x:hidden">
                                                     <div class="wish-item">
-                                                        <div class="cat">
-                                                            <a class="image" href="#"><img src="img/product/c1.jpg" alt=""></a>
+                                                        <?php
+
+                                                        if(isset($_SESSION["cart"])==false){
+                                                            ?>
+                                                            <div> 
+                                                                <p style="text-align:center">You don't have any product in the cart</p>
+                                                                <a href="#">Buy</a>
+                                                            </div>
+                                                        <?php
+                                                        }else{
+                                                         
+                                                            $listId=array_keys($_SESSION["cart"]);
+                                                             $cSp=new clsSanpham();
+                                                          
+                                                            $strListId=implode(",",$listId);// danh sach id san pham da mua
+                                                            
+                                                           $dk[]="product.id in ($strListId)";
+                                                       
+                                                          $listProduct=$cSp->getListProduct($dk);
+                                                          foreach ($listProduct as $row ) {?>
+                                                           <div class="cat">
+                                                            <a class="image" href="#"><img src="<?=$row["thumbnail"][0]?>" alt=""></a>
                                                             <div class="cat_two">
                                                                 <p>
-                                                                    <a href="#">vintage-lambskin-shoe</a>
-                                                                </p>
-                                                                <p><span class="agn">1 </span>x <span>$199.00</span></p>
+                                                                    <a href="#"><?=$row["title"]?></a>
+                                                               
+                                                                <p><span class="agn"><?= $_SESSION["cart"][$row["id"]]?></span>x <span>$<?=$row["price"]?></span></p>
                                                             </div>
                                                             <div class="cat_icon">
                                                                 <a class="remove" href="#">×</a>
                                                             </div>
                                                         </div>
-                                                        <div class="cat">
-                                                            <a class="image" href="#"><img src="img/product/c2.jpg" alt=""></a>
-                                                            <div class="cat_two">
-                                                                <p>
-                                                                    <a href="#">luxury-leather-bag</a>
-                                                                </p>
-                                                                <p><span class="agn">1</span> x <span>$99.00</span></p>
-                                                            </div>
-                                                            <div class="cat_icon">
-                                                                <a class="remove" href="#">×</a>
-                                                            </div>
-                                                        </div>
+
+                                                         <?php 
+                                                         }
+                                                        ?>
+                                                    
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                     
                                                     </div>
                                                     <div class="wish-item">
                                                         <div class="cat_bottom">
                                                             <p class="total">
                                                                 <strong>Subtotal:</strong>
-                                                                <span class="amount">$298.00</span>
+                                                                <?php
+                                                               $subtotal=0;
+                                                               foreach ($listProduct as $row) {
+                                                                $subtotal+=$row["price"]*$_SESSION["cart"][$row["id"]];
+                                                                # code...
+                                                               }
+                                                                ?>
+                                                                <span class="amount"> $ <?=$subtotal?></span>
                                                             </p>
                                                             <p class="buttons">
-                                                                <a class="button wc-forward" href="#">View Cart</a>
-                                                                <a class="button checkout wc-forward" href="#">Checkout</a>
+                                                                <a class="button wc-forward" href="shopping-cart.php">View Cart</a>
+                                                                <a class="button checkout wc-forward" href="checkout.php">Checkout</a>
                                                             </p>
                                                         </div>
                                                     </div>

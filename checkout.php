@@ -39,6 +39,7 @@
         <link rel="stylesheet" href="css/responsive.css">
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <?php require("Views/head.php")?>
     </head>
     <body>
         <!--[if lt IE 8]>

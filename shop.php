@@ -1,8 +1,10 @@
+
 <!doctype html>
 <html class="no-js" lang="zxx">
     
 <!-- Mirrored from htmldemo.net/noraure/noraure/shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Oct 2022 16:44:31 GMT -->
 <head>
+  
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Noraure | Shop</title>
@@ -39,6 +41,7 @@
         <link rel="stylesheet" href="css/responsive.css">
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <?php require("Views/head.php")?>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -277,7 +280,7 @@
                                             <div class="shop-tab">
                                                 <div class="row">
                                                     <?php
-                                                    require("Models/clsSanpham.php");
+                                              
                                                     $Sanpham= new clsSanpham();
                                                     $rows = $Sanpham->getListProduct();
                                                     if($rows == NULL)
@@ -299,16 +302,15 @@
                                                                     </div>
                                                                     <div class="tb-product-wrap-price-rating">
                                                                         <div class="tb-product-price font-noraure-3">
-                                                                            <span class="amount">£100.00</span>
-                                                                            <span class="amount2 ana">£<?=$row["price"]?></span>
+                                                                     
 
-                                                                            <span class="amount"><?=$row["price"]?></span>
-                                                                            <span class="amount2 ana">$170.00</span>
+                                                                            <span class="amount">£<?=$row["price_old"]?></span>
+                                                                            <span class="amount2 ana">£<?=$row["price"]?></span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="last-cart l-mrgn">
                                                                         <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                                        <a class="las4" href="#">Add To Cart</a>
+                                                                        <a class="las4" href="Controls/ctrl_addcart.php?product=<?=$row["id"]?>">Add To Cart</a>
                                                                         <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
                                                                     </div>
                                                                 </div>
