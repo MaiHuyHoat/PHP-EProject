@@ -11,6 +11,7 @@ if ($id==""||is_numeric($id)==false) {
         $_SESSION["cart"][$id]+=1;
     }
 }
+$olderUrl=$_SERVER['HTTP_REFERER'] ;
+    header("Location:$olderUrl");
 
-header("location:http://localhost/Project_T3/shop.php");
 ?>

@@ -130,3 +130,5 @@
                 </div>
             </div>
         </footer>
+
+        <!-- <script type="text/javascript" src="js/cart.js"></script> -->
