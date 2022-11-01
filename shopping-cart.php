@@ -68,11 +68,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-12">
-                        <div class="s-cart-all">
+                    <form action="Controls/ctrl_updatecart.php" method="POST">
+                    <div class="s-cart-all">
                             <div class="page-title">
                                 <h1>Shopping-Cart on Noraure </h1>
                             </div>
                             <div class="cart-form table-responsive">
+                                
                                 <table id="shopping-cart-table" class="data-table cart-table">
                                     <tr>
                                         <th class="low1">Product</th>
@@ -88,19 +90,21 @@
                                         </td>
                                         <td class="sop-cart an-sh">
                                             <div class="quantity ray">
-                                                <input class="input-text qty text" type="number" title="Qty" value="<?= $_SESSION["cart"][$row["id"]]?>" min="0" step="1">
+                                                <input class="input-text qty text" name="qty[<?=$row["id"]?>]" type="number"  title="Qty" value="<?= $_SESSION["cart"][$row["id"]]?>" min="0" step="1">
                                             </div>
-                                            <a class="remove" href="#">
+                                            <a class="remove " href="Controls/ctrl_delcart.php?product=<?=$row["id"]?>">
                                                 <span>x</span>
                                             </a>
                                         </td>
                                         <td class="sop-cart">
                                             <div class="tb-product-price font-noraure-3">
-                                                <span class="amount">$<?=$row["price"]?></span>
+                                            <span class="amount">$ </span>
+                                             <span class="amount"><?=$row["price"]?></span>
                                             </div>
                                         </td>
                                         <td class="cen">
-                                            <span class="amount">$<?=$row["price"]*$_SESSION["cart"][$row["id"]]?></span>
+                                           <span class="amount">$ </span>
+                                           <span class="amount price-total"><?=$row["price"]*$_SESSION["cart"][$row["id"]]?></span>
                                         </td>
                                     </tr>
 
@@ -114,11 +118,13 @@
                             <div class="last-check1">
                                 <div class="yith-wcwl-share yit">
                                     <p class="checkout-coupon an-cop">
-                                        <input type="submit" value="Update Cart">
+                                      <input type="submit"  name="update" value="Update">
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </div>     
+                                    </form>
+                        
                     </div>
                 </div>
                 <div class="second-all-class">
@@ -243,6 +249,7 @@
         
 		<!-- all js here -->
 		<!-- jquery latest version -->
+       <script src="js/shopping-cart.js"></script>
         <script src="js/vendor/jquery-1.12.0.min.js"></script>
         <!-- Popper js -->
         <script src="js/popper.js"></script>

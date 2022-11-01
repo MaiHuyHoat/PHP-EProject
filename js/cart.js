@@ -1,5 +1,5 @@
 var remove = document.querySelectorAll(".remove"); // xoa san pham khi nhan nut xoa
-var subTotal = document.querySelectorAll(".amount"); // lay gia tri tong so tien don hang
+var subTotal = document.querySelectorAll(".delete-product"); // lay gia tri tong so tien don hang
 remove.forEach(element => { // giam tong tien san pham
     let cat = element.parentElement.parentElement;
     element.addEventListener("click", function() {
