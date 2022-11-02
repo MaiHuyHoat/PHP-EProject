@@ -10,7 +10,7 @@ class clsSanpham{
     }
     function getImageById($id){
         
-        $sql="SELECT thumbnail from galery WHERE galery.product_id=?;";
+        $sql="SELECT thumbnail from galery WHERE galery.product_id=?";
         $data[]=$id;
         $ketqua =$this->clsDatabase->executeQuery($sql,$data);
         if($ketqua==FALSE)
@@ -25,16 +25,14 @@ class clsSanpham{
             return $imgs;
         }
     }
-    function getListProduct($data=null)// mảng điều kiện để lấy danh sách sản phẩm
+    function getListProduct($bonus_data=null)// mảng điều kiện để lấy danh sách sản phẩm
     {
      
         $sql = "SELECT product.id,product.category_id,product.title,product.price_old,product.price,product.description,galery.thumbnail
                 FROM product INNER JOIN galery WHERE galery.product_id=product.id";
-        if(empty($data)==false){
-            foreach ($data as $value ) {
-                # code...
-               $sql.=" AND ".$value;// Cộng thêm điều kiện vào sau câu lệnh sql;
-            }
+        if(empty($bonus_data)==false)
+        {
+            $sql.=" ".$bonus_data;
         }
         $ketqua =$this->clsDatabase->executeQuery($sql);
         if($ketqua==FALSE)
