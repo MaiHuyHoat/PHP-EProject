@@ -140,6 +140,7 @@
                                         <li><a class="fast" href="index.php">Pages <i class="fa fa-angle-down"></i></a>
                                             <div class="rayed ru">
                                                 <div class="tas menu-last2">
+                                                <a href="register.php">Register</a>
                                                     <a href="blog.php">Blog</a>
                                                     <a href="blog-details.php">Blog Details</a>
                                                     <a href="checkout.php">checkout</a>

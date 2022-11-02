@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 24, 2022 lúc 05:50 AM
+-- Thời gian đã tạo: Th10 02, 2022 lúc 11:33 AM
 -- Phiên bản máy phục vụ: 10.4.25-MariaDB
 -- Phiên bản PHP: 7.4.30
 
@@ -186,6 +186,7 @@ CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `category_id` int(11) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
+  `price_old` float NOT NULL DEFAULT 0,
   `price` float DEFAULT NULL,
   `description` longtext DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
@@ -197,22 +198,22 @@ CREATE TABLE `product` (
 -- Đang đổ dữ liệu cho bảng `product`
 --
 
-INSERT INTO `product` (`id`, `category_id`, `title`, `price`, `description`, `created_at`, `updated_at`, `deleted`) VALUES
-(100, 6, 'ARCHIEVE SHIELD SHIRT IN WHITE', 35.33, 'Explore new possibilities this season with the Shield tee from Gant The original classic cotton crew neck. Cut in a regular fit, this short-sleeve tee features our signature shield logo embroidered at the chest.', '2022-10-23 13:52:35', '2022-10-23 13:52:35', 0),
-(101, 6, 'ARCHIEVE SHIELD SHIRT IN BLUE', 35.33, 'Explore new possibilities this season with the Shield tee from Gant The original classic cotton crew neck. Cut in a regular fit, this short-sleeve tee features our signature shield logo embroidered at the chest.', '2022-10-23 13:52:35', '2022-10-23 13:52:35', 0),
-(102, 6, 'REPLAY T-SHIRT IN WHITE', 49.99, 'Re-inspire your wardrobe this season with a t-shirt from Replay. This short sleeve crew neck t-shirt in White features printed Replay branding. Complete the look by adding zip hoodie from Superdry available from Louis Boyd Menswear', '2022-10-23 13:52:35', '2022-10-23 13:52:35', 0),
-(103, 7, 'ORIGINAL PIQUE RUGGER POLO SHIRT IN WHITE', 69.99, 'For impromptu tennis matches, barbecues, casual Fridays, and everything else the versatile pique polo shirt is a staple for a reason (meaning you can justify one in every color). This iconic polo shirt keeps it easy, simple, and utterly classic, with a regular fit, a traditional flatknit collar with a two-button placket, small side slits, and our signature logo embroidery at the chest. Explore the full Gant Collection at Louis Boyd Online.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
-(104, 7, 'MOORES CLASSIC POLOSHIRT IN BURGUNDY', 39.99, 'Enhance your look this season with the Moores classic polo shirt from Farah Vintage. This luxury classic cut short sleeve polo in Burgundy with contrasting neckling and hem. Features button fastening and embroidered logo. Pair with jeans from Tommy Jean collection, available from Louis Boyd Menswear.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
-(105, 7, 'BLANES SS POLO SHIRT IN ROYAL', 39.99, 'Enhance your look this season with the Blanes classic polo shirt from Farah Vintage. This luxury classic cut short sleeve polo in Blue features button fastening and embroidered logo. Pair with jeans from Tommy Jean collection, available from Louis Boyd Menswear.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
-(106, 8, 'PROVOGUE', 29.99, 'Experience great comfort in this pair of formal shoes from the house of Provogue. Featuring a contemporary refined design with exceptional comfort, this pair is perfect to give your quintessential dressing an upgrade.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
-(107, 8, 'ARROW', 29.99, 'A pair of Tan Brown solid pointed-toed formal oxford, has lace-up fastening. The color is actually brown, not tan brown which was the only disappointment. The shoes are sleek and quite classy. The back of the foot was biting initially but after walking for some time it was ok.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
-(108, 8, 'WHOLECUT OXFORD', 49.99, 'Được thiết kế chỉ từ một mảnh da bò cao cấp nguyên bản, tạo cảm giác liền mạch và hoàn hảo đến từng chi tiết. Đây cũng chính là điểm đặc biệt làm nên điểm nhấn tinh tế rất riêng của mẫu giày này. Cấu tạo của phần đế cao su với những đường may tỉ mỉ và khéo léo, sở hữu các rãnh chống trơn trượt hiệu quả, giúp phái mạnh dễ dàng di chuyển và hoạt động.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
-(109, 9, 'SUPERDRY', 32.55, 'Make a splash with Superdry Vintage Broadshort swim shorts. These water repellent swim shorts in Navy feature, an elasticated drawstring waist, two front open pockets, a single rear pocket with hook and loop fastening and a discreet vent to allow water to escape, and a mesh lining. Finished with a Superdry logo print on one leg, and a rubber Superdry logo badge on the rear pocket. Explore the full collection at Louis Boyd Menswear.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
-(110, 9, 'CALVIN KLEIN', 32.55, 'Relax in comfort this season with the Monogram Shorts from Calvin Klein. These regular fitting shorts in Black jersey fabric design, front and back pockets and drawstring waistband. Explore the casual Calvin Klein collection a Louis Boyd Menswear.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
-(111, 9, 'REMUS UOMO', 59.95, 'Step forth ready to impress in the Emilio Shorts from Italian inspired designer Remus Uomo. Tailored fitting, four pocket design with button slit rear pockets. Complete the look by pairing with a short sleeve slim fitting shirt from Louis Boyd Menswear.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
-(112, 10, 'TOMMY JEANS', 80.99, 'Step forth ready to impress in the Emilio Shorts from Italian inspired designer Remus Uomo. Tailored fitting, four pocket design with button slit rear pockets. Complete the look by pairing with a short sleeve slim fitting shirt from Louis Boyd Menswear.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
-(113, 10, 'KENROW', 80.99, 'Update your casual jean collection this season with the Diarmid jean from Kenrow. These regular fitting yet stylish jeans feature a stretched design, five pocket design, button fly and belt loops. Perfectly finished with embroidered branding branding, waistband branding as well as coin pocket and waistband embossed branding. Complete the look by complimenting with a casual shirt from Farah Vintage collection available from Louis Boyd Menswear.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
-(114, 10, 'MISH MASH', 59.99, 'Update your casual jean collection this season with the 1984 Tapered fitting jean from Mish Mash. These tapered fitting yet stylish jeans feature a stretched design, five pocket design, button fly and belt loops. Perfectly finished with embroidered Mish Mash branding, waistband branding as well as coin pocket and waistband embossed branding. Complete the look by complimenting with a casual shirt from Farah Vintage collection available from Louis Boyd Menswear.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0);
+INSERT INTO `product` (`id`, `category_id`, `title`, `price_old`, `price`, `description`, `created_at`, `updated_at`, `deleted`) VALUES
+(100, 6, 'ARCHIEVE SHIELD SHIRT IN WHITE', 50, 35.33, 'Explore new possibilities this season with the Shield tee from Gant The original classic cotton crew neck. Cut in a regular fit, this short-sleeve tee features our signature shield logo embroidered at the chest.', '2022-10-23 13:52:35', '2022-10-23 13:52:35', 0),
+(101, 6, 'ARCHIEVE SHIELD SHIRT IN BLUE', 70, 35.33, 'Explore new possibilities this season with the Shield tee from Gant The original classic cotton crew neck. Cut in a regular fit, this short-sleeve tee features our signature shield logo embroidered at the chest.', '2022-10-23 13:52:35', '2022-10-23 13:52:35', 0),
+(102, 6, 'REPLAY T-SHIRT IN WHITE', 60, 49.99, 'Re-inspire your wardrobe this season with a t-shirt from Replay. This short sleeve crew neck t-shirt in White features printed Replay branding. Complete the look by adding zip hoodie from Superdry available from Louis Boyd Menswear', '2022-10-23 13:52:35', '2022-10-23 13:52:35', 0),
+(103, 7, 'ORIGINAL PIQUE RUGGER POLO SHIRT IN WHITE', 93, 69.99, 'For impromptu tennis matches, barbecues, casual Fridays, and everything else the versatile pique polo shirt is a staple for a reason (meaning you can justify one in every color). This iconic polo shirt keeps it easy, simple, and utterly classic, with a regular fit, a traditional flatknit collar with a two-button placket, small side slits, and our signature logo embroidery at the chest. Explore the full Gant Collection at Louis Boyd Online.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
+(104, 7, 'MOORES CLASSIC POLOSHIRT IN BURGUNDY', 66, 39.99, 'Enhance your look this season with the Moores classic polo shirt from Farah Vintage. This luxury classic cut short sleeve polo in Burgundy with contrasting neckling and hem. Features button fastening and embroidered logo. Pair with jeans from Tommy Jean collection, available from Louis Boyd Menswear.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
+(105, 7, 'BLANES SS POLO SHIRT IN ROYAL', 48, 39.99, 'Enhance your look this season with the Blanes classic polo shirt from Farah Vintage. This luxury classic cut short sleeve polo in Blue features button fastening and embroidered logo. Pair with jeans from Tommy Jean collection, available from Louis Boyd Menswear.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
+(106, 8, 'PROVOGUE', 33, 29.99, 'Experience great comfort in this pair of formal shoes from the house of Provogue. Featuring a contemporary refined design with exceptional comfort, this pair is perfect to give your quintessential dressing an upgrade.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
+(107, 8, 'ARROW', 55, 29.99, 'A pair of Tan Brown solid pointed-toed formal oxford, has lace-up fastening. The color is actually brown, not tan brown which was the only disappointment. The shoes are sleek and quite classy. The back of the foot was biting initially but after walking for some time it was ok.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
+(108, 8, 'WHOLECUT OXFORD', 0, 49.99, 'Được thiết kế chỉ từ một mảnh da bò cao cấp nguyên bản, tạo cảm giác liền mạch và hoàn hảo đến từng chi tiết. Đây cũng chính là điểm đặc biệt làm nên điểm nhấn tinh tế rất riêng của mẫu giày này. Cấu tạo của phần đế cao su với những đường may tỉ mỉ và khéo léo, sở hữu các rãnh chống trơn trượt hiệu quả, giúp phái mạnh dễ dàng di chuyển và hoạt động.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
+(109, 9, 'SUPERDRY', 0, 32.55, 'Make a splash with Superdry Vintage Broadshort swim shorts. These water repellent swim shorts in Navy feature, an elasticated drawstring waist, two front open pockets, a single rear pocket with hook and loop fastening and a discreet vent to allow water to escape, and a mesh lining. Finished with a Superdry logo print on one leg, and a rubber Superdry logo badge on the rear pocket. Explore the full collection at Louis Boyd Menswear.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
+(110, 9, 'CALVIN KLEIN', 0, 32.55, 'Relax in comfort this season with the Monogram Shorts from Calvin Klein. These regular fitting shorts in Black jersey fabric design, front and back pockets and drawstring waistband. Explore the casual Calvin Klein collection a Louis Boyd Menswear.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
+(111, 9, 'REMUS UOMO', 0, 59.95, 'Step forth ready to impress in the Emilio Shorts from Italian inspired designer Remus Uomo. Tailored fitting, four pocket design with button slit rear pockets. Complete the look by pairing with a short sleeve slim fitting shirt from Louis Boyd Menswear.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
+(112, 10, 'TOMMY JEANS', 0, 80.99, 'Step forth ready to impress in the Emilio Shorts from Italian inspired designer Remus Uomo. Tailored fitting, four pocket design with button slit rear pockets. Complete the look by pairing with a short sleeve slim fitting shirt from Louis Boyd Menswear.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
+(113, 10, 'KENROW', 0, 80.99, 'Update your casual jean collection this season with the Diarmid jean from Kenrow. These regular fitting yet stylish jeans feature a stretched design, five pocket design, button fly and belt loops. Perfectly finished with embroidered branding branding, waistband branding as well as coin pocket and waistband embossed branding. Complete the look by complimenting with a casual shirt from Farah Vintage collection available from Louis Boyd Menswear.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0),
+(114, 10, 'MISH MASH', 0, 59.99, 'Update your casual jean collection this season with the 1984 Tapered fitting jean from Mish Mash. These tapered fitting yet stylish jeans feature a stretched design, five pocket design, button fly and belt loops. Perfectly finished with embroidered Mish Mash branding, waistband branding as well as coin pocket and waistband embossed branding. Complete the look by complimenting with a casual shirt from Farah Vintage collection available from Louis Boyd Menswear.', '2022-10-23 14:10:19', '2022-10-23 14:10:19', 0);
 
 -- --------------------------------------------------------
 
@@ -230,10 +231,18 @@ CREATE TABLE `user` (
   `address` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `point` int(11) NOT NULL DEFAULT 0,
-  `created_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL,
-  `deleted` int(11) DEFAULT NULL
+  `deleted` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `user`
+--
+
+INSERT INTO `user` (`id`, `user_name`, `password`, `fullname`, `email`, `phone_number`, `address`, `image`, `point`, `created_at`, `updated_at`, `deleted`) VALUES
+(2, 'hoatdfk', '1234', 'Mai Huy Hoạt', 'hoatdfk2001@gmail.com', '0354221364', 'Hải Quang Hải Hậu Nam Định', 'https://cdn.jpegmini.com/user/images/slider_puffin_before_mobile.jpg', 0, '2022-11-02 10:30:18', NULL, 0),
+(3, 'quynh', '1111', ' phạm thị diễm quỳnh', 'quynh@gmail.com', '293874827894', 'hải hậu nam định', 'https://vtv1.mediacdn.vn/thumb_w/650/2022/8/23/sc5-16612460541811281836809-crop-16612460704451917537811.jpg', 0, '2022-11-02 17:32:09', '2022-11-02 17:32:09', 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -298,6 +307,18 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT cho bảng `feedback`
 --
 ALTER TABLE `feedback`
@@ -310,10 +331,28 @@ ALTER TABLE `galery`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
+-- AUTO_INCREMENT cho bảng `order`
+--
+ALTER TABLE `order`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `orderdetail`
 --
 ALTER TABLE `orderdetail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+
+--
+-- AUTO_INCREMENT cho bảng `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -341,8 +380,8 @@ ALTER TABLE `order`
 -- Các ràng buộc cho bảng `orderdetail`
 --
 ALTER TABLE `orderdetail`
-  ADD CONSTRAINT `orderdetail_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
-  ADD CONSTRAINT `orderdetail_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`);
+  ADD CONSTRAINT `orderdetail_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`),
+  ADD CONSTRAINT `orderdetail_ibfk_3` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
 
 --
 -- Các ràng buộc cho bảng `product`
