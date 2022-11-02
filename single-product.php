@@ -68,50 +68,51 @@
                 <div class="row">
                     <div class="col-lg-9 col-xl-9 col-md-12 col-12">
                         <div class="row">
+                            <?php
+                            require("Controls/sort_ctrl/ctl_single_product.php");
+                            foreach($rows as $row)
+                            {
+                            ?>
                             <div class="col-lg-6 col-md-6">
                                 <div class="tab-zoom">
                                   <!-- Tab panes -->
                                     <div class="tab-content">
                                         <div id="image1" class="tab-pane fade show active">
                                             <div class="s_big">
-                                                <a href="img/product/t1.jpg" class="demo4"><img src="img/product/9.jpg" alt=""></a>
+                                                <a href="<?=$row["thumbnail"]["0"]?>" class="demo4"><img src="<?=$row["thumbnail"]["0"]?>" alt=""></a>
                                             </div>
                                         </div>
                                         <div id="image2" class="tab-pane fade">
                                             <div class="s_big">
-                                                <a href="img/product/z1.jpg" class="demo4"><img src="img/product/2.jpg" alt=""></a>
+                                                <a href="<?=$row["thumbnail"]["1"]?>" class="demo4"><img src="<?=$row["thumbnail"]["1"]?>" alt=""></a>
                                             </div>
                                         </div>
                                         <div id="image3" class="tab-pane fade">
                                             <div class="s_big">
-                                                <a href="img/product/z2.jpg" class="demo4"><img src="img/product/1.jpg" alt=""></a>
+                                                <a href="<?=$row["thumbnail"]["2"]?>" class="demo4"><img src="<?=$row["thumbnail"]["2"]?>" alt=""></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="thumnail-image fix">
                                         <ul class="tab-menu nav">
-                                            <li><a class="active" data-bs-toggle="tab" href="#image1"><img alt="" src="img/product/9.jpg"></a></li>
-                                            <li><a data-bs-toggle="tab" href="#image2"><img alt="" src="img/product/2.jpg" ></a></li>
-                                            <li class="zoom-mrgn-none"><a data-bs-toggle="tab" href="#image3"><img alt="" src="img/product/1.jpg"></a></li>
+                                            <li><a class="active" data-bs-toggle="tab" href="#image1"><img alt="" src="<?=$row["thumbnail"]["0"]?>"></a></li>
+                                            <li><a data-bs-toggle="tab" href="#image2"><img alt="" src="<?=$row["thumbnail"]["1"]?>" ></a></li>
+                                            <li class="zoom-mrgn-none"><a data-bs-toggle="tab" href="#image3"><img alt="" src="<?=$row["thumbnail"]["2"]?>"></a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="entry-summary">
-                                    <div class="entry-title">Glasses</div>
+                                    <div class="entry-title"><?=$row["title"]?></div>
                                     <div class="tb-product-wrap-price-rating">
-                                        <div class="tb-product-price font-noraure-3 nurore">
-                                            <span class="amount2 ana">$79.00 - </span>
-                                            <span class="amount2 ana">$100.00</span>
-                                        </div>
                                         <div class="stock">
                                             Avaiability:
                                             <span> in stock</span>
                                         </div>
                                     </div>
                                     <div class="description">
-                                        <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
+                                        <p><?=$row["description"]?></p>
                                     </div>
                                     <form action="#" class="woocommerce-shipping-calculator">
                                         <p class="form-row form-row-wide">
@@ -126,21 +127,24 @@
                                         </p>
                                         <p class="form-row form-row-wide">
                                             <label>
-                                                Brand 
+                                                Size 
                                                 <span class="required">*</span>
                                             </label>
                                             <select class="email s-email s-wid">
                                                 <option>Choose an option</option>
-                                                <option>Nike</option>
-                                                <option>Religion</option>
-                                                <option>Diesel</option>
-                                                <option>Monki</option>
+                                                <option>Small</option>
+                                                <option>Medium</option>
+                                                <option>Large</option>
+                                                <option>Unisex</option>
                                             </select>
                                         </p>
                                     </form>
                                     <div class="single-price">
                                         <div>
-                                            <p class="single-price-top">Price:</p>
+                                            <p class="single-price-top">
+                                                Price:
+                                                <span style="padding-left:90px;font-size:20px;color:#ce9634"><?=$row["price"]?></span>
+                                            </p>
                                         </div>
                                         <div class="ro-quantity clearfix">
                                             <label>
@@ -175,6 +179,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <?php
+                            }
+                            ?>
                         </div>
                         <div class="text-sin">
                             <!-- Nav tabs -->
