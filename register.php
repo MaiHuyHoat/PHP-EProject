@@ -43,6 +43,7 @@
   require("Views/head.php");
   ?>
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="js/show-local-image-example.js"></script>
 </head>
 
 <body>
@@ -54,8 +55,17 @@
 
 
   <?php
-  require("Views/header.php")
+  require("Views/header.php");
+  $existAccount=isset($_REQUEST["ErrorCreAcount"])==false?"":$_REQUEST["ErrorCreAcount"];
+  if($existAccount==1){?>
+  <script>
+    window.onload=function(){
+      alert ("This Account have existed in Server.")
+    }
+    </script>
+  <?php }
   ?>
+
   <!-- mobile-menu-area end -->
   <section class="contact-img-area">
     <div class="container">
@@ -89,12 +99,15 @@
                           <p class="card-text">This Image will use for account</p>
                           <div>
                             <div class="d-flex justify-content-center mb-4">
-                              <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" class="rounded-circle" alt="example placeholder" style="width: 100px;" />
+                 
+                              <img id="myimage" src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" class="rounded-circle" alt="example placeholder" style="width: 100px;" />
                             </div>
                             <div class="d-flex justify-content-center">
                               <div class="btn btn-primary btn-rounded">
                                 <label class="form-label text-white m-1" for="customFile2">Choose file</label>
-                                <input type="file" name="imageUser" class="form-control d-none" id="customFile2" accept=".jpg,.png"  />
+                              
+                           
+                                <input type="file" name="imageUser" class="form-control d-none" onchange="changeHandler(event)" id="customFile2" accept=".jpg,.png"  />
                               </div>
                             </div>
                           </div>
@@ -134,7 +147,13 @@
                         <label class="form-label" for="form3Example3c">Your Email</label>
                       </div>
                     </div>
-
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fa fa-user fa-lg me-3 fa-fw" aria-hidden="true"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="text" name="userName" id="form3Example4c" class="form-control"  />
+                        <label class="form-label" for="form3Example4c">User Name</label>
+                      </div>
+                    </div>
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fa fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">

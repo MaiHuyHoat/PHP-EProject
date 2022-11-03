@@ -32,7 +32,9 @@ class clsSanpham{
                 FROM product INNER JOIN galery WHERE galery.product_id=product.id";
         if(empty($bonus_data)==false)
         {
-            $sql.=" ".$bonus_data;
+           foreach ($bonus_data as $element) {
+             $sql.=" AND ".$element;
+           }
         }
         $ketqua =$this->clsDatabase->executeQuery($sql);
         if($ketqua==FALSE)

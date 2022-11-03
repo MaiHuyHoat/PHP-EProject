@@ -1,15 +1,46 @@
 <?php
 session_start();
+
+require("../Models/clsDatabase.php");
+
 $imageUser=$_FILES["imageUser"];
+$md5Image=md5($imageUser["name"]); // chuyển tên ảnh sang md5;
+$arrImage=explode(".",$imageUser["name"]);// lấy đuôi, định dạng ảnh
+$typeImage=array_pop($arrImage);
+$imageNameConvert= $md5Image.".".$typeImage;// ten day du cua anh sau khi da con vert sang dịnh dang md5;
 $fullName=$_REQUEST["fullName"];
 $address=$_REQUEST["address"];
 $phoneNumber=$_REQUEST["phoneNumber"];
 $email=$_REQUEST["email"];
+$userName=$_REQUEST["userName"];
 $password=$_REQUEST["password"];
-echo json_encode($imageUser);
-echo $fullName;
-echo $address;
-echo $phoneNumber;
-echo $email;
-echo $password;
+if(isset($imageUser) && $imageUser["error"]==0){// upload file ảnh sang thư mục Upload/images.
+   $kq= move_uploaded_file($imageUser["tmp_name"],"../Upload/imagesUser/$imageNameConvert");
+   
+}
+else{
+    echo "Lỗi upload ảnh vào serrver";
+}
+$sql="INSERT INTO `user` (`id`, `user_name`, `password`, `fullname`, `email`, `phone_number`, `address`, `image`, `point`, `created_at`, `updated_at`, `deleted`)
+ VALUES (NULL,?,?,?,?,?, ?, ?, '0', current_timestamp(), NULL, '0');";
+ $data=[$userName,$password,$fullName,$email,$phoneNumber,$address,$imageNameConvert];
+ function checkUser($userName){// hàm kiểm tra tài khoản đã tồn tại trong hệ thống hay chưa.
+    $cslDatabase= new clsDatabase();
+    $sqlCheck="SELECT * FROM `user` WHERE user_name='$userName';";
+    $ketqua=$cslDatabase->executeQuery($sqlCheck);
+    if($ketqua==false){
+        echo "Lỗi truy vấn  SQL";
+    }
+    else{
+        $results=$cslDatabase->pdo_stm->fetchAll(PDO::FETCH_ASSOC);
+        if(count($results)>0)return true;// Đã tồn tại tài khoản trong hệ thống
+        else return false;// Không tồn tại tài khoản trong hệ thống
+    }
+
+ }
+if(checkUser($userName)){
+
+    $olderUrl=$_SERVER['HTTP_REFERER'] ;
+     header("Location:$olderUrl?ErrorCreAcount=1");
+}
 ?>
