@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require("../Models/clsDatabase.php");
+require("../../Models/clsDatabase.php");
 
 $imageUser=$_FILES["imageUser"];
 $md5Image=md5($imageUser["name"]); // chuyển tên ảnh sang md5;
@@ -15,7 +15,7 @@ $email=$_REQUEST["email"];
 $userName=$_REQUEST["userName"];
 $password=$_REQUEST["password"];
 if(isset($imageUser) && $imageUser["error"]==0){// upload file ảnh sang thư mục Upload/images.
-   $kq= move_uploaded_file($imageUser["tmp_name"],"../Upload/imagesUser/$imageNameConvert");
+   $kq= move_uploaded_file($imageUser["tmp_name"],"../../Upload/imagesUser/$imageNameConvert");
    
 }
 else{
@@ -42,5 +42,17 @@ if(checkUser($userName)){
 
     $olderUrl=$_SERVER['HTTP_REFERER'] ;
      header("Location:$olderUrl?ErrorCreAcount=1");
+}
+else{
+    $cslDatabase= new clsDatabase();
+    $ketqua=$cslDatabase->executeQuery($sql,$data);
+    if($ketqua==true){
+        $olderUrl=$_SERVER['HTTP_REFERER'] ;
+     header("Location:$olderUrl?CreAcountSuccess=1");
+    }
+    else{
+        $olderUrl=$_SERVER['HTTP_REFERER'] ;
+        header("Location:$olderUrl?CreAcountSuccess=-1");
+    }
 }
 ?>

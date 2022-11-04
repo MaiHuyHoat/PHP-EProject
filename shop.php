@@ -310,7 +310,7 @@
                                                                     </div>
                                                                     <div class="last-cart l-mrgn">
                                                                         <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                                        <a class="las4" href="Controls/ctrl_addcart.php/?product=<?=$row["id"]?>">Add To Cart</a>
+                                                                        <a class="las4" href="Controls/cart_ctrl/ctrl_addcart.php/?product=<?=$row["id"]?>">Add To Cart</a>
                                                                         <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
                                                                     </div>
                                                                 </div>

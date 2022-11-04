@@ -44,6 +44,74 @@
   ?>
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
   <script src="js/show-local-image-example.js"></script>
+  <style>
+    .thank-you-pop {
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .thank-you-pop img {
+      width: 76px;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+      margin-bottom: 25px;
+    }
+
+    .thank-you-pop h1 {
+      font-size: 42px;
+      margin-bottom: 25px;
+      color: #5C5C5C;
+    }
+
+    .thank-you-pop p {
+      font-size: 20px;
+      margin-bottom: 27px;
+      color: #5C5C5C;
+    }
+
+    .thank-you-pop h3.cupon-pop {
+      font-size: 25px;
+      margin-bottom: 40px;
+      color: #222;
+      display: inline-block;
+      text-align: center;
+      padding: 10px 20px;
+      border: 2px dashed #222;
+      clear: both;
+      font-weight: normal;
+    }
+
+    .thank-you-pop h3.cupon-pop span {
+      color: #03A9F4;
+    }
+
+    .thank-you-pop a {
+      display: inline-block;
+      margin: 0 auto;
+      padding: 9px 20px;
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 14px;
+      background-color: #8BC34A;
+      border-radius: 17px;
+    }
+
+    .thank-you-pop a i {
+      margin-right: 5px;
+      color: #fff;
+    }
+
+    #popup-ground {
+      width: 100%;
+      height: 100%;
+      background-color: black;
+
+      z-index: 1;
+      opacity: 0.2;
+    }
+  </style>
 </head>
 
 <body>
@@ -52,21 +120,26 @@
         <![endif]-->
 
   <!-- Add your site or application content here -->
-
-
+<?php
+if ($_REQUEST["CreAcountSuccess"]==1) {
+  require("Views/MessengerSuccess.php");
+  # code...
+}
+else if($_REQUEST["CreAcountSuccess"]==-1){
+  require("Views/MessengerFalse.php");
+}
+?>
   <?php
   require("Views/header.php");
-  $existAccount=isset($_REQUEST["ErrorCreAcount"])==false?"":$_REQUEST["ErrorCreAcount"];
-  if($existAccount==1){?>
-  <script>
-    window.onload=function(){
-      alert ("This Account have existed in Server.")
-    }
+  $existAccount = isset($_REQUEST["ErrorCreAcount"]) == false ? "" : $_REQUEST["ErrorCreAcount"];
+  if ($existAccount == 1) { ?>
+    <script>
+      window.onload = function() {
+        alert("This Account have existed in Server.")
+      }
     </script>
   <?php }
   ?>
-
-  <!-- mobile-menu-area end -->
   <section class="contact-img-area">
     <div class="container">
       <div class="row">
@@ -79,6 +152,7 @@
       </div>
     </div>
   </section>
+
   <section class="pt-5 pb-5" style="background-color: #eee;">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -90,24 +164,24 @@
 
                   <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
-                  <form class="mx-1 mx-md-4" action="Controls/ctrl_adduser.php" method="POST" enctype="multipart/form-data">
+                  <form class="mx-1 mx-md-4" action="Controls/user_ctrl/ctrl_adduser.php" method="POST" enctype="multipart/form-data">
                     <div class="d-flex flex-row align-items-around mb-4">
-                      <div class="card d-flex" style="width: 18rem; margin:0 auto;border: none;" >
+                      <div class="card d-flex" style="width: 18rem; margin:0 auto;border: none;">
 
                         <div class="card-body">
                           <h5 class="card-title">Up your image</h5>
                           <p class="card-text">This Image will use for account</p>
                           <div>
                             <div class="d-flex justify-content-center mb-4">
-                 
+
                               <img id="myimage" src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" class="rounded-circle" alt="example placeholder" style="width: 100px;" />
                             </div>
                             <div class="d-flex justify-content-center">
                               <div class="btn btn-primary btn-rounded">
                                 <label class="form-label text-white m-1" for="customFile2">Choose file</label>
-                              
-                           
-                                <input type="file" name="imageUser" class="form-control d-none" onchange="changeHandler(event)" id="customFile2" accept=".jpg,.png"  />
+
+
+                                <input type="file" name="imageUser" class="form-control d-none" onchange="changeHandler(event)" id="customFile2" accept=".jpg,.png" />
                               </div>
                             </div>
                           </div>
@@ -117,7 +191,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fa fa-user fa-lg me-3 fa-fw" style="align-self:center"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="text" id="form3Example1c" name="fullName" class="form-control"  />
+                        <input type="text" id="form3Example1c" name="fullName" class="form-control" />
                         <label class="form-label" for="form3Example1c">Your Full Name</label>
                       </div>
                     </div>
@@ -136,7 +210,7 @@
                           <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
                         </svg></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="number " name="phoneNumber" id="form3Example3c" class="form-control"  />
+                        <input type="number " name="phoneNumber" id="form3Example3c" class="form-control" />
                         <label class="form-label" for="form3Example3c">Phone Number</label>
                       </div>
                     </div>
@@ -150,14 +224,14 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fa fa-user fa-lg me-3 fa-fw" aria-hidden="true"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="text" name="userName" id="form3Example4c" class="form-control"  />
+                        <input type="text" name="userName" id="form3Example4c" class="form-control" />
                         <label class="form-label" for="form3Example4c">User Name</label>
                       </div>
                     </div>
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fa fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="password" name="password" id="form3Example4c" class="form-control"  />
+                        <input type="password" name="password" id="form3Example4c" class="form-control" />
                         <label class="form-label" for="form3Example4c">Password</label>
                       </div>
                     </div>

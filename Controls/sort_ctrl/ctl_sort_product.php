@@ -54,6 +54,7 @@ else if($drop_sort == "Sort by alphabet")
 else if($drop_sort == "Sort by price: low to high")
 {
     $sanpham = new clsSanpham();
+
     $rows = $sanpham->getListProduct("ORDER BY price ASC");
 }
 else if($drop_sort == "Sort by price: high to low")

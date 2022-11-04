@@ -68,13 +68,20 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-12">
-                    <form action="Controls/ctrl_updatecart.php" method="POST">
+                    <form action="Controls/cart_ctrl/ctrl_updatecart.php" method="POST">
                     <div class="s-cart-all">
                             <div class="page-title">
                                 <h1>Shopping-Cart on Noraure </h1>
                             </div>
                             <div class="cart-form table-responsive">
-                                
+                            <?php 
+                                  if (empty($listProduct)||isset($listProduct)==false) {?>
+
+                                    <tr>
+                                    No Product
+                                    </tr>
+                                    
+                                 <?php } else { ?>
                                 <table id="shopping-cart-table" class="data-table cart-table">
                                     <tr>
                                         <th class="low1">Product</th>
@@ -82,6 +89,7 @@
                                         <th class="low7">Price</th>
                                         <th class="low7">Total</th>
                                     </tr>
+                                 
                                   <?php  foreach ($listProduct as $row ) {?>
                                     <tr>
                                         <td class="sop-cart an-shop-cart">
@@ -92,7 +100,7 @@
                                             <div class="quantity ray">
                                                 <input class="input-text qty text" name="qty[<?=$row["id"]?>]" type="number"  title="Qty" value="<?= $_SESSION["cart"][$row["id"]]?>" min="0" step="1">
                                             </div>
-                                            <a class="remove " href="Controls/ctrl_delcart.php?product=<?=$row["id"]?>">
+                                            <a class="remove " href="Controls/cart_ctrl/ctrl_delcart.php?product=<?=$row["id"]?>">
                                                 <span>x</span>
                                             </a>
                                         </td>
@@ -112,7 +120,7 @@
                                                          }
                                                         ?>
                                    
-                                   
+                       
                                 </table>
                             </div>
                             <div class="last-check1">
@@ -122,6 +130,7 @@
                                     </p>
                                 </div>
                             </div>
+                           
                         </div>     
                                     </form>
                         
@@ -231,6 +240,9 @@
                 </div>
             </div>
         </div>
+        <?php }?>
+        </div>
+        
         <?php
        require("Views/footer.php")
        ?>

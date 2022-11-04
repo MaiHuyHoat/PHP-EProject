@@ -211,7 +211,7 @@
 
                                                     $strListId = implode(",", $listId); // danh sach id san pham da mua
 
-                                                    $dk[] = "product.id in ($strListId)";
+                                                    $dk = " AND product.id in ($strListId)";
 
                                                     $listProduct = $cSp->getListProduct($dk);
                                                     foreach ($listProduct as $row) { ?>
@@ -224,7 +224,7 @@
                                                                 <p><span class="agn"><?= $_SESSION["cart"][$row["id"]] ?></span>x <span class=" price"><?= $row["price"] ?></span></p>
                                                             </div>
                                                             <div class="cat_icon">
-                                                                <a class="remove" href=" Controls/ctrl_delcart.php/?product=<?=$row["id"]?>">×</a>
+                                                                <a class="remove" href=" Controls/cart_ctrl/ctrl_delcart.php/?product=<?=$row["id"]?>">×</a>
 
                                                             </div>
                                                         </div>

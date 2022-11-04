@@ -29,12 +29,12 @@ class clsSanpham{
     {
      
         $sql = "SELECT product.id,product.category_id,product.title,product.price_old,product.price,product.description,galery.thumbnail
-                FROM product INNER JOIN galery WHERE galery.product_id=product.id";
+                FROM product INNER JOIN galery WHERE galery.product_id=product.id ";
         if(empty($bonus_data)==false)
         {
-           foreach ($bonus_data as $element) {
-             $sql.=" AND ".$element;
-           }
+      
+             $sql.=$bonus_data;
+           
         }
         $ketqua =$this->clsDatabase->executeQuery($sql);
         if($ketqua==FALSE)

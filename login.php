@@ -71,30 +71,21 @@
                         <div class="tb-login-form ">
                             <h5 class="tb-title">Login</h5>
                             <p>Hello, Welcome your to account</p>
-                            <div class="tb-social-login">
-                                <a class="tb-facebook-login" href="#">
-                                    <i class="fa fa-facebook"></i>
-                                    Sign In With Facebook
-                                </a>
-                                <a class="tb-twitter-login res" href="#">
-                                    <i class="fa fa-twitter"></i>
-                                    Sign In With Twitter
-                                </a>
-                            </div>
-                            <form action="#">
+                          
+                            <form action="Controls/user_ctrl/ctrl_handle_Login.php" method="POST">
                                 <p class="checkout-coupon top log a-an">
                                     <label class="l-contact">
-                                        Email Address
+                                        User Name
                                         <em>*</em>
                                     </label>
-                                    <input type="email">
+                                    <input type="text" placeholder="User Name." name="userName">
                                 </p>
                                 <p class="checkout-coupon top-down log a-an">
                                     <label class="l-contact">
                                         Password
                                         <em>*</em>
                                     </label>
-                                    <input type="password">
+                                    <input type="password" placeholder="Enter your password" name="userPassword">
                                 </p>
                                 <div class="forgot-password1">
                                     <label class="inline2">
@@ -106,6 +97,16 @@
                                 <p class="login-submit5">
                                     <input class="button-primary" type="submit" value="login">
                                 </p>
+                                <div class="tb-social-login">
+                                <a class="tb-facebook-login" href="#">
+                                    <i class="fa fa-facebook"></i>
+                                    Sign In With Facebook
+                                </a>
+                                <a class="tb-twitter-login res" href="#">
+                                    <i class="fa fa-twitter"></i>
+                                    Sign In With Twitter
+                                </a>
+                            </div>
                             </form>
                         </div>
                     </div>
