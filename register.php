@@ -40,7 +40,7 @@
   <link rel="stylesheet" href="css/responsive.css">
   <!-- modernizr css -->
   <?php
-  require("Views/head.php");
+  require_once("Views/head.php");
   ?>
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
   <script src="js/show-local-image-example.js"></script>
@@ -122,15 +122,15 @@
   <!-- Add your site or application content here -->
 <?php
 if ($_REQUEST["CreAcountSuccess"]==1) {
-  require("Views/MessengerSuccess.php");
+  require_once("Views/MessengerSuccess.php");
   # code...
 }
 else if($_REQUEST["CreAcountSuccess"]==-1){
-  require("Views/MessengerFalse.php");
+  require_once("Views/MessengerFalse.php");
 }
 ?>
   <?php
-  require("Views/header.php");
+  require_once("Views/header.php");
   $existAccount = isset($_REQUEST["ErrorCreAcount"]) == false ? "" : $_REQUEST["ErrorCreAcount"];
   if ($existAccount == 1) { ?>
     <script>
@@ -265,7 +265,7 @@ else if($_REQUEST["CreAcountSuccess"]==-1){
   </section>
 
   <?php
-  require("Views/footer.php")
+  require_once("Views/footer.php")
   ?>
 
 

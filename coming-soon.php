@@ -45,7 +45,7 @@
     <body>
     
     <?php
-       require("Views/header.php")
+       require_once("Views/header.php")
        ?>
     <div class="comming-soon-area bg-img height-100vh d-flex align-items-center overlay" style="background-image: url(img/banner/banner.jpg);">
         <div class="container">

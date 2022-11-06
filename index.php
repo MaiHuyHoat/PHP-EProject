@@ -44,10 +44,13 @@
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <?php
+        require_once("Views/head.php");
+        ?>
     </head>
     <body>
     <?php
-    require("Views/header.php");
+    require_once("Views/header.php");
     ?>
         <section class="slider-main-area bg-black">
             <div class="main-slider an-si">
@@ -951,7 +954,7 @@
             </div>
         </section>
      <?php
-     require("Views/footer.php");
+     require_once("Views/footer.php");
      ?>
         
         

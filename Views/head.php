@@ -1,7 +1,7 @@
 
   <?php
     session_start();
-   require("Models/clsDatabase.php");
-   require("Models/clsSanpham.php");
+   require_once("Models/clsDatabase.php");
+   require_once("Models/clsSanpham.php");
 
     ?>

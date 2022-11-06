@@ -49,7 +49,7 @@
         <!-- Add your site or application content here -->
         
        <?php
-       require("Views/header.php")
+       require_once("Views/header.php")
        ?>
         <!-- mobile-menu-area end --> 
         <section class="contact-img-area">
@@ -122,7 +122,7 @@
             </div>
         </div>
         <?php
-       require("Views/footer.php")
+       require_once("Views/footer.php")
        ?>
         
         <!-- start scrollUp

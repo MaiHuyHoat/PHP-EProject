@@ -39,7 +39,7 @@
         <link rel="stylesheet" href="css/responsive.css">
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-        <?php require("Views/head.php")?>
+        <?php require_once("Views/head.php")?>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -50,7 +50,7 @@
         
       
         <?php
-       require("Views/header.php")
+       require_once("Views/header.php")
        ?>
         <!-- mobile-menu-area end --> 
         <section class="contact-img-area">
@@ -538,7 +538,7 @@
             </div>
         </div>
         <?php
-       require("Views/footer.php")
+       require_once("Views/footer.php")
        ?>
         
         <!-- start scrollUp

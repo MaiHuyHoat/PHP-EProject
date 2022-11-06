@@ -216,7 +216,7 @@
             </div>
         </section>
         <?php
-       require("Views/footer.php")
+       require_once("Views/footer.php")
        ?>
         
         

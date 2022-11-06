@@ -48,7 +48,7 @@
         <!-- Add your site or application content here -->
          
         <?php
-       require("Views/header.php")
+       require_once("Views/header.php")
        ?>
         <!-- mobile-menu-area end --> 
         <section class="contact-img-area">
@@ -69,7 +69,7 @@
                     <div class="col-lg-9 col-xl-9 col-md-12 col-12">
                         <div class="row">
                             <?php
-                            require("Controls/sort_ctrl/ctl_single_product.php");
+                            require_once("Controls/sort_ctrl/ctl_single_product.php");
                             foreach($rows as $row)
                             {
                             ?>
@@ -483,7 +483,7 @@
             </div>
         </section>
         <?php
-       require("Views/footer.php")
+       require_once("Views/footer.php")
        ?>
         
         

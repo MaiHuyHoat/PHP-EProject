@@ -8,6 +8,12 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-7 col-12">
+                    <?php // kiem tra xem da dang nhap hay chua  va hien thong tin tai khoan
+                    if($_SESSION["logined"]==true){
+                        echo $_SESSION["user"]["id"];
+                    }
+
+                    ?>
                     <div class="widget">
                         <ul>
                             <li>

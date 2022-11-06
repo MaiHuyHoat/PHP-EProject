@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require("../../Models/clsDatabase.php");
-
+require_once("../../Models/clsDatabase.php");
+require_once("../../Models/clsUser.php");
 $imageUser=$_FILES["imageUser"];
 $md5Image=md5($imageUser["name"]); // chuyển tên ảnh sang md5;
 $arrImage=explode(".",$imageUser["name"]);// lấy đuôi, định dạng ảnh
@@ -21,9 +21,7 @@ if(isset($imageUser) && $imageUser["error"]==0){// upload file ảnh sang thư m
 else{
     echo "Lỗi upload ảnh vào serrver";
 }
-$sql="INSERT INTO `user` (`id`, `user_name`, `password`, `fullname`, `email`, `phone_number`, `address`, `image`, `point`, `created_at`, `updated_at`, `deleted`)
- VALUES (NULL,?,?,?,?,?, ?, ?, '0', current_timestamp(), NULL, '0');";
- $data=[$userName,$password,$fullName,$email,$phoneNumber,$address,$imageNameConvert];
+
  function checkUser($userName){// hàm kiểm tra tài khoản đã tồn tại trong hệ thống hay chưa.
     $cslDatabase= new clsDatabase();
     $sqlCheck="SELECT * FROM `user` WHERE user_name='$userName';";
@@ -44,8 +42,10 @@ if(checkUser($userName)){
      header("Location:$olderUrl?ErrorCreAcount=1");
 }
 else{
-    $cslDatabase= new clsDatabase();
-    $ketqua=$cslDatabase->executeQuery($sql,$data);
+    // $cslDatabase= new clsDatabase();
+    // $ketqua=$cslDatabase->executeQuery($sql,$data);
+    $clsUser= new clsUser();
+    $ketqua=$clsUser->addUser($userName,$password,$fullName,$email,$phoneNumber,$address,$imageNameConvert);
     if($ketqua==true){
         $olderUrl=$_SERVER['HTTP_REFERER'] ;
      header("Location:$olderUrl?CreAcountSuccess=1");

@@ -50,7 +50,7 @@
         
         
         <?php
-       require("Views/header.php")
+       require_once("Views/header.php")
        ?>
         <!-- mobile-menu-area end --> 
         <section class="contact-img-area">
@@ -305,7 +305,7 @@
             </div>
         </section>
         <?php
-       require("Views/footer.php")
+       require_once("Views/footer.php")
        ?>
         
         
