@@ -8,20 +8,39 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-7 col-12">
-                    <?php // kiem tra xem da dang nhap hay chua  va hien thong tin tai khoan
-                    if($_SESSION["logined"]==true){
-                        echo $_SESSION["user"]["id"];
-                    }
+                    <?php
 
+                    // kiem tra xem da dang nhap hay chua  va hien thong tin tai khoan
+                    if ($_SESSION["logined"] == true) { ?>
+
+                        <?php
+                        $clsUser = new clsUser();
+                        $clsUser->getUserInfo($_SESSION["user"]["id"]) // lay thong tin tai khoan
+                        ?>
+                        <div class="widget">
+                            <ul>
+                                <li>
+                                    <a href="my-account.php"> <i class="fa fa-user" aria-hidden="true"></i> <?= $clsUser->fullname ?></a>
+                                </li>
+                                <li>
+                                    <a href="Controls/user_ctrl/ctrl_logOut.php"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
+                                            <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                                        </svg>  Log out</a>
+                                </li>
+                            </ul>
+                        </div>
+                    <?php } else {
                     ?>
-                    <div class="widget">
-                        <ul>
-                            <li>
-                                <a href="my-account.php"> <i class="fa fa-user" aria-hidden="true"></i> My Account</a>
-                            </li>
+                        <div class="widget">
+                            <ul>
+                                <li>
+                                    <a href="login.php"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
+                                </li>
 
-                        </ul>
-                    </div>
+                            </ul>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -146,7 +165,7 @@
                                         <li><a class="fast" href="index.php">Pages <i class="fa fa-angle-down"></i></a>
                                             <div class="rayed ru">
                                                 <div class="tas menu-last2">
-                                                <a href="register.php">Register</a>
+                                                    <a href="register.php">Register</a>
                                                     <a href="blog.php">Blog</a>
                                                     <a href="blog-details.php">Blog Details</a>
                                                     <a href="checkout.php">checkout</a>
@@ -187,23 +206,23 @@
                                         <div class="top-shop-title">
                                             <a href="#">
                                                 <i class="fa fa-shopping-cart"></i>
-                                                  <?php
-                                                     $countProcduct=0;
-                                                     if(isset($_SESSION["cart"])){
-                                                        foreach ($_SESSION["cart"] as $key => $value) {
-                                                            # code...
-                                                            $countProcduct+=$value;
-                                                        }
-                                                     }
-                                                  ?>
-                                                <span class="count co1"><?=$countProcduct?></span>
+                                                <?php
+                                                $countProcduct = 0;
+                                                if (isset($_SESSION["cart"])) {
+                                                    foreach ($_SESSION["cart"] as $key => $value) {
+                                                        # code...
+                                                        $countProcduct += $value;
+                                                    }
+                                                }
+                                                ?>
+                                                <span class="count co1"><?= $countProcduct ?></span>
                                             </a>
                                         </div>
                                         <div class="wish-cart margin" style="overflow-y: scroll; height:500px;overflow-x:hidden">
                                             <div class="wish-item">
                                                 <?php
 
-                                                if (isset($_SESSION["cart"]) == false||empty($_SESSION["cart"])) {
+                                                if (isset($_SESSION["cart"]) == false || empty($_SESSION["cart"])) {
                                                 ?>
                                                     <div>
                                                         <p style="text-align:center">You don't have any product in the cart</p>
@@ -230,7 +249,7 @@
                                                                 <p><span class="agn"><?= $_SESSION["cart"][$row["id"]] ?></span>x <span class=" price"><?= $row["price"] ?></span></p>
                                                             </div>
                                                             <div class="cat_icon">
-                                                                <a class="remove" href=" Controls/cart_ctrl/ctrl_delcart.php/?product=<?=$row["id"]?>">×</a>
+                                                                <a class="remove" href=" Controls/cart_ctrl/ctrl_delcart.php/?product=<?= $row["id"] ?>">×</a>
 
                                                             </div>
                                                         </div>
@@ -268,7 +287,7 @@
                                     </div>
                                 </div>
                             </div>
-                       
+
                         </div>
                         <div class="mobile-menu">
                             <nav id="dropdown">

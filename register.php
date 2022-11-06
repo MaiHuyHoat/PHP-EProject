@@ -121,18 +121,20 @@
 
   <!-- Add your site or application content here -->
 <?php
-if ($_REQUEST["CreAcountSuccess"]==1) {
+$creatAccount=isset($_REQUEST["CreAcountSuccess"])==false? "": $_REQUEST["CreAcountSuccess"];
+
+if ($creatAccount==1) {
   require_once("Views/MessengerSuccess.php");
   # code...
 }
-else if($_REQUEST["CreAcountSuccess"]==-1){
+else if($creatAccount==-1){
   require_once("Views/MessengerFalse.php");
 }
 ?>
   <?php
   require_once("Views/header.php");
   $existAccount = isset($_REQUEST["ErrorCreAcount"]) == false ? "" : $_REQUEST["ErrorCreAcount"];
-  if ($existAccount == 1) { ?>
+  if ( $existAccount == 1 ) { ?>
     <script>
       window.onload = function() {
         alert("This Account have existed in Server.")
@@ -169,8 +171,8 @@ else if($_REQUEST["CreAcountSuccess"]==-1){
                       <div class="card d-flex" style="width: 18rem; margin:0 auto;border: none;">
 
                         <div class="card-body">
-                          <h5 class="card-title">Up your image</h5>
-                          <p class="card-text">This Image will use for account</p>
+                          <h5 class="card-title">Your image</h5>
+                     
                           <div>
                             <div class="d-flex justify-content-center mb-4">
 
@@ -217,8 +219,11 @@ else if($_REQUEST["CreAcountSuccess"]==-1){
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fa fa-envelope fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="email" name="email" id="form3Example3c" class="form-control" />
-                        <label class="form-label" for="form3Example3c">Your Email</label>
+                      <?php  $userEmail=isset($_REQUEST["userEmail"])==false? "": $_REQUEST["userEmail"];
+                          ?>
+                        <input type="email" name="email" id="form3Example3c" value="<?=$userEmail?>" class="form-control" />
+                        
+                        <label class="form-label" for="form3Example3c" >Your Email</label>
                       </div>
                     </div>
                     <div class="d-flex flex-row align-items-center mb-4">

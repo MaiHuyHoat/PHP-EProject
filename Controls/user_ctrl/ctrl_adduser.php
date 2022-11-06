@@ -38,7 +38,7 @@ else{
  }
 if(checkUser($userName)){
 
-    $olderUrl=$_SERVER['HTTP_REFERER'] ;
+    $olderUrl="http://localhost/Project_T3/register.php";
      header("Location:$olderUrl?ErrorCreAcount=1");
 }
 else{
@@ -47,11 +47,11 @@ else{
     $clsUser= new clsUser();
     $ketqua=$clsUser->addUser($userName,$password,$fullName,$email,$phoneNumber,$address,$imageNameConvert);
     if($ketqua==true){
-        $olderUrl=$_SERVER['HTTP_REFERER'] ;
+        $olderUrl="http://localhost/Project_T3/register.php" ;
      header("Location:$olderUrl?CreAcountSuccess=1");
     }
     else{
-        $olderUrl=$_SERVER['HTTP_REFERER'] ;
+        $olderUrl="http://localhost/Project_T3/register.php" ;
         header("Location:$olderUrl?CreAcountSuccess=-1");
     }
 }

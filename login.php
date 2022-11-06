@@ -39,6 +39,9 @@
         <link rel="stylesheet" href="css/responsive.css">
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <?php
+        require_once("Views/head.php");
+        ?>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -117,19 +120,9 @@
                     <div class="col-lg-6">
                         <div class="tb-login-form res">
                             <h5 class="tb-title">Create a new account</h5>
-                            <p>Hello, Welcome your to account</p>
-                            <form action="#">
-                                <p class="checkout-coupon top log a-an">
-                                    <label class="l-contact">
-                                        Email Address
-                                        <em>*</em>
-                                    </label>
-                                    <input type="email">
-                                </p>
-                                <p class="login-submit5">
-                                    <input value="SignUp" class="button-primary" type="submit">
-                                </p>
-                            </form>
+                            <p>Hello, Create Your Account Now !</p>
+                          <a href="register.php"><button type="button" class="btn btn-danger">Register</button></a>
+                           
                             <div class="tb-info-login ">
                                 <h5 class="tb-title4">SignUp today and you'll be able to:</h5>
                                 <ul>

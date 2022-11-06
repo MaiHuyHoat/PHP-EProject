@@ -3,6 +3,7 @@
     
 <!-- Mirrored from htmldemo.net/noraure/noraure/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Oct 2022 16:43:53 GMT -->
 <head>
+    
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Noraure | Home </title>

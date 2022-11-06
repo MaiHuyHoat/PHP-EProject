@@ -61,4 +61,8 @@ class clsUser
         $ketqua=$cslDatabase->executeQuery($sql,$data);
         return $ketqua;
     }
+    function updateUser($id,$userName, $password, $fullName, $email, $phoneNumber, $address, $imageNameConvert){
+       $sql="UPDATE `user` SET `user_name` = 'quynh', `password` = '1111', `fullname` = 'Phạm Thị Diễm Quỳnh', `email` = 'quynh@gmail.com', `phone_number` = '234242', `address` = 'nhat ban',
+        `image` = 'https://img.docbao.vn/images/uploads/2022/11/03/giai-tri/phim-hoa.png' WHERE `user`.`id` = 3;"
+    }
 }
