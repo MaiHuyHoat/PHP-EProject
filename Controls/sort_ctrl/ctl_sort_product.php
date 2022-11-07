@@ -1,6 +1,6 @@
 <?php
 //left
-require_once_once("Models/clsSanpham.php");
+require_once("Models/clsSanpham.php");
 $gender= "";
 $category = "";
 if(isset($_REQUEST["gender"]))

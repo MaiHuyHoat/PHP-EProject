@@ -98,7 +98,7 @@
                                         </td>
                                         <td class="sop-cart an-sh">
                                             <div class="quantity ray">
-                                                <input class="input-text qty text" name="qty[<?=$row["id"]?>]" type="number"  title="Qty" value="<?= $_SESSION["cart"][$row["id"]]?>" min="0" step="1">
+                                                <input class="input-text qty text" name="qty[<?=$row["id"]?>]" type="number"  title="Qty" value="<?= $_SESSION["cart"][$row["id"]]["qty"]?>" min="0" step="1">
                                             </div>
                                             <a class="remove " href="Controls/cart_ctrl/ctrl_delcart.php?product=<?=$row["id"]?>">
                                                 <span>x</span>
@@ -112,7 +112,7 @@
                                         </td>
                                         <td class="cen">
                                            <span class="amount">$ </span>
-                                           <span class="amount price-total"><?=$row["price"]*$_SESSION["cart"][$row["id"]]?></span>
+                                           <span class="amount price-total"><?=$row["price"]*$_SESSION["cart"][$row["id"]]["qty"]?></span>
                                         </td>
                                     </tr>
 

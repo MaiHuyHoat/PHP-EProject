@@ -215,7 +215,7 @@
                                             <div class="shop-tab">
                                                 <div class="row">
                                                     <?php
-                                                    require_once_once("Controls/sort_ctrl/ctl_sort_product.php");
+                                                    require_once("Controls/sort_ctrl/ctl_sort_product.php");
                                                     if($rows == NULL)
 
                                                         die("<p>ERROR IN DATABASE</p>");

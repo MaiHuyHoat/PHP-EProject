@@ -211,7 +211,7 @@
                                                 if (isset($_SESSION["cart"])) {
                                                     foreach ($_SESSION["cart"] as $key => $value) {
                                                         # code...
-                                                        $countProcduct += $value;
+                                                        $countProcduct += $value["qty"];
                                                     }
                                                 }
                                                 ?>
@@ -230,7 +230,7 @@
                                                     </div>
                                                     <?php
                                                 } else {
-
+                                                     
                                                     $listId = array_keys($_SESSION["cart"]);
                                                     $cSp = new clsSanpham();
 
@@ -246,7 +246,7 @@
                                                                 <p>
                                                                     <a href="#"><?= $row["title"] ?></a>
                                                                 </p>
-                                                                <p><span class="agn"><?= $_SESSION["cart"][$row["id"]] ?></span>x <span class=" price"><?= $row["price"] ?></span></p>
+                                                                <p><span class="agn"><?= $_SESSION["cart"][$row["id"]]["qty"] ?></span>x    $ <span class=" price"><?= $row["price"] ?></span></p>
                                                             </div>
                                                             <div class="cat_icon">
                                                                 <a class="remove" href=" Controls/cart_ctrl/ctrl_delcart.php/?product=<?= $row["id"] ?>">×</a>
@@ -264,11 +264,11 @@
                                                                 <?php
                                                                 $subtotal = 0;
                                                                 foreach ($listProduct as $row) {
-                                                                    $subtotal += $row["price"] * $_SESSION["cart"][$row["id"]];
+                                                                    $subtotal += $row["price"] * $_SESSION["cart"][$row["id"]]["qty"];
                                                                     # code...
                                                                 }
                                                                 ?>
-                                                                <span class="amount"><?= $subtotal ?></span>
+                                                                <span class="amount">$ <?= $subtotal ?></span>
                                                             </p>
                                                             <p class="buttons">
                                                                 <a class="button wc-forward" href="shopping-cart.php">View Cart</a>
