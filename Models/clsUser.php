@@ -20,13 +20,50 @@ class clsUser
     {
         $this->clsDatabase = new clsDatabase(); //ket noi den csdl;
     }
+    function checkUser($userName)
+    { // hàm kiểm tra tài khoản đã tồn tại trong hệ thống hay chưa.
+        $cslDatabase = new clsDatabase();
+        $sqlCheck = "SELECT * FROM `user` WHERE user_name='$userName';";
+        $ketqua = $cslDatabase->executeQuery($sqlCheck);
+        if ($ketqua == false) {
+            echo "Lỗi truy vấn  SQL";
+        } else {
+            $results = $cslDatabase->pdo_stm->fetchAll(PDO::FETCH_ASSOC);
+            if (count($results) > 0) return true; // Đã tồn tại tài khoản trong hệ thống
+            else return false; // Không tồn tại tài khoản trong hệ thống
+        }
+    }
+    function checkAccount($userName,$userPassword){// ham kiem tra dang nhap
+        $clsDatabase= new clsDatabase();
+        $sql="SELECT id FROM `user` WHERE user_name='$userName' AND user.password='$userPassword'";
+        $clsDatabase->executeQuery($sql);
+       $rows=$clsDatabase->pdo_stm->fetchAll();
+       if(empty($rows)){
+        $_SESSION["account"]["login"]=false;
+      
+        return false;
+       }
+       else{
+       
+    
+        return true;
+       }
+    }
+    function convertToMd5($file)
+    { // chuyen doi ten files sang dinh dang md5
+        $imageUser = $file;
+        $md5Image = md5($imageUser["name"]); // chuyển tên ảnh sang md5;
+        $arrImage = explode(".", $imageUser["name"]); // lấy đuôi, định dạng ảnh
+        $typeImage = array_pop($arrImage);
+        $imageNameConvert = $md5Image . "." . $typeImage; // ten day du cua anh sau khi da con vert sang dịnh dang md5;
+        return $imageNameConvert;
+    }
     function getUserId($userName)
     { // Lấy id tài khoản của người dùng
         $clsDatabase = new clsDatabase();
         $sql = "SELECT id FROM `user` WHERE user_name='$userName';";
         $clsDatabase->executeQuery($sql);
-        $id = $clsDatabase->pdo_stm->fetch();
-        $this->id = $id[0]; //lay gia tri id va gan cho id cua clsUser;
+        $id = $clsDatabase->pdo_stm->fetch(PDO::FETCH_BOTH);
         return $id[0];
     }
     function getUserInfo($id)
@@ -56,13 +93,23 @@ class clsUser
     {
         $sql = "INSERT INTO `user` (`id`, `user_name`, `password`, `fullname`, `email`, `phone_number`, `address`, `image`, `point`, `created_at`, `updated_at`, `deleted`)
            VALUES (NULL,?,?,?,?,?, ?, ?, '0', current_timestamp(), NULL, '0');";
+
         $data = [$userName, $password, $fullName, $email, $phoneNumber, $address, $imageNameConvert];
-        $cslDatabase= new clsDatabase();
-        $ketqua=$cslDatabase->executeQuery($sql,$data);
+        
+        $cslDatabase = new clsDatabase();
+        
+        $ketqua = $cslDatabase->executeQuery($sql, $data);
         return $ketqua;
     }
-    function updateUser($id,$userName, $password, $fullName, $email, $phoneNumber, $address, $imageNameConvert){
-       $sql="UPDATE `user` SET `user_name` = 'quynh', `password` = '1111', `fullname` = 'Phạm Thị Diễm Quỳnh', `email` = 'quynh@gmail.com', `phone_number` = '234242', `address` = 'nhat ban',
-        `image` = 'https://img.docbao.vn/images/uploads/2022/11/03/giai-tri/phim-hoa.png' WHERE `user`.`id` = 3;"
+    function updateUser($id, $password, $fullName, $email, $phoneNumber, $address, $imageNameConvert)
+    {
+
+        $sql = "UPDATE `user` SET  `password` = ?, `fullname` = ?, `email` = ?, `phone_number` = ?, `address` = ?,
+        `image` = ? WHERE `user`.`id` = $id;";
+     
+        $data = [ $password, $fullName, $email, $phoneNumber, $address, $imageNameConvert];
+        $cslDatabase = new clsDatabase();
+        $ketqua = $cslDatabase->executeQuery($sql, $data);
+        return $ketqua;
     }
 }

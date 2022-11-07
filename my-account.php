@@ -40,14 +40,24 @@
     <link rel="stylesheet" href="css/responsive.css">
     <!-- modernizr css -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    <script src="js/show-local-image-example.js"></script>
+
     <?php
     require_once("Views/head.php");
     ?>
 </head>
 
 <body>
+<?php
+$UpdAccount=isset($_REQUEST["UpdAcountSuccess"])==false? "": $_REQUEST["UpdAcountSuccess"];
 
+if ($UpdAccount==1) {
+  require_once("Views/MessengerSuccess.php");
+  # code...
+}
+else if($UpdAccount==-1){
+  require_once("Views/MessengerFalse.php");
+}
+?>
     <?php
     require("Views/header.php")
     ?>
@@ -97,7 +107,7 @@
                                                             <div>
                                                                 <div class="d-flex  mb-4">
 
-                                                                    <img id="myimage" src="<?= $clsUser->image ?>" class="rounded-circle" alt="example placeholder" style="width: 100px;" />
+                                                                    <img src="Upload/imagesUser/<?= $clsUser->image ?>" class="rounded-circle" alt="example placeholder" style="width: 100px;" />
                                                                 </div>
                                                                 
                                                             </div>
@@ -150,11 +160,11 @@
                                         <a class="collapsed" role="button" data-bs-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Update your Account <i class="fa fa-caret-down"></i></a>
                                     </h4>
                                 </div>
-                                <div id="collapseTwo" class="panel-collapse collapse show" role="tabpanel" data-bs-parent="#accordion2" aria-labelledby="headingOne" aria-expanded="false">
+                                <div id="collapseTwo" class="panel-collapse collapse " role="tabpanel" data-bs-parent="#accordion2" aria-labelledby="headingOne" aria-expanded="false">
                                     <div class="easy2">
                                         <h2> Change My Account </h2>
                                        
-                                        <form class="form-horizontal" action="#">
+                                        <form class="form-horizontal" action="Controls/user_ctrl/ctrl_updateuser.php" method="POST" enctype="multipart/form-data">
                                             <fieldset>
                                                 <legend>User Name:  <?= $clsUser->user_name ?></legend>
                                                 <div class="form-group required">
@@ -165,14 +175,14 @@
                                                             <div>
                                                                 <div class="d-flex  mb-4">
 
-                                                                    <img id="myimage" src="<?= $clsUser->image ?>" class="rounded-circle" alt="example placeholder" style="width: 100px;" />
+                                                                    <img id="myimage" src="Upload/imagesUser/<?= $clsUser->image ?>" class="rounded-circle" alt="example placeholder" style="width: 100px;" />
                                                                 </div>
                                                                 <div class="d-flex ">
                                                                     <div class="btn btn-primary btn-rounded">
                                                                         <label class="form-label text-white m-1" for="customFile2">Choose file</label>
 
 
-                                                                        <input type="file" name="imageUser" class="form-control d-none" onchange="changeHandler(event)" id="customFile2" accept=".jpg,.png" />
+                                                                        <input type="file" name="imageUser" class="form-control d-none" onchange="changeHandler(event)" id="customFile2" accept=".jpg,.png,.jpeg" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -183,7 +193,7 @@
                                                     <div class="row">
                                                         <label class="col-md-2 control-label">Full Name </label>
                                                         <div class="col-md-10">
-                                                            <input class="form-control" type="text" value="<?= $clsUser->fullname ?>">
+                                                            <input class="form-control" name="fullName" type="text" value="<?= $clsUser->fullname ?>">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -192,7 +202,7 @@
                                                     <div class="row">
                                                         <label class="col-md-2 control-label">E-Mail</label>
                                                         <div class="col-md-10">
-                                                            <input class="form-control" type="email" placeholder="E-Mail" value="<?= $clsUser->email ?>">
+                                                            <input class="form-control" name="email" type="email" placeholder="E-Mail" value="<?= $clsUser->email ?>">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -200,7 +210,7 @@
                                                     <div class="row">
                                                         <label class="col-md-2 control-label">Telephone</label>
                                                         <div class="col-md-10">
-                                                            <input class="form-control" type="tel" placeholder="Telephone" value="<?= $clsUser->phone_number ?>">
+                                                            <input class="form-control" name="phoneNumber" type="tel" placeholder="Telephone" value="<?= $clsUser->phone_number ?>">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -208,7 +218,7 @@
                                                     <div class="row">
                                                         <label class="col-md-2 control-label">Address</label>
                                                         <div class="col-md-10">
-                                                            <input class="form-control" type="text" placeholder="Address" value="<?= $clsUser->address ?>">
+                                                            <input class="form-control" name="address" type="text" placeholder="Address" value="<?= $clsUser->address ?>">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -216,7 +226,7 @@
                                                     <div class="row">
                                                         <label class="col-md-2 control-label">Change-Password</label>
                                                         <div class="col-md-10">
-                                                            <input class="form-control" type="text" placeholder="Address" value="<?= $clsUser->password ?>">
+                                                            <input class="form-control" name="password" type="text" placeholder="Change your password here" value="<?= $clsUser->password ?>">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -294,6 +304,7 @@
 
     <!-- all js here -->
     <!-- jquery latest version -->
+    <script src="js/show-local-image-example.js"></script>
     <script src="js/vendor/jquery-1.12.0.min.js"></script>
     <!-- Popper js -->
     <script src="js/popper.js"></script>
