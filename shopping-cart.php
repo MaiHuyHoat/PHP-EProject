@@ -274,9 +274,9 @@
                         </div>
                         <div class="wc-proceed-to-checkout">
                             <p class="return-to-shop">
-                                <a class="button wc-backward" href="#">Continue Shopping</a>
+                                <a class="button wc-backward" href="shop.php">Continue Shopping</a>
                             </p>
-                            <a class="wc-forward wc-forward-cart" href="#">Confirm Order</a>
+                            <a class="wc-forward wc-forward-cart" href="checkout.php">Check Out</a>
                         </div>
                     </div>
                 </div>

@@ -6,10 +6,18 @@ $clsUser= new clsUser();
 $userName=$_REQUEST["userName"];
 $userPassword=$_REQUEST["userPassword"];
 
+
 if($clsUser->checkAccount($userName,$userPassword)==true){
    $_SESSION["logined"]=true;// dang nhap thanh cong
   $_SESSION["user"]["id"]= $clsUser->getUserId($userName);
+  $olderUrl=$_SERVER["HTTP_REFERER"];
+  if($olderUrl=="http://localhost/Project_T3/login.php"||$olderUrl=="http://localhost/Project_T3/login.php?loginFalse=1" )
   header("Location:http://localhost/Project_T3/");// quay tro lai trang home
+  else if($olderUrl=="http://localhost/Project_T3/checkout.php?loginFalse=1"){
+   header("Location:http://localhost/Project_T3/checkout.php ");
+  }
+  else 
+  header("Location:$olderUrl");
 
 }
 else{
