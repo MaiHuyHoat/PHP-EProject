@@ -201,25 +201,24 @@
                                                 <span class="required">*</span>
                                             </label>
                                             <select class="email s-email s-wid">
-                                                <option>Bangladesh</option>
-                                                <option>Albania</option>
-                                                <option>Åland Islands</option>
-                                                <option>Afghanistan</option>
-                                                <option>Belgium</option>
+                                                <option>VietNam</option>
+                                                <option>China</option>
+                                                <option>Japan</option>
+                                               
                                             </select>
                                         </p>
                                         <p class="form-row form-row-wide">
                                             <label>
-                                                District
-                                                <span class="required">*</span>
+                                                Address
+                                                <span class="required">: </span>
                                             </label>
-                                            <select class="email s-email s-wid">
-                                                <option>mymensingh</option>
-                                                <option>dhaka</option>
-                                                <option>khulna</option>
-                                                <option>kumillah</option>
-                                                <option>chadpur</option>
-                                            </select>
+                                            <?php
+                                            if(isset($clsUser->address)==false){?>
+                                            <input name="" type="text">
+                                           <?php } else {
+                                            ?>
+                                            <span>   <?= $clsUser->address ?></span>
+                                            <?php }?>
                                         </p>
                                         <p class="form-row form-row-wide">
                                             <label>
