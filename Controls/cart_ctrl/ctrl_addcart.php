@@ -11,8 +11,8 @@ if ($id==""||is_numeric($id)==false) {
         $_SESSION["cart"][$id]["qty"]+=1;
     }
 }
-// $olderUrl=$_SERVER['HTTP_REFERER'] ;
-//     header("Location:$olderUrl");
-echo json_encode(array_keys($_SESSION["cart"]));
+$olderUrl=$_SERVER['HTTP_REFERER'] ;
+ header("Location:$olderUrl");
+
 
 ?>

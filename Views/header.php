@@ -242,10 +242,20 @@
                                                     foreach ($listProduct as $row) { ?>
                                                         <div class="cat">
                                                             <a class="image" href="#"><img src="<?= $row["thumbnail"][0] ?>" alt=""></a>
-                                                            <div class="cat_two">
+                                                            <div class="cat_two" style="text-transform: capitalize">
                                                                 <p>
                                                                     <a href="#"><?= $row["title"] ?></a>
                                                                 </p>
+                                                                <?php 
+                                                                $size=null;
+                                                                if(isset($_SESSION["cart"][$row["id"]]["size"])==false){
+                                                                   $size="Choose size !";
+                                                                }
+                                                                else{
+                                                                    $size=$_SESSION["cart"][$row["id"]]["size"];
+                                                                }
+                                                                ?>
+                                                                <p>size: <span style="font-size:14px;" > <?=$size?></span></p>
                                                                 <p><span class="agn"><?= $_SESSION["cart"][$row["id"]]["qty"] ?></span>x    $ <span class=" price"><?= $row["price"] ?></span></p>
                                                             </div>
                                                             <div class="cat_icon">
