@@ -42,7 +42,7 @@
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <!-- CSS only -->
-        <?php require_once("Views/head.php")?>
+        <?php require("Views/head.php")?>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -53,7 +53,7 @@
         
          
         <?php
-       require_once("Views/header.php")
+       require("Views/header.php")
        ?>
         <!-- mobile-menu-area end --> 
         <section class="contact-img-area">
@@ -95,13 +95,14 @@
                                             <div class="price_filter">
                                                 <div id="slider-range"></div>
                                                 <div id="amount">
-                                                    <input type="text" name="first_price" class="first_price"/>
-                                                    <input type="text" name="last_price" class="last_price"/>
+                                                    <input type="text" name="first_price" class="first_price" value=""/>
+                                                    <input type="text" name="last_price" class="last_price" value=""/>
                                                 </div>
                                             </div>
                                         </div>							
                                     </div>
-                                    <button class="button-shop" type="submit" style="float:left"><i class="fa fa-search search-icon"></i></button>
+
+                                    <button class="btn btn-outline-warning" style="width:px" type="submit">Find</button>
                                     <br>
                                 </form>
                             </div>
@@ -224,14 +225,11 @@
                                                     {
                                                     ?>
                                                     <!-- single-product start -->
-                                                    <?php
-                                                    $single_id = $row["id"];
-                                                    ?>
                                                     <div class="col-lg-6 col-xl-4 col-md-6 col-sm-12">
                                                         <a href="single-product.php?id=<?=$row["id"]?>">
                                                         <div class="tb-product-item-inner tb2 pct-last">
                                                             <img alt="" src="<?=$row["thumbnail"][0]?>">
-                                                            <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
+                                                            <a class="la-icon" href="#productModal" onclick="showDetails(this.getAttribute('data-id'));" data-id="<?=$row["id"]?>" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
                                                             <div class="tb-content">
                                                                 <div class="tb-it">
                                                                     <div class="tb-beg">
@@ -245,7 +243,7 @@
                                                                     </div>
                                                                     <div class="last-cart l-mrgn">
                                                                         <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                                        <a class="las4" href="Controls/cart_ctrl/ctrl_addcart.php/?product=<?=$row["id"]?>">Add To Cart</a>
+                                                                        <a class="las4" href="Controls/ctrl_addcart.php/?product=<?=$row["id"]?>">Add To Cart</a>
                                                                         <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
                                                                     </div>
                                                                 </div>
@@ -267,12 +265,13 @@
                                             {
                                             ?>
                                             <div class="li-item">
+                                                <a href="single-product.php?id=<?=$row["id"]?>">
                                                 <div class="row">
                                                     <div class="col-lg-4 col-md-4">
                                                         <div class="tb-product-item-inner tb2 pct-last">
                                                             <span class="onsale two">Sale!</span>
                                                             <img alt="" src="<?=$row["thumbnail"][0]?>">
-                                                            <a class="la-icon ts"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
+                                                            <a class="la-icon ts"  href="#productModal" onclick="showDetails(this.getAttribute('data-id'));" data-id="<?=$row["id"]?>" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-8 col-md-8">
@@ -287,7 +286,6 @@
                                                                 </div>
                                                             </div>
                                                             <p class="desc"><?=$row["description"]?></p>
-                                                            <p class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo  </p>
                                                             <div class="last-cart l-mrgn ns">
                                                                 <a class="las4" href="#">Add To Cart</a>
                                                             </div>
@@ -305,6 +303,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                </a>
                                             </div>
                                             <?php
                                             }
@@ -321,7 +320,7 @@
         </section>
         
        <?php 
-       require_once("Views/footer.php")
+       require("Views/footer.php")
        ?>
         
         <!-- start scrollUp
@@ -342,20 +341,20 @@
                             <div class="modal-product">
                                 <div class="product-images">
                                     <div class="main-image images">
-                                        <img src="<?=$row["thumbnail"][0]?>" alt="">
+                                        <img id="image_click" src="" alt="">
                                     </div>
                                 </div><!-- .product-images -->
 
                                 <div class="cras">
                                     <div class="product-name">
-                                        <h1><?=$row["title"]?></h1>
+                                        <h1 id="title_click"></h1>
                                     </div>
                                     <div class="tb-product-price font-noraure-3">
-                                        <span class="amount">£<?=$row["price_old"]?></span>
-                                        <span class="amount2 ana">£<?=$row["price"]?></span>
+                                        <span id="price_old_click" class="amount"></span>
+                                        <span id="price_click" class="amount2 ana"></span>
                                     </div>
                                     <div class="short-description">
-                                        <p><?=$row["description"]?></p>
+                                        <p id="description_click"></p>
                                     </div>
                                     <div class="add-to-box1">
                                         <div class="add-to-box add-to-box2">
@@ -380,8 +379,26 @@
             <!-- END Modal -->
         </div>
 	    <!-- END QUICKVIEW PRODUCT -->
-        
-        
+        <script>
+            function showDetails(id)
+            {
+                var dataObj = {};
+                $.ajax({
+                    url: "Controls/sort_ctrl/quick_view.php",
+                    method: "POST",
+                    data: {get_data : 1, id: id},
+                    success: function(response){
+                        response = JSON.parse(response);
+                        $("#image_click").attr("src",response.thumbnail);
+                        $("#title_click").text(response.title);
+                        $("#price_old_click").text("£"+response.price_old);
+                        $("#price_click").text("£"+response.price);
+                        $("#description_click").text(response.description);
+                    }
+                });
+            }
+        </script>
+
         
 		<!-- all js here -->
 		<!-- jquery latest version -->
