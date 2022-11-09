@@ -136,27 +136,14 @@
             </div>
             <div class="row">
                 <form action="" class="row">
-                <div class="col-lg-7 col-md-12">
-                    <div class="text">
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class=" ano complete">
-                                <a class="active" href="#home" aria-controls="home" role="tab" data-bs-toggle="tab"></a>
-                                <span>Address</span>
-                            </li>
-                            <li role="presentation" class="ano ">
-                                <a href="#profile" aria-controls="profile" role="tab" data-bs-toggle="tab"></a>
-                                <span>Payment</span>
-                            </li>
-                            <li role="presentation" class="ano la">
-                                <a href="#message" aria-controls="message" role="tab" data-bs-toggle="tab"></a>
-                                <span>Complete</span>
-                            </li>
-                        </ul>
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="home">
-                           
+                    <div class="col-lg-7 col-md-12">
+                        <div class="text">
+                            <!-- Nav tabs -->
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="home">
+
                                     <div class="checkbox-form">
                                         <div class="row">
                                             <div class="col-lg-12">
@@ -201,12 +188,10 @@
                                             </div>
 
                                             <div class="col-lg-12">
-                                                <label class="l-contact">
-                                                    Address
-                                                    <em>*</em>
-                                                </label>
-                                                <div class="di-na bs">
-                                                    <input class="form-control" type="text" required="" name="name" placeholder="Street address">
+                                                <div class="form-outline">
+                                                <label class="form-label" for="textAreaExample2">Your note !</label>
+                                                    <textarea class="form-control" id="textAreaExample2" rows="8" name="note"></textarea>
+                                                 
                                                 </div>
                                             </div>
 
@@ -219,106 +204,105 @@
                                             <input type="submit" value="ORDER NOW">
                                         </p>
                                     </div>
-                           
+
+
+                                </div>
 
                             </div>
-                            
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-5 col-md-12">
-                    <div class="ro-checkout-summary">
-                        <div class="ro-title">
-                            <h3 class="checkbox9">ORDER SUMMARY</h3>
-                        </div>
-                        
-                        <div class="ro-body">
-                             <?php
-
-                                                if (isset($_SESSION["cart"]) == false || empty($_SESSION["cart"])) {
-                                                ?>
-                                                    <div>
-                                                        <p style="text-align:center">You don't have any product in the cart</p>
-                                                        <a href="shop.php"> <button type="button" class="btn btn-warning">Buy</button> </a>
-                                                    </div>
-                                                    <?php
-                                                } else {
-                                                     
-                                                    $listId = array_keys($_SESSION["cart"]);
-                                                    $cSp = new clsSanpham();
-
-                                                    $strListId = implode(",", $listId); // danh sach id san pham da mua
-
-                                                    $dk = " AND product.id in ($strListId)";
-
-                                                    $listProduct = $cSp->getListProduct($dk);
-                                                    foreach ($listProduct as $row) { ?>
-                                                        <div class="cat">
-                                                            <a class="image" href="#"><img src="<?= $row["thumbnail"][0] ?>" alt=""></a>
-                                                            <div class="cat_two" style="text-transform: capitalize">
-                                                                <p>
-                                                                    <a href="#"><?= $row["title"] ?></a>
-                                                                </p>
-                                                                <?php 
-                                                                $size=null;
-                                                                if(isset($_SESSION["cart"][$row["id"]]["size"])==false){
-                                                                   $size="Choose size !";
-                                                                }
-                                                                else{
-                                                                    $size=$_SESSION["cart"][$row["id"]]["size"];
-                                                                }
-                                                                ?>
-                                                                <p>size: <span style="font-size:14px;" > <?=$size?></span></p>
-                                                                <p><span class="agn"><?= $_SESSION["cart"][$row["id"]]["qty"] ?></span>x    $ <span class=" price"><?= $row["price"] ?></span></p>
-                                                            </div>
-                                                            <div class="cat_icon">
-                                                                <a class="remove" href=" Controls/cart_ctrl/ctrl_delcart.php/?product=<?= $row["id"] ?>">×</a>
-
-                                                            </div>
-                                                        </div>
-
-                                                    <?php
-                                                    }
-                                                    ?>
-                           
-                        </div>
-                        <div class="ro-footer">
-                            <div>
-                                <p>
-                                    Subtotal
-                                    <span>
-                                        <span class="amount">$99.00</span>
-                                    </span>
-                                </p>
-                                <div class="ro-divide"></div>
+                    <div class="col-lg-5 col-md-12">
+                        <div class="ro-checkout-summary">
+                            <div class="ro-title">
+                                <h3 class="checkbox9">ORDER SUMMARY</h3>
                             </div>
-                            <div class="shipping">
-                                <p> Shipping </p>
-                                <div class="ro-shipping-method">
+
+                            <div class="ro-body">
+                                <?php
+
+                                if (isset($_SESSION["cart"]) == false || empty($_SESSION["cart"])) {
+                                ?>
+                                    <div>
+                                        <p style="text-align:center">You don't have any product in the cart</p>
+                                        <a href="shop.php"> <button type="button" class="btn btn-warning">Buy</button> </a>
+                                    </div>
+                                    <?php
+                                } else {
+
+                                    $listId = array_keys($_SESSION["cart"]);
+                                    $cSp = new clsSanpham();
+
+                                    $strListId = implode(",", $listId); // danh sach id san pham da mua
+
+                                    $dk = " AND product.id in ($strListId)";
+
+                                    $listProduct = $cSp->getListProduct($dk);
+                                    foreach ($listProduct as $row) { ?>
+                                        <div class="cat">
+                                            <a class="image" href="#"><img src="<?= $row["thumbnail"][0] ?>" alt=""></a>
+                                            <div class="cat_two" style="text-transform: capitalize">
+                                                <p>
+                                                    <a href="#"><?= $row["title"] ?></a>
+                                                </p>
+                                                <?php
+                                                $size = null;
+                                                if (isset($_SESSION["cart"][$row["id"]]["size"]) == false) {
+                                                    $size = "<a href=\"shopping-cart.php\" style=\"color:red;text-decoration: underline;\">Choose size </a>";
+                                                } else {
+                                                    $size = $_SESSION["cart"][$row["id"]]["size"];
+                                                }
+                                                ?>
+                                                <p>size: <span style="font-size:14px;" class="size"> <?= $size ?></span></p>
+                                                <p><span class="agn"><?= $_SESSION["cart"][$row["id"]]["qty"] ?></span>x $ <span class=" price"><?= $row["price"] ?></span></p>
+                                            </div>
+                                            <div class="cat_icon">
+                                                <a class="remove" href=" Controls/cart_ctrl/ctrl_delcart.php/?product=<?= $row["id"] ?>">×</a>
+
+                                            </div>
+                                        </div>
+
+                                    <?php
+                                    }
+                                    ?>
+
+                            </div>
+                            <div class="ro-footer">
+                                <div>
                                     <p>
-                                        Shipping Local Pickup (Free)
+                                        Subtotal
+                                        <span>
+                                            <span class="amount">$ <?= $subtotal ?></span>
+                                        </span>
+                                    </p>
+                                    <div class="ro-divide"></div>
+                                </div>
+                                <div class="shipping">
+                                    <p> Shipping </p>
+                                    <div class="ro-shipping-method">
+                                        <p>
+                                            Shipping Local Pickup (Free)
+                                        </p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="ro-divide"></div>
+                                </div>
+
+                                <div style="background-color: #eeeeee;">
+                                    <p>
+                                        Total
+                                        <span>
+                                            <strong>
+                                                <span class="amount">$ <?= $subtotal ?></span>
+                                            </strong>
+                                        </span>
                                     </p>
                                 </div>
-                                <div class="clearfix"></div>
-                                <div class="ro-divide"></div>
                             </div>
-                         
-                            <div style="background-color: #eeeeee;">
-                                <p>
-                                Total
-                                    <span>
-                                        <strong>
-                                            <span class="amount">$99.00</span>
-                                        </strong>
-                                    </span>
-                                </p>
-                            </div>
+                        <?php } ?>
                         </div>
-                        <?php }?>
                     </div>
-                </div>
                 </form>
-             
+
             </div>
         </div>
     </div>
