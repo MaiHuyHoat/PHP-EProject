@@ -21,6 +21,7 @@ class clsDatabase{
 		return $conn;
 	}
 	function executeQuery($sql,$data=null){
+		
       $conn=$this->ConnectDB();
 	  if(isset($data)==false||empty($data)){
 		$this->pdo_stm=$conn->prepare($sql);

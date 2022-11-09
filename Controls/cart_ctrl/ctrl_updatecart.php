@@ -1,5 +1,7 @@
 <?php
 session_start();
+require_once("../../Models/clsSanpham.php");
+$clsSanpham= new clsSanpham();
 $qty=$_REQUEST["qty"];
 $size=$_REQUEST["size"];
 if (empty($qty)) {// update so luong san pham
@@ -9,7 +11,11 @@ if (empty($qty)) {// update so luong san pham
 else {
     foreach ($qty as $key => $value) {
         # code...
-      $_SESSION["cart"][$key]["qty"]=$value;
+      $_SESSION["cart"][$key]["qty"]=$value;//$key chinh la id san pham
+      $product= $clsSanpham->getProductById($key);// lay thong tin san pham
+      $price=(float) $product["price"];// lay gia cua san pham
+
+$_SESSION["cart"][$key]["total"]=round(($_SESSION["cart"][$key]["qty"]*$price),3);
     }
 }
 if (empty($size)) {

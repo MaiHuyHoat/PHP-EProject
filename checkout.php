@@ -135,7 +135,7 @@
                 </div>
             </div>
             <div class="row">
-                <form action="" class="row">
+                <form action="Controls/check_out_ctrl/ctrl_addOrder.php" method="POST" class="row">
                     <div class="col-lg-7 col-md-12">
                         <div class="text">
                             <!-- Nav tabs -->
@@ -183,7 +183,7 @@
                                                         Phone
                                                         <em>*</em>
                                                     </label>
-                                                    <input class="form-control" type="tel" required="" name="phonenNumber">
+                                                    <input class="form-control" type="number"  name="phoneNumber">
                                                 </div>
                                             </div>
 

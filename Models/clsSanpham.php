@@ -25,6 +25,16 @@ class clsSanpham{
             return $imgs;
         }
     }
+    function getProductById($id){
+        $sql="SELECT * FROM `product` WHERE id=$id;";
+        $ketqua =$this->clsDatabase->executeQuery($sql);
+        if($ketqua==true){
+            $product=$this->clsDatabase->pdo_stm->fetch(PDO::FETCH_ASSOC);
+            return $product;
+        }
+       else return 0;
+
+    }
     function getListProduct($bonus_data=null)// mảng điều kiện để lấy danh sách sản phẩm
     {
      
