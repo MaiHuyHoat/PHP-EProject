@@ -43,6 +43,8 @@
 
     <?php
     require_once("Views/head.php");
+    require_once("Models/clsOrder.php");
+    require_once("Models/clsOrderDetail.php");
     ?>
 </head>
 
@@ -153,7 +155,7 @@
                                     </div>
                                 </div>
                             </div>
-                          
+
                             <div class="panel panel-default">
                                 <div class="panel-heading" role="tab" id="headingThree">
                                     <h4 class="panel-title">
@@ -161,60 +163,81 @@
                                     </h4>
                                 </div>
                                 <div id="collapseThree" class="panel-collapse collapse" data-bs-parent="#accordion2" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
-                                    <div class="easy2">
-                                        <h2>Your Order</h2>
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">STT</th>
-                                                    <th scope="col">Information</th>
-                                                    <th scope="col">Products</th>
-                                                    <th scope="col">Status</th>
-                                                    <th scope="col">Cancel</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Ordered:Mai Huy  Hoat<br>
-                                                    Email: hoatdfk2001@gmail.com<br>
-                                                    Phone Number: 018734928<br>
-                                                    Address: Nam Định <br>
+                                    <?php
+                                    $clsOrder = new clsOrder();
+                                    $clsOrderDetail = new clsOrderDetail();
+                                    $orders = $clsOrder->getOrder($_SESSION['user']['id']);
+                                    if (empty($orders) == false) {
 
-                                                    </td>
-                                                    <td>
-                                                        <ul>
-                                                            <li>Áo Sơ Mi</li>
-                                                            <li> Quần sơ mi</li>
-                                                        </ul>
-                                                    </td>
-                                                    <td>Đang chờ xác nhận</td>
-                                                    <td> <button type="button" class="btn btn-danger">Cancel</button></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>Jacob</td>
-                                                    <td>Thornton</td>
-                                                    <td>@fat</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td>Larry</td>
-                                                    <td>the Bird</td>
-                                                    <td>@twitter</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <div class="buttons clearfix">
-                                            <div class="pull-left">
-                                                <a class="btn btn-default ce5" href="#">Back</a>
-                                            </div>
-                                            <div class="pull-right">
-                                                <input class="btn btn-primary ce5" type="submit" value="Continue">
+
+                                    ?>
+                                        <div class="easy2">
+
+                                            <h2>Your Order</h2>
+
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">STT</th>
+                                                        <th scope="col">Information</th>
+                                                        <th scope="col">Products</th>
+                                                        <th scope="col">Status</th>
+                                                        <th scope="col">Cancel</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    <?php
+                                                    $stt=1;
+                                                    foreach ($orders as $order) { ?>
+
+<tr>
+                                                        <th scope="row"><?=$stt?></th>
+                                                        <td>Ordered: <?=$order["fullname"]?><br>
+                                                            Email: <?=$order["email"]?><br>
+                                                            Phone Number: <?=$order["phone_number"]?><br>
+                                                            Address: <?=$order["address"]?> <br>
+                                                            Order Date: <?=$order["order_date"]?>
+                                                        </td>
+                                                        <td>
+                                                            <ul>
+                                                                <?php
+                                                                $orderDetails=$clsOrderDetail->getOrderDetail($order["id"]);
+                                                                foreach ($orderDetails as $orderDetail) {
+                                                                    $nameProduct=$clsOrderDetail->getNameProduct($orderDetail["product_id"])?>
+                                                                     <li><span> <?=$nameProduct?></span> x <?=$orderDetail["num"]?> | Size: <?=$orderDetail["size"]?>
+                                                                <?php }
+                                                                ?>
+                                                                
+                                                            </ul>
+                                                        </td>
+                                                        <td>Đang chờ xác nhận</td>
+                                                        <td> <button type="button" class="btn btn-danger">Cancel</button></td>
+                                                    </tr>
+                                                    <?php
+                                                    $stt++;
+                                                    }
+                                                    ?>
+                                                    
+                                                  
+                                                </tbody>
+                                            </table>
+                                            <div class="buttons clearfix">
+                                                <div class="pull-left">
+                                                    <a class="btn btn-default ce5" href="#">Back</a>
+                                                </div>
+                                                <div class="pull-right">
+                                                    <input class="btn btn-primary ce5" type="submit" value="Continue">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                 </div>
+                            <?php }else{
+                            ?>
+                            <div class="easy2">
+                                <h2> You don't have any order</h2>
+                            </div>
+                              <?php }?>
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading" role="tab" id="headingTwo">

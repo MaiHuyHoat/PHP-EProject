@@ -42,6 +42,14 @@ class clsOrder{
         }
           return $kq;
     }
+    function getOrder($user_id){// them dieu kien data
+     $clsDatabase= new clsDatabase();
+     $sql="SELECT * FROM `order` WHERE user_id=$user_id";
+    $clsDatabase->executeQuery($sql);
+     $rows=$clsDatabase->pdo_stm->fetchAll(PDO::FETCH_ASSOC);
+     return $rows;
+
+    }
 
 }
 ?>

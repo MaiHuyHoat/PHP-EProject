@@ -19,5 +19,19 @@ require_once("clsDatabase.php");
      $kq= $clsDatabase->executeQuery($sql,$data);
      return $kq;
    }
+   function getOrderDetail($order_id){
+    $clsDatabase= new clsDatabase(); 
+    $sql="SELECT * FROM `orderdetail` WHERE order_id=$order_id;";
+    $clsDatabase->executeQuery($sql);
+    $rows=$clsDatabase->pdo_stm->fetchAll(PDO::FETCH_ASSOC);
+     return $rows;
+   }
+   function getNameProduct($product_id){
+    $sql="SELECT product.title FROM product INNER JOIN orderdetail WHERE product.id=orderdetail.product_id AND orderdetail.product_id=$product_id;";
+    $clsDatabase= new clsDatabase(); 
+    $clsDatabase->executeQuery($sql);
+    $row=$clsDatabase->pdo_stm->fetch(PDO::FETCH_ASSOC);
+    return $row["title"];
+   }
  }
 ?>

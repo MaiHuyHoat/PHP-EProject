@@ -1,7 +1,5 @@
 <?php
 session_start();
 unset($_SESSION["logined"]);
-$oldUrl=$_SERVER["HTTP_REFERER"];
-
-header("Location: $oldUrl");
+header("Location:http://localhost/Project_T3/index.php");
 ?>

@@ -11,18 +11,21 @@ if($clsUser->checkAccount($userName,$userPassword)==true){
    $_SESSION["logined"]=true;// dang nhap thanh cong
   $_SESSION["user"]["id"]= $clsUser->getUserId($userName);
   $olderUrl=$_SERVER["HTTP_REFERER"];
-  if($olderUrl=="http://localhost/Project_T3/login.php" )
+  if($olderUrl=="http://localhost/Project_T3/login.php" || $olderUrl=="http://localhost/Project_T3/login.php?loginFalse=1")
   header("Location:http://localhost/Project_T3/index.php");// quay tro lai trang home
-  else if($olderUrl=="http://localhost/Project_T3/checkout.php?loginFalse=1"){
+  else if($olderUrl=="http://localhost/Project_T3/checkout.php?loginFalse=1"||$olderUrl=="http://localhost/Project_T3/checkout.php"){
    header("Location:http://localhost/Project_T3/checkout.php ");
   }
-  else 
-  header("Location:$olderUrl");
+
 
 }
 else{
    $_SESSION["logined"]=false;
     $olderUrl=$_SERVER["HTTP_REFERER"];
-    header("Location: $olderUrl?loginFalse=1");
+    if($olderUrl=="http://localhost/Project_T3/login.php?loginFalse=1"||$olderUrl=="http://localhost/Project_T3/login.php")
+    header("Location: http://localhost/Project_T3/login.php?loginFalse=1");
+    else if($olderUrl=="http://localhost/Project_T3/checkout.php?loginFalse=1"||$olderUrl=="http://localhost/Project_T3/checkout.php"){
+      header("Location:http://localhost/Project_T3/checkout.php?loginFalse=1 ");
+    }
 }
 ?>
