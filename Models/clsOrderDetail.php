@@ -11,11 +11,11 @@ require_once("clsDatabase.php");
    function clsOrderDetail(){
     $this->clsDatabase= new clsDatabase();
    }
-   function addOrderDetail($order_id,$product_id,$size,$price,$total_money){
+   function addOrderDetail($order_id,$product_id,$size,$price,$num,$total_money){
     $clsDatabase= new clsDatabase(); 
-    $sql="INSERT INTO `orderdetail` (`id`, `order_id`, `product_id`, `size`, `price`, `num`, `total_money`)
-     VALUES (NULL, '?', '?', '?', '?', '?', '?');";
-     $data=[$order_id,$product_id,$size,$price,$total_money];
+    $sql="INSERT INTO `orderdetail` (`id`, `order_id`, `product_id`, `size`, `price`, `num`, `total_money`) 
+    VALUES (NULL, ?, ?, ?, ?, ?, ?);";
+     $data=[$order_id,$product_id,$size,$price,$num,$total_money];
      $kq= $clsDatabase->executeQuery($sql,$data);
      return $kq;
    }

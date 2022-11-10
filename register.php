@@ -55,7 +55,7 @@
 $creatAccount=isset($_REQUEST["CreAcountSuccess"])==false? "": $_REQUEST["CreAcountSuccess"];
 
 if ($creatAccount==1) {
-  require_once("Views/MessengerSuccess.php");
+  require_once("Views/MessengerSuccessRegister.php");
   # code...
 }
 else if($creatAccount==-1){
@@ -114,7 +114,7 @@ else if($creatAccount==-1){
                                 <label class="form-label text-white m-1" for="customFile2">Choose file</label>
 
 
-                                <input type="file" name="imageUser" class="form-control d-none" onchange="changeHandler(event)" id="customFile2" accept=".jpg,.png" />
+                                <input type="file" name="imageUser" class="form-control d-none" onchange="changeHandler(event)" id="customFile2" accept=".jpg,.png,.jpeg" />
                               </div>
                             </div>
                           </div>

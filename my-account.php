@@ -47,17 +47,16 @@
 </head>
 
 <body>
-<?php
-$UpdAccount=isset($_REQUEST["UpdAcountSuccess"])==false? "": $_REQUEST["UpdAcountSuccess"];
+    <?php
+    $UpdAccount = isset($_REQUEST["UpdAcountSuccess"]) == false ? "" : $_REQUEST["UpdAcountSuccess"];
 
-if ($UpdAccount==1) {
-  require_once("Views/MessengerSuccess.php");
-  # code...
-}
-else if($UpdAccount==-1){
-  require_once("Views/MessengerFalse.php");
-}
-?>
+    if ($UpdAccount == 1) {
+        require_once("Views/MessengerSuccess.php");
+        # code...
+    } else if ($UpdAccount == -1) {
+        require_once("Views/MessengerFalse.php");
+    }
+    ?>
     <?php
     require("Views/header.php")
     ?>
@@ -109,7 +108,7 @@ else if($UpdAccount==-1){
 
                                                                     <img src="Upload/imagesUser/<?= $clsUser->image ?>" class="rounded-circle" alt="example placeholder" style="width: 100px;" />
                                                                 </div>
-                                                                
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -143,14 +142,77 @@ else if($UpdAccount==-1){
                                                     <div class="row">
                                                         <label class="col-md-2 control-label">Address</label>
                                                         <div class="col-md-10">
-                                                           <p><?= $clsUser->address ?></p>
+                                                            <p><?= $clsUser->address ?></p>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
+
                                             </fieldset>
-                                            
+
                                         </form>
+                                    </div>
+                                </div>
+                            </div>
+                          
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingThree">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-bs-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">Edit your order <i class="fa fa-caret-down"></i></a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse" data-bs-parent="#accordion2" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
+                                    <div class="easy2">
+                                        <h2>Your Order</h2>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">STT</th>
+                                                    <th scope="col">Information</th>
+                                                    <th scope="col">Products</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Cancel</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>Ordered:Mai Huy  Hoat<br>
+                                                    Email: hoatdfk2001@gmail.com<br>
+                                                    Phone Number: 018734928<br>
+                                                    Address: Nam Định <br>
+
+                                                    </td>
+                                                    <td>
+                                                        <ul>
+                                                            <li>Áo Sơ Mi</li>
+                                                            <li> Quần sơ mi</li>
+                                                        </ul>
+                                                    </td>
+                                                    <td>Đang chờ xác nhận</td>
+                                                    <td> <button type="button" class="btn btn-danger">Cancel</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td>Jacob</td>
+                                                    <td>Thornton</td>
+                                                    <td>@fat</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">3</th>
+                                                    <td>Larry</td>
+                                                    <td>the Bird</td>
+                                                    <td>@twitter</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="buttons clearfix">
+                                            <div class="pull-left">
+                                                <a class="btn btn-default ce5" href="#">Back</a>
+                                            </div>
+                                            <div class="pull-right">
+                                                <input class="btn btn-primary ce5" type="submit" value="Continue">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -163,10 +225,10 @@ else if($UpdAccount==-1){
                                 <div id="collapseTwo" class="panel-collapse collapse " role="tabpanel" data-bs-parent="#accordion2" aria-labelledby="headingOne" aria-expanded="false">
                                     <div class="easy2">
                                         <h2> Change My Account </h2>
-                                       
+
                                         <form class="form-horizontal" action="Controls/user_ctrl/ctrl_updateuser.php" method="POST" enctype="multipart/form-data">
                                             <fieldset>
-                                                <legend>User Name:  <?= $clsUser->user_name ?></legend>
+                                                <legend>User Name: <?= $clsUser->user_name ?></legend>
                                                 <div class="form-group required">
                                                     <div class="row">
                                                         <label class="col-md-2 control-label ">Your Image </label>
@@ -242,42 +304,7 @@ else if($UpdAccount==-1){
                                         </form>
                                     </div>
                                 </div>
-                              
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingThree">
-                                    <h4 class="panel-title">
-                                        <a class="collapsed" role="button" data-bs-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">Modify your address book entries <i class="fa fa-caret-down"></i></a>
-                                    </h4>
-                                </div>
-                                <div id="collapseThree" class="panel-collapse collapse" data-bs-parent="#accordion2" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
-                                    <div class="easy2">
-                                        <h2>Address Book Entries</h2>
-                                        <table class="table table-bordered table-hover">
-                                            <tr>
-                                                <td class="text-left">
-                                                    Michael K. Robinson
-                                                    <br>
-                                                    4917 Poling Farm Road
-                                                    <br>
-                                                    Fremont, NE 68025
-                                                </td>
-                                                <td class="text-right">
-                                                    <a class="btn btn-info g6" href="#">Edit</a>
-                                                    <a class="btn btn-danger g6" href="#">Delete</a>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        <div class="buttons clearfix">
-                                            <div class="pull-left">
-                                                <a class="btn btn-default ce5" href="#">Back</a>
-                                            </div>
-                                            <div class="pull-right">
-                                                <input class="btn btn-primary ce5" type="submit" value="Continue">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
 

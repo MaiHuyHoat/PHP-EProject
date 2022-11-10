@@ -54,8 +54,16 @@
     <?php
     require_once("Views/header.php");
     $loginFalse = isset($_REQUEST["loginFalse"]) == false ? " " : $_REQUEST["loginFalse"];
+
     if ($loginFalse == 1) {
         require_once("Views/MessengerFalseLogin.php");
+    } 
+    $sucOrder= isset($_REQUEST["SuccessOrder"])==false? "": $_REQUEST["SuccessOrder"];
+    if($sucOrder==1){
+        require_once("Views/MessengerSuccessOrder.php");
+    }
+    else if($sucOrder==-1){
+        require_once("Views/MessengerFalseOrder.php");
     }
     ?>
     <!-- mobile-menu-area end -->
@@ -75,6 +83,12 @@
         <div class="container">
             <?php
             $logined = isset($_SESSION["logined"]) == false ? false : $_SESSION["logined"];
+            $fullName = isset($_SESSION["logined"]) == false ? null : $clsUser->fullname;
+
+            $address = isset($_SESSION["logined"]) == false ? null : $clsUser->address;
+            $phoneNumber = isset($_SESSION["logined"]) == false ? "" : $clsUser->phone_number;
+            echo $phoneNumber;
+            $email = isset($_SESSION["logined"]) == false ? "" : $clsUser->email;
             if ($logined == false) { ?>
                 <div class="row">
                     <div class="col-md-12">
@@ -155,7 +169,7 @@
                                                         Full Name
                                                         <em>*</em>
                                                     </label>
-                                                    <input class="form-control" type="text" name="fullName">
+                                                    <input class="form-control" type="text" name="fullName" value="<?= $fullName ?>" required>
                                                 </div>
                                             </div>
 
@@ -165,7 +179,7 @@
                                                         Address
                                                         <em>*</em>
                                                     </label>
-                                                    <input class="form-control" type="text" name="address">
+                                                    <input class="form-control" type="text" name="address" value="<?= $address ?>" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
@@ -174,7 +188,7 @@
                                                         Email
                                                         <em>*</em>
                                                     </label>
-                                                    <input class="form-control" type="email" required="" name="email">
+                                                    <input class="form-control" type="email" required="" name="email" value="<?= $email ?>" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
@@ -183,23 +197,32 @@
                                                         Phone
                                                         <em>*</em>
                                                     </label>
-                                                    <input class="form-control" type="number"  name="phoneNumber">
+                                                    <input class="form-control" type="text" name="phoneNumber" value="<?=$phoneNumber ?> " required>
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-12">
                                                 <div class="form-outline">
-                                                <label class="form-label" for="textAreaExample2">Your note !</label>
+                                                    <label class="form-label" for="textAreaExample2">Your note !</label>
                                                     <textarea class="form-control" id="textAreaExample2" rows="8" name="note"></textarea>
-                                                 
+
                                                 </div>
                                             </div>
+                                          <?php
+                                         if($logined==false){
+                                          ?>
+                                            <div class="col-lg-12 mt-3">
+                                                <label class="inline2">
+                                                    <input type="checkbox" name="rememberme7" required>
+                                                   <span style="color:red ; font-size: 20px;">!</span> If you have not logged in to cancel your order, please contact the customer service staff at: 024789299 <em>*</em>
+                                                </label>
 
-
+                                            </div>
+                                            <?php }?>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12 text-center">
+                                    <div class="col-md-12 text-center ">
                                         <p class="checkout-coupon">
                                             <input type="submit" value="ORDER NOW">
                                         </p>

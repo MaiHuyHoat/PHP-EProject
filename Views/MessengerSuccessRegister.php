@@ -1512,8 +1512,8 @@ body.swal2-no-backdrop .swal2-shown.swal2-bottom-end,body.swal2-no-backdrop .swa
 
                     <h1>Successfully!</h1>
                     
-                   
-                    <button type="button" class="close btn btn-info" data-dismiss="modal" aria-label="">OK</button>
+                   <p>Your account has created !</p>
+                    <a href="login.php" class="btn btn-success">Login now</a>
                 </div>
 
             </div>

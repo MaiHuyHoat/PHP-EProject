@@ -1511,9 +1511,9 @@ body.swal2-no-backdrop .swal2-shown.swal2-bottom-end,body.swal2-no-backdrop .swa
                     </div>
 
                     <h1>Successfully!</h1>
-                    
-                   
+                    <p>Your order has been placed successfully</p>
                     <button type="button" class="close btn btn-info" data-dismiss="modal" aria-label="">OK</button>
+                   
                 </div>
 
             </div>

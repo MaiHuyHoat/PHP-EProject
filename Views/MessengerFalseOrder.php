@@ -115,8 +115,11 @@
         color: #fff;
         text-transform: uppercase;
         font-size: 14px;
-        background-color: #8BC34A;
+        background-color: red;
         border-radius: 17px;
+    }
+    .thank-you-pop a:hover{
+        background-color: #8BC34A;
     }
 
     .thank-you-pop a i {
@@ -1501,19 +1504,13 @@ body.swal2-no-backdrop .swal2-shown.swal2-bottom-end,body.swal2-no-backdrop .swa
             <div class="modal-body">
 
                 <div class="thank-you-pop">
-                    <div class="swal2-icon swal2-success swal2-animate-success-icon" style="display: flex;">
-                        <div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div>
-                        <span class="swal2-success-line-tip"></span>
-                        <span class="swal2-success-line-long"></span>
-                        <div class="swal2-success-ring"></div>
-                        <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div>
-                        <div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div>
-                    </div>
+                <div class="swal2-icon swal2-error swal2-animate-error-icon" style="display: flex;"><span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span></div>
 
-                    <h1>Successfully!</h1>
+                    <h1>False</h1>
+                    <p>Your order is false<br>
+                 Please order again</p>
                     
-                   
-                    <button type="button" class="close btn btn-info" data-dismiss="modal" aria-label="">OK</button>
+                 <button type="button" class="close btn btn-info" data-dismiss="modal" aria-label="">OK</button>
                 </div>
 
             </div>

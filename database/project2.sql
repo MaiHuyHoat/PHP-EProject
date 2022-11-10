@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 02, 2022 lúc 11:33 AM
+-- Thời gian đã tạo: Th10 10, 2022 lúc 02:11 PM
 -- Phiên bản máy phục vụ: 10.4.25-MariaDB
 -- Phiên bản PHP: 7.4.30
 
@@ -171,9 +171,9 @@ CREATE TABLE `orderdetail` (
   `order_id` int(11) DEFAULT NULL,
   `product_id` int(11) DEFAULT NULL,
   `size` int(11) NOT NULL,
-  `price` int(11) DEFAULT NULL,
+  `price` float DEFAULT NULL,
   `num` int(11) DEFAULT NULL,
-  `total_money` int(11) DEFAULT NULL
+  `total_money` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
