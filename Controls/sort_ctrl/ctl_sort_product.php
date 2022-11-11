@@ -6,7 +6,6 @@ $category = "";
 $first_price="";
 $last_price="";
 
-
 if(isset($_REQUEST["gender"]))
 {
     $gender = $_REQUEST["gender"];

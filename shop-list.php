@@ -102,7 +102,7 @@
                                         </div>							
                                     </div>
 
-                                    <button class="btn btn-outline-warning" style="width:px" type="submit">Find</button>
+                                    <button class="btn btn-outline-warning" style="width:150px" type="submit">Find</button>
                                     <br>
                                 </form>
                             </div>
