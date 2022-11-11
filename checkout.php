@@ -315,7 +315,7 @@
                                         Total
                                         <span>
                                             <strong>
-                                                <span class="amount">$ <?= $subtotal ?></span>
+                                                <span class="amount" >$ <?= $subtotal ?></span>
                                             </strong>
                                         </span>
                                     </p>

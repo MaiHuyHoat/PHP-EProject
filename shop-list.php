@@ -233,7 +233,7 @@
                                                             <div class="tb-content">
                                                                 <div class="tb-it">
                                                                     <div class="tb-beg">
-                                                                        <a href="#"><?=$row["title"]?></a>
+                                                                        <a href="single-product.php?id=<?=$row["id"]?>"><?=$row["title"]?></a>
                                                                     </div>
                                                                     <div class="tb-product-wrap-price-rating">
                                                                         <div class="tb-product-price font-noraure-3">
@@ -243,7 +243,7 @@
                                                                     </div>
                                                                     <div class="last-cart l-mrgn">
                                                                         <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                                        <a class="las4" href="Controls/ctrl_addcart.php/?product=<?=$row["id"]?>">Add To Cart</a>
+                                                                        <a class="las4"href="Controls/cart_ctrl/ctrl_addcart.php/?product=<?=$row["id"]?>">Add To Cart</a>
                                                                         <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
                                                                     </div>
                                                                 </div>
@@ -277,7 +277,7 @@
                                                     <div class="col-lg-8 col-md-8">
                                                         <div class="f-fix">
                                                             <div class="tb-beg">
-                                                                <a href="#"><?=$row["title"]?></a>
+                                                                <a href="single-product.php?id=<?=$row["id"]?>"><?=$row["title"]?></a>
                                                             </div>
                                                             <div class="tb-product-wrap-price-rating">
                                                                 <div class="tb-product-price font-noraure-3">
@@ -287,7 +287,7 @@
                                                             </div>
                                                             <p class="desc"><?=$row["description"]?></p>
                                                             <div class="last-cart l-mrgn ns">
-                                                                <a class="las4" href="#">Add To Cart</a>
+                                                                <a class="las4" href="Controls/cart_ctrl/ctrl_addcart.php/?product=<?=$row["id"]?>">Add To Cart</a>
                                                             </div>
                                                             <div class="tb-product-btn">
                                                                 <a href="#">
@@ -364,7 +364,7 @@
                                                     <input id="qty" class="input-text qty" type="text" name="qty" maxlength="12" value="1" title="Qty">
                                                 </div>
                                                 <div class="last-cart">
-                                                    <a class="last1" href="#">Add To Cart</a>
+                                                    <a class="last1" href="Controls/cart_ctrl/ctrl_addcart.php/?product=<?=$row["id"]?>">Add To Cart</a>
                                                 </div>
                                             </div>
                                         </div>

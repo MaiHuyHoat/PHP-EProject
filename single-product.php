@@ -115,16 +115,7 @@
                                         <p><?=$row["description"]?></p>
                                     </div>
                                     <form action="#" class="woocommerce-shipping-calculator">
-                                        <p class="form-row form-row-wide">
-                                            <label>
-                                                Color
-                                                <span class="required">*</span>
-                                            </label>
-                                            <select class="email s-email s-wid">
-                                                <option>Choose an option</option>
-                                                <option>Black</option>
-                                            </select>
-                                        </p>
+                                        
                                         <p class="form-row form-row-wide">
                                             <label>
                                                 Size 
@@ -143,7 +134,7 @@
                                         <div>
                                             <p class="single-price-top">
                                                 Price:
-                                                <span style="padding-left:90px;font-size:20px;color:#ce9634"><?=$row["price"]?></span>
+                                                <span style="padding-left:90px;font-size:20px;color:#ce9634">$ <?=$row["price"]?></span>
                                             </p>
                                         </div>
                                         <div class="ro-quantity clearfix">

@@ -14,7 +14,21 @@ $note=$_REQUEST["note"];
 $status=0;
 $clsOrder= new clsOrder();
 $clsOrderDetail= new clsOrderDetail();
-$kq=$clsOrder->addOrder($user_id,$fullName,$email,$phoneNumber,$address,$note,$status);
+$total_money = 0;
+$listId = array_keys($_SESSION["cart"]);
+                                                    $cSp = new clsSanpham();
+
+                                                    $strListId = implode(",", $listId); // danh sach id san pham da mua
+
+                                                    $dk = " AND product.id in ($strListId)";
+
+                                                    $listProduct = $cSp->getListProduct($dk);
+foreach ($listProduct as $row) {
+    $total_money += $row["price"] * $_SESSION["cart"][$row["id"]]["qty"];
+    # code...
+}
+
+$kq=$clsOrder->addOrder($user_id,$fullName,$email,$phoneNumber,$address,$note,$total_money,$status);
 if($kq==true) {
    $order_id=$clsOrder->id;
     
@@ -38,5 +52,3 @@ else {
     $olderUrl="http://localhost/Project_T3/checkout.php";
     header("Location:$olderUrl?SuccessOrder=-1");
 }
-
-?>

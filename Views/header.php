@@ -282,7 +282,7 @@
                                                             </p>
                                                             <p class="buttons">
                                                                 <a class="button wc-forward" href="shopping-cart.php">View Cart</a>
-                                                                <a class="button checkout wc-forward" href="checkout.php">Checkout</a>
+                                                       
                                                             </p>
                                                         </div>
                                                     </div>

@@ -188,153 +188,243 @@
                                                 <tbody>
 
                                                     <?php
-                                                    $stt=1;
-                                                    foreach ($orders as $order) { ?>
+                                                    $stt = 1;
+                                                    foreach ($orders as $order) { 
+                                                        $status= (int )$order["status"];
+                                                        switch($status){
+                                                          case 0: $statusShow="Waiting for confirmation";break;
+                                                          case 1: $statusShow="Canceled";break;
+                                                          case 2: $statusShow="Confirmed";break;
+                                                          case 3: $statusShow=" Delivered to the carrier";break;
+                                                          case 4: $statusShow="Receive";break;
+                                                          case 5: $statusShow="Paided";break;
+                                                          default: $statusShow="No status !";break;
+                                                        }
+                                                        ?>
+                                                           
+                                                        <tr>
+                                                            <th scope="row"><?= $stt ?></th>
+                                                            <td>Ordered: <?= $order["fullname"] ?><br>
+                                                                Email: <?= $order["email"] ?><br>
+                                                                Phone Number: <?= $order["phone_number"] ?><br>
+                                                                Address: <?= $order["address"] ?> <br>
+                                                                Order Date: <?= $order["order_date"] ?>
+                                                                Total Money: $ <?=$order["total_money"]?>
+                                                            </td>
+                                                            <td>
+                                                                <ul>
+                                                                    <?php
+                                                                    $orderDetails = $clsOrderDetail->getOrderDetail($order["id"]);
+                                                                    foreach ($orderDetails as $orderDetail) {
 
-<tr>
-                                                        <th scope="row"><?=$stt?></th>
-                                                        <td>Ordered: <?=$order["fullname"]?><br>
-                                                            Email: <?=$order["email"]?><br>
-                                                            Phone Number: <?=$order["phone_number"]?><br>
-                                                            Address: <?=$order["address"]?> <br>
-                                                            Order Date: <?=$order["order_date"]?>
-                                                        </td>
-                                                        <td>
-                                                            <ul>
-                                                                <?php
-                                                                $orderDetails=$clsOrderDetail->getOrderDetail($order["id"]);
-                                                                foreach ($orderDetails as $orderDetail) {
-                                                                    $nameProduct=$clsOrderDetail->getNameProduct($orderDetail["product_id"])?>
-                                                                     <li><span> <?=$nameProduct?></span> x <?=$orderDetail["num"]?> | Size: <?=$orderDetail["size"]?>
-                                                                <?php }
-                                                                ?>
-                                                                
-                                                            </ul>
-                                                        </td>
-                                                        <td>Đang chờ xác nhận</td>
-                                                        <td> <button type="button" class="btn btn-danger">Cancel</button></td>
-                                                    </tr>
+                                                                        $nameProduct = $clsOrderDetail->getNameProduct($orderDetail["product_id"]) ?>
+                                                                        <li><span> <?= $nameProduct ?></span> x <?= $orderDetail["num"] ?> | Size: <?= $orderDetail["size"] ?>
+                                                                        <?php }
+                                                                        ?>
+
+                                                                </ul>
+                                                            </td>
+                                                            <td><?=$statusShow?></td>
+                                                         <?php
+                                                            switch($status){
+                                                                case 0: {?><td> <button type="button" class="btn btn-danger"><a href="Controls/check_out_ctrl/ctrl_cancelOrder.php?order_Id=<?= $order['id'] ?>" style="color: white;" onclick="return confirm('Do you want cancel this order?')"> Cancel</a></button></td><?php };break;
+                                                                case 1:{?><td></td> <?php };break;
+                                                                case 2:{?><td> <button type="button" class="btn btn-danger"><a href="Controls/check_out_ctrl/ctrl_cancelOrder.php?order_Id=<?= $order['id'] ?>" style="color: white;" onclick="return confirm('Do you want cancel this order?')"> Cancel</a></button></td> <?php };break;
+                                                                case 3: {?> <td></td> <?php };break;
+                                                                case 4:{?><td> <button type="button" class="btn btn-success"><a href="Controls/check_out_ctrl/ctrl_paidedOrder.php?order_Id=<?= $order['id'] ?>" style="color: white;" > Paided</a></button></td>
+                                                                          <td> <button type="button" class="btn btn-danger"><a href="Controls/check_out_ctrl/ctrl_cancelOrder.php?order_Id=<?= $order['id'] ?>" style="color: white;" onclick="return confirm('Do you want cancel this order?')"> Cancel</a></button></td><?php };break;
+                                                                case 5: {?><td></td> <?php };break;
+                                                                default: {?> <td></td> <?php };break;
+                                                              }
+                                                         ?>
+                                         
+                                                        </tr>
                                                     <?php
-                                                    $stt++;
+                                                        $stt++;
                                                     }
                                                     ?>
-                                                    
-                                                  
+
+
                                                 </tbody>
                                             </table>
-                                            <div class="buttons clearfix">
-                                                <div class="pull-left">
-                                                    <a class="btn btn-default ce5" href="#">Back</a>
-                                                </div>
-                                                <div class="pull-right">
-                                                    <input class="btn btn-primary ce5" type="submit" value="Continue">
-                                                </div>
-                                            </div>
+
+                                        </div>
+
+                                    <?php } else {
+                                    ?>
+                                        <div class="easy2">
+                                            <h2> You don't have any order</h2>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse" data-bs-parent="#accordion2" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
+                                    <?php
+                                    $clsOrder = new clsOrder();
+                                    $clsOrderDetail = new clsOrderDetail();
+                                    $orders = $clsOrder->getOrderCancel($_SESSION['user']['id']);
+                                    if (empty($orders) == false) {
+
+
+                                    ?>
+                                        <div class="easy2">
+
+                                            <h2>Order Canceled</h2>
+
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">STT</th>
+                                                        <th scope="col">Information</th>
+                                                        <th scope="col">Products</th>
+                                                        <th scope="col">Status</th>
+                                                        <th scope="col">Cancel</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    <?php
+                                                    $stt = 1;
+                                                    foreach ($orders as $order) { ?>
+
+                                                        <tr>
+                                                            <th scope="row"><?= $stt ?></th>
+                                                            <td>Ordered: <?= $order["fullname"] ?><br>
+                                                                Email: <?= $order["email"] ?><br>
+                                                                Phone Number: <?= $order["phone_number"] ?><br>
+                                                                Address: <?= $order["address"] ?> <br>
+                                                                Order Date: <?= $order["order_date"] ?><br>
+                                                                Total Money: $ <?=$order["total_money"]?>
+                                                            </td>
+                                                            <td>
+                                                                <ul>
+                                                                    <?php
+                                                                    $orderDetails = $clsOrderDetail->getOrderDetail($order["id"]);
+                                                                    foreach ($orderDetails as $orderDetail) {
+                                                                        $nameProduct = $clsOrderDetail->getNameProduct($orderDetail["product_id"]) ?>
+                                                                        <li><span> <?= $nameProduct ?></span> x <?= $orderDetail["num"] ?> | Size: <?= $orderDetail["size"] ?>
+                                                                        <?php }
+                                                                        ?>
+
+                                                                </ul>
+                                                            </td>
+                                                            <td>Canceled</td>
+                                                            <td> <button type="button" class="btn btn-success"><a href="Controls/check_out_ctrl/ctrl_reOrder.php?order_Id=<?= $order['id'] ?>" style="color: white;"
+                                                             onclick="return confirm('Do you want Re-Order this order?')">Re-Order</a></button></td>
+                                                        </tr>
+                                                    <?php
+                                                        $stt++;
+                                                    }
+                                                    ?>
+
+
+                                                </tbody>
+                                            </table>
+
                                         </div>
                                 </div>
-                            <?php }else{
-                            ?>
-                            <div class="easy2">
-                                <h2> You don't have any order</h2>
-                            </div>
-                              <?php }?>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingTwo">
-                                    <h4 class="panel-title">
-                                        <a class="collapsed" role="button" data-bs-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Update your Account <i class="fa fa-caret-down"></i></a>
-                                    </h4>
+                           
+                                    <?php } 
+                                    ?>
+                                        
+                                    
                                 </div>
-                                <div id="collapseTwo" class="panel-collapse collapse " role="tabpanel" data-bs-parent="#accordion2" aria-labelledby="headingOne" aria-expanded="false">
-                                    <div class="easy2">
-                                        <h2> Change My Account </h2>
+                            </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingTwo">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" role="button" data-bs-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Update your Account <i class="fa fa-caret-down"></i></a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseTwo" class="panel-collapse collapse " role="tabpanel" data-bs-parent="#accordion2" aria-labelledby="headingOne" aria-expanded="false">
+                                        <div class="easy2">
+                                            <h2> Change My Account </h2>
 
-                                        <form class="form-horizontal" action="Controls/user_ctrl/ctrl_updateuser.php" method="POST" enctype="multipart/form-data">
-                                            <fieldset>
-                                                <legend>User Name: <?= $clsUser->user_name ?></legend>
-                                                <div class="form-group required">
-                                                    <div class="row">
-                                                        <label class="col-md-2 control-label ">Your Image </label>
-                                                        <div class="col-md-4">
+                                            <form class="form-horizontal" action="Controls/user_ctrl/ctrl_updateuser.php" method="POST" enctype="multipart/form-data">
+                                                <fieldset>
+                                                    <legend>User Name: <?= $clsUser->user_name ?></legend>
+                                                    <div class="form-group required">
+                                                        <div class="row">
+                                                            <label class="col-md-2 control-label ">Your Image </label>
+                                                            <div class="col-md-4">
 
-                                                            <div>
-                                                                <div class="d-flex  mb-4">
+                                                                <div>
+                                                                    <div class="d-flex  mb-4">
 
-                                                                    <img id="myimage" src="Upload/imagesUser/<?= $clsUser->image ?>" class="rounded-circle" alt="example placeholder" style="width: 100px;" />
-                                                                </div>
-                                                                <div class="d-flex ">
-                                                                    <div class="btn btn-primary btn-rounded">
-                                                                        <label class="form-label text-white m-1" for="customFile2">Choose file</label>
+                                                                        <img id="myimage" src="Upload/imagesUser/<?= $clsUser->image ?>" class="rounded-circle" alt="example placeholder" style="width: 100px;" />
+                                                                    </div>
+                                                                    <div class="d-flex ">
+                                                                        <div class="btn btn-primary btn-rounded">
+                                                                            <label class="form-label text-white m-1" for="customFile2">Choose file</label>
 
 
-                                                                        <input type="file" name="imageUser" class="form-control d-none" onchange="changeHandler(event)" id="customFile2" accept=".jpg,.png,.jpeg" />
+                                                                            <input type="file" name="imageUser" class="form-control d-none" onchange="changeHandler(event)" id="customFile2" accept=".jpg,.png,.jpeg" />
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group required">
-                                                    <div class="row">
-                                                        <label class="col-md-2 control-label">Full Name </label>
-                                                        <div class="col-md-10">
-                                                            <input class="form-control" name="fullName" type="text" value="<?= $clsUser->fullname ?>">
+                                                    <div class="form-group required">
+                                                        <div class="row">
+                                                            <label class="col-md-2 control-label">Full Name </label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" name="fullName" type="text" value="<?= $clsUser->fullname ?>">
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="form-group required">
-                                                    <div class="row">
-                                                        <label class="col-md-2 control-label">E-Mail</label>
-                                                        <div class="col-md-10">
-                                                            <input class="form-control" name="email" type="email" placeholder="E-Mail" value="<?= $clsUser->email ?>">
+                                                    <div class="form-group required">
+                                                        <div class="row">
+                                                            <label class="col-md-2 control-label">E-Mail</label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" name="email" type="email" placeholder="E-Mail" value="<?= $clsUser->email ?>">
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group required">
-                                                    <div class="row">
-                                                        <label class="col-md-2 control-label">Telephone</label>
-                                                        <div class="col-md-10">
-                                                            <input class="form-control" name="phoneNumber" type="tel" placeholder="Telephone" value="<?= $clsUser->phone_number ?>">
+                                                    <div class="form-group required">
+                                                        <div class="row">
+                                                            <label class="col-md-2 control-label">Telephone</label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" name="phoneNumber" type="tel" placeholder="Telephone" value="<?= $clsUser->phone_number ?>">
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group required">
-                                                    <div class="row">
-                                                        <label class="col-md-2 control-label">Address</label>
-                                                        <div class="col-md-10">
-                                                            <input class="form-control" name="address" type="text" placeholder="Address" value="<?= $clsUser->address ?>">
+                                                    <div class="form-group required">
+                                                        <div class="row">
+                                                            <label class="col-md-2 control-label">Address</label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" name="address" type="text" placeholder="Address" value="<?= $clsUser->address ?>">
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group required">
-                                                    <div class="row">
-                                                        <label class="col-md-2 control-label">Change-Password</label>
-                                                        <div class="col-md-10">
-                                                            <input class="form-control" name="password" type="text" placeholder="Change your password here" value="<?= $clsUser->password ?>">
+                                                    <div class="form-group required">
+                                                        <div class="row">
+                                                            <label class="col-md-2 control-label">Change-Password</label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" name="password" type="text" placeholder="Change your password here" value="<?= $clsUser->password ?>">
+                                                            </div>
                                                         </div>
                                                     </div>
+                                                </fieldset>
+                                                <div class="buttons clearfix">
+                                                    <div class="pull-left">
+                                                        <a class="btn btn-default ce5" href="<?= $_SERVER["HTTP_REFERER"] ?>">Back</a>
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <input class="btn btn-primary ce5" type="submit" value="UPDATE">
+                                                    </div>
                                                 </div>
-                                            </fieldset>
-                                            <div class="buttons clearfix">
-                                                <div class="pull-left">
-                                                    <a class="btn btn-default ce5" href="<?= $_SERVER["HTTP_REFERER"] ?>">Back</a>
-                                                </div>
-                                                <div class="pull-right">
-                                                    <input class="btn btn-primary ce5" type="submit" value="UPDATE">
-                                                </div>
-                                            </div>
-                                        </form>
+                                            </form>
+                                        </div>
                                     </div>
+
                                 </div>
-
                             </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
     <?php
     require_once("Views/footer.php")

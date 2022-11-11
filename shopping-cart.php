@@ -70,7 +70,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-12">
-                    <form action="Controls/cart_ctrl/ctrl_updatecart.php" method="POST">
+                    <form action="Controls/cart_ctrl/ctrl_updatecart.php" method="POST" id="form-cart">
                         <div class="s-cart-all">
                             <div class="page-title">
                                 <h1>Shopping-Cart on Noraure </h1>
@@ -102,7 +102,7 @@
                                                 </td>
                                                 <td class="sop-cart an-sh">
                                                     <div class="quantity ray">
-                                                        <input class="input-text qty text" name="qty[<?= $row["id"] ?>]" type="number" title="Qty" value="<?= $_SESSION["cart"][$row["id"]]["qty"] ?>" min="0" step="1">
+                                                        <input class="input-text qty text" name="qty[<?= $row["id"] ?>]" type="number" title="Qty" value="<?= $_SESSION["cart"][$row["id"]]["qty"] ?>" min="0" step="1" onchange="submitForm()">
                                                     </div>
                                                     <a class="remove " href="Controls/cart_ctrl/ctrl_delcart.php?product=<?= $row["id"] ?>">
                                                         <span>x</span>
@@ -118,32 +118,32 @@
                                                     <?php
                                                        $size=isset( $_SESSION["cart"][$row["id"]]["size"])==false?"": $_SESSION["cart"][$row["id"]]["size"];
                                                        if($size=="L"){?>
-                                                       <select name="size[<?= $row["id"] ?>]" class="form-select " required>
-                                                        <option >Choose size</option>
+                                                       <select name="size[<?= $row["id"] ?>]" class="form-select product-size" onchange="submitForm()" required>
+                                                        <option value="0" >Choose size</option>
                                                         <option value="S" >S</option>
                                                         <option value="M" >M</option>
                                                         <option value="L" selected >L</option>
 
                                                     </select>
                                                        <?php } else if($size=="M"){?>
-                                                        <select name="size[<?= $row["id"] ?>]" class="form-select " required>
-                                                        <option >Choose size</option>
+                                                        <select name="size[<?= $row["id"] ?>]" class="form-select product-size" onchange="submitForm()" required>
+                                                        <option value="0" >Choose size</option>
                                                         <option value="S" >S</option>
                                                         <option value="M"selected >M</option>
                                                         <option value="L" >L</option>
 
                                                     </select>
                                                     <?php } else if($size=="S"){?>
-                                                        <select name="size[<?= $row["id"] ?>]" class="form-select " required>
-                                                        <option >Choose size</option>
+                                                        <select name="size[<?= $row["id"] ?>]" class="form-select product-size" onchange="submitForm()" required>
+                                                        <option value="0">Choose size</option>
                                                         <option value="S"selected >S</option>
                                                         <option value="M" >M</option>
                                                         <option value="L" >L</option>
 
                                                     </select>
                                                     <?php } else {?>
-                                                        <select name="size[<?= $row["id"] ?>]" class="form-select " required>
-                                                        <option selected>Choose size</option>
+                                                        <select name="size[<?= $row["id"] ?>]" class="form-select product-size" onchange="submitForm()" required>
+                                                        <option value="0" selected>Choose size</option>
                                                         <option value="S" >S</option>
                                                         <option value="M" >M</option>
                                                         <option value="L" >L</option>
@@ -167,13 +167,7 @@
 
                                     </table>
                             </div>
-                            <div class="last-check1">
-                                <div class="yith-wcwl-share yit">
-                                    <p class="checkout-coupon an-cop">
-                                        <input type="submit" name="update" value="Update">
-                                    </p>
-                                </div>
-                            </div>
+                           
 
                         </div>
                     </form>
@@ -276,7 +270,7 @@
                             <p class="return-to-shop">
                                 <a class="button wc-backward" href="shop.php">Continue Shopping</a>
                             </p>
-                            <a class="wc-forward wc-forward-cart" href="checkout.php">Check Out</a>
+                            <button id="check-out"   class="wc-forward wc-forward-cart btn" > <a class="wc-forward wc-forward-cart"   href="checkout.php" id="link_checkOut" >Check Out</a></button>
                         </div>
                     </div>
                 </div>
@@ -331,6 +325,7 @@ require_once("Views/footer.php")
 <script src="js/plugins.js"></script>
 <!-- main js -->
 <script src="js/main.js"></script>
+<script src="js/checkOut.js"></script>
 </body>
 
 <!-- Mirrored from htmldemo.net/noraure/noraure/shopping-cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Oct 2022 16:44:36 GMT -->
