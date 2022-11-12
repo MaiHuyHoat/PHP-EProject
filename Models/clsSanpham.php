@@ -70,6 +70,15 @@ class clsSanpham{
         }
         
     }
+    function countProduct(){
+        $sql="SELECT COUNT(*) FROM `product`;";
+        $ketqua =$this->clsDatabase->executeQuery($sql);
+        if($ketqua==true){
+            $qty=$this->clsDatabase->pdo_stm->fetch();
+            return $qty[0];
+        }
+       else return 0; 
+    }
     function getClosedProduct($id){
         $sql="SELECT product.closed FROM product WHERE id=$id;";
         $ketqua =$this->clsDatabase->executeQuery($sql);
@@ -80,7 +89,7 @@ class clsSanpham{
        else return 0;
     }
     function getBoughtProduct($id){
-        $sql="SELECT bought FROM `product` WHERE id=$id;";
+    
         $sql="SELECT product.bought FROM product WHERE id=$id;";
         $ketqua =$this->clsDatabase->executeQuery($sql);
         if($ketqua==true){

@@ -196,8 +196,7 @@
                                                           case 1: $statusShow="Canceled";break;
                                                           case 2: $statusShow="Confirmed";break;
                                                           case 3: $statusShow=" Delivered to the carrier";break;
-                                                          case 4: $statusShow="Receive";break;
-                                                          case 5: $statusShow="Paided";break;
+                                                          case 4:  $statusShow="Paided";break;
                                                           default: $statusShow="No status !";break;
                                                         }
                                                         ?>
@@ -230,10 +229,10 @@
                                                                 case 0: {?><td> <button type="button" class="btn btn-danger"><a href="Controls/check_out_ctrl/ctrl_cancelOrder.php?order_Id=<?= $order['id'] ?>" style="color: white;" onclick="return confirm('Do you want cancel this order?')"> Cancel</a></button></td><?php };break;
                                                                 case 1:{?><td></td> <?php };break;
                                                                 case 2:{?><td> <button type="button" class="btn btn-danger"><a href="Controls/check_out_ctrl/ctrl_cancelOrder.php?order_Id=<?= $order['id'] ?>" style="color: white;" onclick="return confirm('Do you want cancel this order?')"> Cancel</a></button></td> <?php };break;
-                                                                case 3: {?> <td></td> <?php };break;
-                                                                case 4:{?><td> <button type="button" class="btn btn-success"><a href="Controls/check_out_ctrl/ctrl_paidedOrder.php?order_Id=<?= $order['id'] ?>" style="color: white;" > Paided</a></button></td>
+                                                      
+                                                                case 3:{?><td> <button type="button" class="btn btn-success"><a href="Controls/check_out_ctrl/ctrl_paidedOrder.php?order_Id=<?= $order['id'] ?>" style="color: white;" > Paided</a></button></td>
                                                                           <td> <button type="button" class="btn btn-danger"><a href="Controls/check_out_ctrl/ctrl_cancelOrder.php?order_Id=<?= $order['id'] ?>" style="color: white;" onclick="return confirm('Do you want cancel this order?')"> Cancel</a></button></td><?php };break;
-                                                                case 5: {?><td></td> <?php };break;
+                                                                case 4: {?><td></td> <?php };break;
                                                                 default: {?> <td></td> <?php };break;
                                                               }
                                                          ?>
