@@ -23,12 +23,17 @@ if (empty($size)) {
     die("Error Form");
 }
 else {
-    foreach ($size as $key => $value) {
+   
         # code...
-      $_SESSION["cart"][$key]["size"]=$value;
-    }
-}
+        foreach ($size as $key => $value) {
+            # code...
+          $_SESSION["cart"][$key]["size"]=$value;
+        }
+    
+ 
 
+}
+ echo json_encode($_SESSION);
 $olderUrl=$_SERVER['HTTP_REFERER'] ;
     header("Location:$olderUrl");
 ?>

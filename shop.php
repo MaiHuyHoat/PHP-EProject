@@ -41,7 +41,8 @@
         <link rel="stylesheet" href="css/responsive.css">
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-        <?php require_once("Views/head.php")?>
+        <!-- CSS only -->
+        <?php require("Views/head.php")?>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -52,7 +53,7 @@
         
          
         <?php
-       require_once("Views/header.php")
+       require("Views/header.php")
        ?>
         <!-- mobile-menu-area end --> 
         <section class="contact-img-area">
@@ -75,104 +76,25 @@
                             <div class="top-shop-sidebar">
                                 <h3 class="wg-title">SHOP BY</h3>
                             </div>
-                            <div class="shop-one">
-                                <h3 class="wg-title2">Categories</h3>
-                                <ul class="product-categories">
-                                    <li class="cat-item">
-                                        <a href="#">Accessories</a>
-                                        <span class="count">(10)</span>
-                                    </li>
-                                    <li class="cat-item">
-                                        <a href="#">Jewelry</a>
-                                        <span class="count">(8)</span>
-                                    </li>
-                                    <li class="cat-item current-cat">
-                                        <a href="#">Men</a>
-                                        <span class="count">(5)</span>
-                                    </li>
-                                    <li class="cat-item">
-                                        <a href="#">Watches</a>
-                                        <span class="count">(6)</span>
-                                    </li>
-                                    <li class="cat-item">
-                                        <a href="#">Women</a>
-                                        <span class="count">(10)</span>
-                                    </li>
-                                </ul>
+                            <div class="shop-one form-check">
+                                <form action="shop-list.php" method="get">
+                                    <h3 class="wg-title2">Genders</h3><br>
+                                    <input type="radio" name="gender" class="cat-item form-check-input" value="woman">Woman<br>
+                                    <input type="radio" name="gender" class="cat-item form-check-input" value="man">Men<br>
+
+                                    <h3 class="wg-title2">Categories</h3><br>
+                                    <input type="radio" name="category" class="cat-item form-check-input" value="shirt">Shirt<br>
+                                    <input type="radio" name="category" class="cat-item form-check-input" value="polo">Polo<br>
+                                    <input type="radio" name="category" class="cat-item form-check-input" value="shoes">Shoes<br>
+                                    <input type="radio" name="category" class="cat-item form-check-input" value="shorts">Shorts<br>
+                                    <input type="radio" name="category" class="cat-item form-check-input" value="jeans">Jeans<br>
+
+
+                                    <button class="btn btn-outline-warning mt-3" style="width:150px" type="submit">Find</button>
+                                    <br>
+                                </form>
                             </div>
-                            <div class="shop-one">
-                                <h3 class="wg-title2">Our Brand</h3>
-                                <ul class="product-categories">
-                                    <li class="cat-item">
-                                        <a href="#">Nike</a>
-                                        <span class="count">(1)</span>
-                                    </li>
-                                    <li class="cat-item">
-                                        <a href="#">Religion</a>
-                                        <span class="count">(1)</span>
-                                    </li>
-                                    <li class="cat-item-10">
-                                        <a href="#">Diesel</a>
-                                        <span class="count">(1)</span>
-                                    </li>
-                                    <li class="cat-item">
-                                        <a href="#">Monki</a>
-                                        <span class="count">(1)</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="shop-one">
-                                <h3 class="wg-title2">Choose Price</h3>
-                                <div class="widget shop-filter">
-                                    <div class="info_widget">
-                                        <div class="price_filter">
-                                            <div id="slider-range"></div>
-                                            <div id="amount">
-                                                <input type="text" name="first_price" class="first_price" />
-                                                <input type="text" name="last_price" class="last_price"/>
-                                                <button class="button-shop" type="submit"><i class="fa fa-search search-icon"></i></button>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>							
-                                </div>
-                            </div>
-                            <div class="shop-one">
-                                <h3 class="wg-title2">Choose Color</h3>
-                                <ul class="product-categories">
-                                    <li class="cat-item cat-item-11">
-                                        <a href="#">Black</a>
-                                        <span class="count">(1)</span>
-                                    </li>
-                                    <li class="cat-item cat-item-8">
-                                        <a href="#">Orange</a>
-                                        <span class="count">(1)</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="top-shop-sidebar sim">
-                                <h3 class="wg-title">Compare Products</h3>
-                                <ul class="products-list">
-                                    <li class="cat-item cat-item-11">No products to compare</li>
-                                </ul>
-                                <a class="clear-all" href="#">Clear all</a>
-                                <a class="blog8" href="#">Compare</a>
-                            </div>
-                            <div class="top-shop-sidebar sim2">
-                                <h3 class="wg-title">Community Pool</h3>
-                            </div>
-                            <div class="shop-one">
-                                <ul class="product-categories">
-                                    <li class="cat-item cat-item-11">
-                                        <a href="#">Black</a>
-                                        <span class="count">(1)</span>
-                                    </li>
-                                    <li class="cat-item cat-item-8">
-                                        <a href="#">Orange</a>
-                                        <span class="count">(1)</span>
-                                    </li>
-                                </ul>
-                            </div>
+
                             <div class="top-shop-sidebar an-shop">
                                 <h3 class="wg-title">BEST SELLER</h3>
                                 <ul>
@@ -254,14 +176,16 @@
                                             </ul>
                                             <div class="sort-by">
                                                 <div class="shop6">
-                                                    <label>Sort By :</label>
-                                                    <select>
-                                                        <option value="">Default sorting</option>
-                                                        <option value="">Sort by popularity</option>
-                                                        <option value="">Sort by average rating</option>
-                                                        <option value="">Sort by newness</option>
-                                                        <option value="">Sort by price: low to high</option>
-                                                    </select>
+                                                    <form action="shop-list.php" method="get">
+                                                        <label>Sort By :</label>
+                                                        <select name="drop_sort">
+                                                            <option>Default sorting</option>
+                                                            <option>Sort by alphabet</option>
+                                                            <option>Sort by price: low to high</option>
+                                                            <option>Sort by price: high to low</option>
+                                                        </select>
+                                                        <button class="button-shop" type="submit"><i class="fa fa-search search-icon"></i></button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -280,48 +204,45 @@
                                             <div class="shop-tab">
                                                 <div class="row">
                                                     <?php
-                                              
-                                                    $Sanpham= new clsSanpham();
-                                                    $rows = $Sanpham->getListProduct();
+                                                    require_once("Controls/sort_ctrl/ctl_sort_product.php");
                                                     if($rows == NULL)
 
-                                                        die("<p>ERROR IN DATABSE</p>");
+                                                        die("<p>ERROR IN DATABASE</p>");
                                                   
                                                     foreach($rows as $row)
                                                     {
                                                     ?>
                                                     <!-- single-product start -->
                                                     <div class="col-lg-6 col-xl-4 col-md-6 col-sm-12">
+                                                        <a href="single-product.php?id=<?=$row["id"]?>">
                                                         <div class="tb-product-item-inner tb2 pct-last">
                                                             <img alt="" src="<?=$row["thumbnail"][0]?>">
-                                                            <a class="la-icon"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
+                                                            <a class="la-icon" href="#productModal" onclick="showDetails(this.getAttribute('data-id'));" data-id="<?=$row["id"]?>" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
                                                             <div class="tb-content">
                                                                 <div class="tb-it">
                                                                     <div class="tb-beg">
-                                                                        <a href="#"><?=$row["title"]?></a>
+                                                                        <a href="single-product.php?id=<?=$row["id"]?>"><?=$row["title"]?></a>
                                                                     </div>
                                                                     <div class="tb-product-wrap-price-rating">
                                                                         <div class="tb-product-price font-noraure-3">
-                                                                     
-
                                                                             <span class="amount">£<?=$row["price_old"]?></span>
                                                                             <span class="amount2 ana">£<?=$row["price"]?></span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="last-cart l-mrgn">
                                                                         <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                                        <a class="las4" href="Controls/cart_ctrl/ctrl_addcart.php/?product=<?=$row["id"]?>">Add To Cart</a>
+                                                                        <a class="las4"href="Controls/cart_ctrl/ctrl_addcart.php/?product=<?=$row["id"]?>">Add To Cart</a>
                                                                         <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        </a>
                                                     </div>
                                                     <!-- single-product end -->	
                                                     <?php
                                                     }
                                                     ?>
-                                                  
 
                                                 </div>
                                             </div>
@@ -332,28 +253,29 @@
                                             {
                                             ?>
                                             <div class="li-item">
+                                                <a href="single-product.php?id=<?=$row["id"]?>">
                                                 <div class="row">
                                                     <div class="col-lg-4 col-md-4">
                                                         <div class="tb-product-item-inner tb2 pct-last">
                                                             <span class="onsale two">Sale!</span>
-                                                            <img alt="" src="<?=$row["thumbnail"]?>">
-                                                            <a class="la-icon ts"  href="#productModal" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
+                                                            <img alt="" src="<?=$row["thumbnail"][0]?>">
+                                                            <a class="la-icon ts"  href="#productModal" onclick="showDetails(this.getAttribute('data-id'));" data-id="<?=$row["id"]?>" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-8 col-md-8">
                                                         <div class="f-fix">
                                                             <div class="tb-beg">
-                                                                <a href="#"><?=$row["title"]?></a>
+                                                                <a href="single-product.php?id=<?=$row["id"]?>"><?=$row["title"]?></a>
                                                             </div>
                                                             <div class="tb-product-wrap-price-rating">
                                                                 <div class="tb-product-price font-noraure-3">
-                                                                    <span class="amount2 ana"><?=$row["price"]?></span>
+                                                                    <span class="amount">£<?=$row["price_old"]?></span>
+                                                                    <span class="amount2 ana">£<?=$row["price"]?></span>
                                                                 </div>
                                                             </div>
                                                             <p class="desc"><?=$row["description"]?></p>
-                                                            <p class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo  </p>
                                                             <div class="last-cart l-mrgn ns">
-                                                                <a class="las4" href="#">Add To Cart</a>
+                                                                <a class="las4" href="Controls/cart_ctrl/ctrl_addcart.php/?product=<?=$row["id"]?>">Add To Cart</a>
                                                             </div>
                                                             <div class="tb-product-btn">
                                                                 <a href="#">
@@ -369,20 +291,14 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                </a>
                                             </div>
                                             <?php
                                             }
                                             ?>
                                         </div>
                                     </div>
-                                    <div class="shop-all-tab-nor">
-                                        <div class="two-part">
-                                            <ul class="nav tabs" role="tablist">
-                                                <li role="presentation"><a class="active" href="#home" aria-controls="home" role="tab" data-bs-toggle="tab"><i class="fa fa-th-large"></i></a></li>
-                                                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-bs-toggle="tab"><i class="fa fa-align-justify"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -390,8 +306,9 @@
                 </div>
             </div>
         </section>
-        <?php
-       require_once("Views/footer.php")
+        
+       <?php 
+       require("Views/footer.php")
        ?>
         
         <!-- start scrollUp
@@ -412,20 +329,20 @@
                             <div class="modal-product">
                                 <div class="product-images">
                                     <div class="main-image images">
-                                        <img src="<?=$row["thumbnail"]?>" alt="">
+                                        <img id="image_click" src="" alt="">
                                     </div>
                                 </div><!-- .product-images -->
 
                                 <div class="cras">
                                     <div class="product-name">
-                                        <h1><?=$row["title"]?></h1>
+                                        <h1 id="title_click"></h1>
                                     </div>
                                     <div class="tb-product-price font-noraure-3">
-                                        <span class="amount">$100.00</span>
-                                        <span class="amount2 ana"><?=$row["price"]?></span>
+                                        <span id="price_old_click" class="amount"></span>
+                                        <span id="price_click" class="amount2 ana"></span>
                                     </div>
                                     <div class="short-description">
-                                        <p><?=$row["description"]?></p>
+                                        <p id="description_click"></p>
                                     </div>
                                     <div class="add-to-box1">
                                         <div class="add-to-box add-to-box2">
@@ -435,7 +352,7 @@
                                                     <input id="qty" class="input-text qty" type="text" name="qty" maxlength="12" value="1" title="Qty">
                                                 </div>
                                                 <div class="last-cart">
-                                                    <a class="last1" href="#">Add To Cart</a>
+                                                    <a class="last1" href="Controls/cart_ctrl/ctrl_addcart.php/?product=<?=$row["id"]?>">Add To Cart</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -450,12 +367,26 @@
             <!-- END Modal -->
         </div>
 	    <!-- END QUICKVIEW PRODUCT -->
-        
-        
-        
-        
-        
-        
+        <script>
+            function showDetails(id)
+            {
+                var dataObj = {};
+                $.ajax({
+                    url: "Controls/sort_ctrl/quick_view.php",
+                    method: "POST",
+                    data: {get_data : 1, id: id},
+                    success: function(response){
+                        response = JSON.parse(response);
+                        $("#image_click").attr("src",response.thumbnail);
+                        $("#title_click").text(response.title);
+                        $("#price_old_click").text("£"+response.price_old);
+                        $("#price_click").text("£"+response.price);
+                        $("#description_click").text(response.description);
+                    }
+                });
+            }
+        </script>
+
         
 		<!-- all js here -->
 		<!-- jquery latest version -->

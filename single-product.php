@@ -39,6 +39,7 @@
         <link rel="stylesheet" href="css/responsive.css">
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <?php require_once("Views/head.php") ?>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -73,6 +74,7 @@
                             foreach($rows as $row)
                             {
                             ?>
+
                             <div class="col-lg-6 col-md-6">
                                 <div class="tab-zoom">
                                   <!-- Tab panes -->
@@ -114,23 +116,22 @@
                                     <div class="description">
                                         <p><?=$row["description"]?></p>
                                     </div>
-                                    <form action="#" class="woocommerce-shipping-calculator">
+                                    <form action="Controls/cart_ctrl/ctrl_updatecart.php" class="woocommerce-shipping-calculator" method="POST">
                                         
                                         <p class="form-row form-row-wide">
                                             <label>
                                                 Size 
                                                 <span class="required">*</span>
                                             </label>
-                                            <select class="email s-email s-wid">
-                                                <option>Choose an option</option>
-                                                <option>Small</option>
-                                                <option>Medium</option>
-                                                <option>Large</option>
-                                                <option>Unisex</option>
+                                            <select class="email s-email s-wid" name="size[<?=$row['id']?>]">
+                                                <option value="0" selected>Choose an option</option>
+                                                <option value="S">S</option>
+                                                <option value="M">M</option>
+                                                <option value="L">L</option>
+                                               
                                             </select>
                                         </p>
-                                    </form>
-                                    <div class="single-price">
+                                        <div class="single-price">
                                         <div>
                                             <p class="single-price-top">
                                                 Price:
@@ -144,13 +145,13 @@
                                             </label>
                                             <div class="quantity">
                                                 <div class="cart-plus-minus">
-                                                  <input type="text" value="0" name="qtybutton" class="cart-plus-minus-box">
+                                                  <input type="text" name="qty[<?=$row['id']?>]" class="cart-plus-minus-box" value="1">
                                                  </div>
                                             </div>
                                         </div>
                                         <div class="add-two-single">
                                             <div class="last-cart l-mrgn ns">
-                                                <a class="las4" href="#">Add To Cart</a>
+                                                <button type="submit"   class="btn btn-warning">Add To Cart</button>
                                             </div>
                                             <div class="tb-product-btn shp">
                                                 <a href="#">
@@ -168,8 +169,12 @@
                                             <img src="img/icon-img/capture.png" alt="">
                                         </div>
                                     </div>
+                                    </form>
+                                    
                                 </div>
                             </div>
+                       
+                          
                             <?php
                             }
                             ?>

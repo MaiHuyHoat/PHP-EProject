@@ -70,6 +70,42 @@ class clsSanpham{
         }
         
     }
+    function getClosedProduct($id){
+        $sql="SELECT product.closed FROM product WHERE id=$id;";
+        $ketqua =$this->clsDatabase->executeQuery($sql);
+        if($ketqua==true){
+            $qty=$this->clsDatabase->pdo_stm->fetch();
+            return $qty[0];
+        }
+       else return 0;
+    }
+    function getBoughtProduct($id){
+        $sql="SELECT bought FROM `product` WHERE id=$id;";
+        $sql="SELECT product.bought FROM product WHERE id=$id;";
+        $ketqua =$this->clsDatabase->executeQuery($sql);
+        if($ketqua==true){
+            $qty=$this->clsDatabase->pdo_stm->fetch();
+            return $qty[0];
+        }
+       else return 0; 
+    }
+    function updateCloseProduct($id,$qty){
+        $numOld=$this->getClosedProduct($id);
+        $numNew=$numOld-$qty;
+        $sql="UPDATE product SET closed=? WHERE id=?;";
+        $data=[$numNew,$id];
+        $ketqua =$this->clsDatabase->executeQuery($sql,$data);
+        return $ketqua;
+
+    }
+    function updateBoughtProduct($id,$qty){
+        $numOld=$this->getBoughtProduct($id);
+        $numNew=$numOld+$qty;
+        $sql="UPDATE product SET bought=? WHERE id=?;";
+        $data=[$numNew,$id];
+        $ketqua =$this->clsDatabase->executeQuery($sql,$data);
+        return $ketqua;
+    }
 }
 
 ?>

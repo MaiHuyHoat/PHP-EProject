@@ -1,7 +1,19 @@
 <?php
 require_once("../../Models/clsOrder.php");
+require_once("../../Models/clsOrderDetail.php");
+require_once("../../Models/clsSanpham.php");
 $clsOrder= new clsOrder();
-$order_id= $_REQUEST["order_Id"];
+$clsOderDetail= new clsOrderDetail();
+$clsSanpham= new clsSanpham();
+$order_id=$_REQUEST["order_Id"] ;
+
+
+$orderDetails= $clsOderDetail->getOrderDetail($order_id);
+foreach ($orderDetails as $key => $value) {
+    $clsSanpham->updateCloseProduct($value["product_id"],$value["num"]);
+    $clsSanpham->updateBoughtProduct($value["product_id"],$value["num"]);
+
+}
 $kq=$clsOrder->paidedOrder($order_id);
 if($kq==true){
     $olderUrl="http://localhost/Project_T3/my-account.php";
