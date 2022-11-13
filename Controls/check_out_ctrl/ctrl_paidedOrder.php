@@ -14,7 +14,7 @@ foreach ($orderDetails as $key => $value) {
     $clsSanpham->updateBoughtProduct($value["product_id"],$value["num"]);
 
 }
-$kq=$clsOrder->paidedOrder($order_id);
+$kq=$clsOrder->updateStatusOrder($order_id,4);
 if($kq==true){
     $olderUrl="http://localhost/Project_T3/my-account.php";
 header("Location:$olderUrl?UpdAcountSuccess=1");

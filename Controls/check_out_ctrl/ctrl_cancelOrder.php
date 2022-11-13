@@ -2,7 +2,7 @@
 require_once("../../Models/clsOrder.php");
 $clsOrder= new clsOrder();
 $order_id= $_REQUEST["order_Id"];
-$kq=$clsOrder->cancelOrder($order_id);
+$kq=$clsOrder->updateStatusOrder($order_id,1);
 if($kq==true){
     $olderUrl="http://localhost/Project_T3/my-account.php";
 header("Location:$olderUrl?UpdAcountSuccess=1");

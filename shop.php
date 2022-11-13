@@ -319,7 +319,7 @@
             </div>
             <nav aria-label="Page navigation example " class="container" style="display: flex; justify-content: center;">
                 <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="?<?= $currentPage-1?>">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="?page=<?= $currentPage-1?>">Previous</a></li>
                     <?php
                      for ($i=1; $i <= $total_page; $i++) { ?>
                       <li class="page-item"><a class="page-link" href="?page=<?=$i ?>"><?=$i?></a></li>
@@ -327,7 +327,7 @@
                   <?php   }
                     ?>
               
-                    <li class="page-item"><a class="page-link" href="?<?= $currentPage+1?>">Next</a></li>
+                    <li class="page-item"><a class="page-link" href="?page=<?= $currentPage+1?>">Next</a></li>
                 </ul>
             </nav>
         </div>

@@ -218,14 +218,10 @@ thead {
   display: inline-block;
   margin-right: 5px;
   vertical-align: middle;
-  width: 5px;
-  height: 5px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   margin-top: -3px;
-}
-.moving {
-  background-color: #9be64d;
-  box-shadow: 0 0 8px #9be64d, inset 0 0 8px #9be64d;
 }
 .pending {
   background-color: #efc54b;
@@ -234,6 +230,18 @@ thead {
 .cancelled {
   background-color: #da534f;
   box-shadow: 0 0 8px #da534f, inset 0 0 8px #da534f;
+}
+.confirm {
+  background-color: #9be64d;
+  box-shadow: 0 0 8px #9be64d, inset 0 0 8px #9be64d;
+}
+.moving{
+  background-color: #0d80ec;
+  box-shadow: 0 0 8px #4faeda, inset 0 0 8px #0981d1;
+}
+.paided{
+  background-color: #6e0dec;
+  box-shadow: 0 0 8px #3513c9, inset 0 0 8px #2709d1;
 }
 .tm-avatar {
   width: 345px;

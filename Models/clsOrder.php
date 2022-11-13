@@ -44,6 +44,13 @@ class clsOrder{
         }
           return $kq;
     }
+    function getAllOrder(){
+        $clsDatabase= new clsDatabase();
+        $sql="SELECT * FROM `order` ";
+       $clsDatabase->executeQuery($sql);
+        $rows=$clsDatabase->pdo_stm->fetchAll(PDO::FETCH_ASSOC);
+        return $rows; 
+    }
     function getOrder($user_id){// them dieu kien data
      $clsDatabase= new clsDatabase();
      $sql="SELECT * FROM `order` WHERE user_id=$user_id AND status!=1  ORDER BY order_date DESC;";
@@ -52,24 +59,13 @@ class clsOrder{
      return $rows;
 
     }
-    function cancelOrder($order_id){
+    function updateStatusOrder($order_id,$status){
         $clsDatabase= new clsDatabase();
-        $sql="UPDATE `order`SET status=1 WHERE id=$order_id ";
+        $sql="UPDATE `order`SET status=$status WHERE id=$order_id ";
         $kq=$clsDatabase->executeQuery($sql);
         return $kq;
     }
-    function ReOrder($order_id){
-        $clsDatabase= new clsDatabase();
-        $sql="UPDATE `order`SET status=0 WHERE id=$order_id ";
-        $kq=$clsDatabase->executeQuery($sql);
-        return $kq;
-    }
-    function paidedOrder($order_id){
-        $clsDatabase= new clsDatabase();
-        $sql="UPDATE `order`SET status=5 WHERE id=$order_id ";
-        $kq=$clsDatabase->executeQuery($sql);
-        return $kq;
-    }
+    
     function getOrderCancel($user_id){
         $clsDatabase= new clsDatabase();
         $sql="SELECT * FROM `order` WHERE user_id=$user_id AND status=1  ORDER BY order_date DESC;";
