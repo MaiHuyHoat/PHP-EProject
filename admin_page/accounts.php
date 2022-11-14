@@ -50,18 +50,20 @@
             <div class="tm-bg-primary-dark tm-block tm-block-avatar">
               <h2 class="tm-block-title">Change Avatar</h2>
               <div class="tm-avatar-container">
-                <img
-                  src="img/avatar.png"
-                  alt="Avatar"
-                  class="tm-avatar img-fluid mb-4"
-                />
+                <img id="myimage" src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" class="rounded-circle" alt="example placeholder" style="width: 100px;" />
                 <a href="#" class="tm-avatar-delete-link">
                   <i class="far fa-trash-alt tm-product-delete-icon"></i>
                 </a>
               </div>
-              <button class="btn btn-primary btn-block text-uppercase">
-                Upload New Photo
-              </button>
+              <div class="d-flex justify-content-center mt-3">
+                              <div class="btn btn-primary btn-rounded">
+                                <label class="form-label text-white m-1" for="customFile2">Choose file</label>
+
+
+                                <input type="file" name="imageUser" class="form-control d-none" onchange="changeHandler(event)" id="customFile2" accept=".jpg,.png,.jpeg" />
+                              </div>
+               </div>
+              
             </div>
           </div>
           <div class="tm-block-col tm-col-account-settings">
@@ -141,7 +143,7 @@
       ?>
       <!-- Footer -->
     </div>
-
+    <script src="../js/show-local-image-example.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <!-- https://jquery.com/download/ -->
     <script src="js/bootstrap.min.js"></script>

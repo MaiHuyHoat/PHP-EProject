@@ -177,27 +177,24 @@
                                         </ul>
                                         <div class="sort-by">
                                             <div class="shop6">
-                                                <form action="shop-list.php" method="get">
+                                                <form action="shop-list.php" method="get" id="sort-form">
                                                     <label>Sort By :</label>
                                                     <select name="drop_sort">
                                                         <option>Default sorting</option>
-                                                        <option>Sort by alphabet</option>
-                                                        <option>Sort by price: low to high</option>
-                                                        <option>Sort by price: high to low</option>
+                                                        <option >Sort by alphabet</option>
+                                                        <option >Sort by price: low to high</option>
+                                                        <option >Sort by price: high to low</option>
+                                                        <option ><?php echo $drop_sort ?></option>
                                                     </select>
                                                     <button class="button-shop" type="submit"><i class="fa fa-search search-icon"></i></button>
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="shop5">
-                                        <label>Show :</label>
-                                        <select>
-                                            <option value="">12</option>
-                                            <option value="">24</option>
-                                            <option value="">36</option>
-                                        </select>
-                                    </div>
+                                   <script type="text/javascript">
+                                     var drop_sort=<?php echo $drop_sort ?>;
+                                    console.log(drop_sort);
+                                   </script> 
                                 </div>
                                 <!-- Tab panes -->
                                 <div class="tab-content">
