@@ -4,7 +4,7 @@ require_once("clsDatabase.php");
 class clsUser
 {
     public $clsDatabase = null;
-    public $id;
+    public $id=0;
     public $user_name;
     public $password;
     public $fullname;

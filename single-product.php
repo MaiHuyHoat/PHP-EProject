@@ -231,21 +231,7 @@
                                         <div>
                                             <div class="d-flex flex-column comment-section">
                                                 <div id="review">
-                                                <div class="bg-grey p-2">
-                                                    <div class="d-flex flex-row user-info"><img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
-                                                        <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">Marry Andrews</span><span class="date text-black-50">Shared publicly - Jan 2020</span></div>
-                                                    </div>
-                                                    <div class="mt-2">
-                                                        <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                                    </div>
-                                                </div>
-                                                <div class="bg-grey">
-                                                    <div class="d-flex flex-row fs-12">
-                                                        <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i><span class="ml-1">Like</span></div>
-                                                        <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i><span class="ml-1">Comment</span></div>
-                                                        <div class="like p-2 cursor"><i class="fa fa-share"></i><span class="ml-1">Share</span></div>
-                                                    </div>
-                                                </div>
+                                                No Comment
                                                 </div>
                                                 
                                                 <div class="bg-grey p-2" id="comment">
@@ -284,13 +270,17 @@
                                                                 success:function(respon,status){
                                                                     
                                                                   
-                                                                   $("#review").html("");
+                                                                   if(respon.length!=0){
+                                                                    $("#review").html("");
                                                                     respon.forEach(element => {
                                                                         var createEle=' <div class="bg-grey p-2"><div class="d-flex flex-row user-info"><img class="rounded-circle" src="Upload/imagesUser/'+element.image+'" width="40"><div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">'+element.fullname+'</span><span class="date text-black-50">Shared publicly - Jan 2020</span></div> </div> <div class="mt-2"> <p class="comment-text">'+element.note+'</p> </div> </div><div class="bg-grey">   <div class="d-flex flex-row fs-12"><div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i><span class="ml-1">Like</span></div> <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i><span class="ml-1">Comment</span></div> <div class="like p-2 cursor"><i class="fa fa-share"></i><span class="ml-1">Share</span></div> </div> </div>';
                                                                         $("#review").prepend(createEle);
                                                                     });
                                                                    
                                                                  $("#qtyReview").text(respon.length);
+                                                                   }else{
+                                                                    $("#qtyReview").text(respon.length);
+                                                                   }
                                                                 },
                                                                 false:function(){
                                                                     console.log("loi roi");
