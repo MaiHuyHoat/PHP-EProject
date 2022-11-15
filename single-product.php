@@ -243,15 +243,15 @@
                                                             <?php
                                                                                                         $clsUser = new clsUser();
                                                                                                         $clsUser->getUserInfo($_SESSION["user"]["id"]) // lay thong tin tai khoan
-                                                            ?><img class="rounded-circle" src="Upload/imagesUser/<?= $clsUser->image ?>" width="40">
+                                                            ?><img class="rounded-circle" src="Upload/imagesUser/<?= $clsUser->image ?>" width="40"><textarea class="form-control ml-1 shadow-none textarea" id="note"></textarea>
+                                                            </div>
+                                                            <div class="mt-2 text-right">
+                                                                <button class="btn btn-primary btn-sm shadow-none" type="button" onclick="submitFeedback('<?= $clsUser->id ?>','<?= $_REQUEST['id'] ?>','<?= $clsUser->fullname ?>',<?= $clsUser->phone_number ?>,null)">Post comment</button>
+                                                                <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Cancel</button>
+                                                            </div>
                                                         <?php } else { ?>
-                                                            <img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
-                                                        <?php } ?><textarea class="form-control ml-1 shadow-none textarea" id="note"></textarea>
-                                                    </div>
-                                                    <div class="mt-2 text-right">
-                                                        <button class="btn btn-primary btn-sm shadow-none" type="button" onclick="submitFeedback('<?= $clsUser->id ?>','<?= $_REQUEST['id'] ?>','<?= $clsUser->fullname ?>',<?= $clsUser->phone_number ?>,null)">Post comment</button>
-                                                        <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Cancel</button>
-                                                    </div>
+                                                            <h2 style="color:red">You must login to comment</h2></div>
+                                                        <?php } ?>
                                                     
 
 
