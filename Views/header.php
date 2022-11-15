@@ -172,7 +172,7 @@
                                                     <a href="contact.php">Contacts</a>
                                                     <a href="login.php">Login</a>
                                                     <a href="my-account.php">My Account</a>
-                                                    <a href="shop.php">shop</a>
+                                         
                                                     <a href="shop-list.php">shop List</a>
                                                     <a href="single-product.php">single-product</a>
                                                     <a href="shopping-cart.php">shopping-cart</a>
@@ -226,7 +226,7 @@
                                                 ?>
                                                     <div>
                                                         <p style="text-align:center">You don't have any product in the cart</p>
-                                                        <a href="shop.php"> <button type="button" class="btn btn-warning">Buy</button> </a>
+                                                        <a href="shop-list.php"> <button type="button" class="btn btn-warning">Buy</button> </a>
                                                     </div>
                                                     <?php
                                                 } else {

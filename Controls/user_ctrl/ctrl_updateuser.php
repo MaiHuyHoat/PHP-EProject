@@ -21,8 +21,7 @@ if(isset($imageUser) && $imageUser["error"]==0){// upload file ảnh sang thư m
 $ketqua=$clsUser->updateUser($id, $password, $fullName, $email, $phoneNumber, $address, $imageNameConvert);
 
 if($ketqua==true){
-    unset($_SESSION["logined"]);// xoa bien dang nhap
-    unset($_SESSION["user"]["id"]);// xoa id nguoi dung
+ 
     $olderUrl="http://localhost/Project_T3/my-account.php" ;
  header("Location:$olderUrl?UpdAcountSuccess=1");
 }

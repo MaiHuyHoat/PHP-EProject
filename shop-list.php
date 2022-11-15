@@ -41,8 +41,10 @@
     <link rel="stylesheet" href="css/responsive.css">
     <!-- modernizr css -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <!-- CSS only -->
-    <?php require("Views/head.php") ?>
+    <?php require("Views/head.php");
+    require_once("Controls/sort_ctrl/ctl_sort_product.php"); ?>
 </head>
 
 <body>
@@ -54,7 +56,7 @@
 
 
     <?php
-    require("Views/header.php")
+    require("Views/header.php");
     ?>
     <!-- mobile-menu-area end -->
     <section class="contact-img-area">
@@ -78,7 +80,7 @@
                             <h3 class="wg-title">SHOP BY</h3>
                         </div>
                         <div class="shop-one form-check">
-                            <form action="shop-list.php" method="get">
+                            <form action="shop-list.php" method="get" id="sort-by-attr">
                                 <h3 class="wg-title2">Genders</h3><br>
                                 <input type="radio" name="gender" class="cat-item form-check-input" value="woman">Woman<br>
                                 <input type="radio" name="gender" class="cat-item form-check-input" value="man">Men<br>
@@ -179,22 +181,19 @@
                                             <div class="shop6">
                                                 <form action="shop-list.php" method="get" id="sort-form">
                                                     <label>Sort By :</label>
-                                                    <select name="drop_sort">
+                                                    <select name="drop_sort" id="drop_sort">
                                                         <option>Default sorting</option>
-                                                        <option >Sort by alphabet</option>
-                                                        <option >Sort by price: low to high</option>
-                                                        <option >Sort by price: high to low</option>
-                                                        <option ><?php echo $drop_sort ?></option>
+                                                        <option>Sort by alphabet</option>
+                                                        <option>Sort by price: low to high</option>
+                                                        <option>Sort by price: high to low</option>
+
                                                     </select>
                                                     <button class="button-shop" type="submit"><i class="fa fa-search search-icon"></i></button>
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
-                                   <script type="text/javascript">
-                                     var drop_sort=<?php echo $drop_sort ?>;
-                                    console.log(drop_sort);
-                                   </script> 
+                                    
                                 </div>
                                 <!-- Tab panes -->
                                 <div class="tab-content">
@@ -202,23 +201,22 @@
                                         <div class="shop-tab">
                                             <div class="row">
                                                 <?php
-                                                require_once("Controls/sort_ctrl/ctl_sort_product.php");
-                                                $total_product=(int)$sanpham->countProduct();
-                                                $limit=9;// so san pham gioi han moi trang
-                                                 $total_page=ceil($total_product/$limit);// tong so trang sau khi chia so so san pham gioi han va lam tron
-                                                $currentPage=1;
-                                                if(isset($_REQUEST['page'])&& is_numeric($_REQUEST['page'])){
-                                                    $currentPage=$_REQUEST['page'];
 
+                                                $total_product = (int)$sanpham->countProduct();
+                                                $limit = 9; // so san pham gioi han moi trang
+                                                $total_page = ceil($total_product / $limit); // tong so trang sau khi chia so so san pham gioi han va lam tron
+                                                $currentPage = 1;
+                                                if (isset($_REQUEST['page']) && is_numeric($_REQUEST['page'])) {
+                                                    $currentPage = $_REQUEST['page'];
                                                 }
-                                                if($currentPage<1){
-                                                    $currentPage=1;
-                                                }else if($currentPage>$total_page)$currentPage=$total_page;
-                                                $rows=array_slice($rows,($currentPage-1)*10,$limit);
+                                                if ($currentPage < 1) {
+                                                    $currentPage = 1;
+                                                } else if ($currentPage > $total_page) $currentPage = $total_page;
+                                                $rows = array_slice($rows, ($currentPage - 1) * 10, $limit);
                                                 if ($rows == NULL)
 
                                                     die("<p>ERROR IN DATABASE</p>");
-                                                
+
                                                 foreach ($rows as $row) {
                                                 ?>
                                                     <!-- single-product start -->
@@ -316,15 +314,15 @@
             </div>
             <nav aria-label="Page navigation example " class="container" style="display: flex; justify-content: center;">
                 <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="?page=<?= $currentPage-1?>">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="?page=<?= $currentPage - 1 ?>">Previous</a></li>
                     <?php
-                     for ($i=1; $i <= $total_page; $i++) { ?>
-                      <li class="page-item"><a class="page-link" href="?page=<?=$i ?>"><?=$i?></a></li>
+                    for ($i = 1; $i <= $total_page; $i++) { ?>
+                        <li class="page-item"><a class="page-link" href="?page=<?= $i ?>"><?= $i ?></a></li>
 
-                  <?php   }
+                    <?php   }
                     ?>
-              
-                    <li class="page-item"><a class="page-link" href="?page=<?= $currentPage+1?>">Next</a></li>
+
+                    <li class="page-item"><a class="page-link" href="?page=<?= $currentPage + 1 ?>">Next</a></li>
                 </ul>
             </nav>
         </div>
@@ -443,6 +441,129 @@
     <script src="js/plugins.js"></script>
     <!-- main js -->
     <script src="js/main.js"></script>
+    <script >
+        $drop_sort = "<?= $drop_sort; ?>";
+var optionSort=  $("#drop_sort").children();
+
+
+    if ($drop_sort == "Default sorting") {
+   
+        for (let index = 0; index < optionSort.length; index++) {
+            const element = optionSort[index];
+            element.removeAttribute("selected");
+        }
+     optionSort[0].setAttribute("selected","");
+    } else if ($drop_sort == "Sort by alphabet") {
+        for (let index = 0; index < optionSort.length; index++) {
+            const element = optionSort[index];
+            element.removeAttribute("selected");
+        }
+     optionSort[1].setAttribute("selected","");
+    } else if ($drop_sort == "Sort by price: low to high") {
+        for (let index = 0; index < optionSort.length; index++) {
+            const element = optionSort[index];
+            element.removeAttribute("selected");
+        }
+     optionSort[2].setAttribute("selected","");
+    } else if ($drop_sort == "Sort by price: high to low") {
+        for (let index = 0; index < optionSort.length; index++) {
+            const element = optionSort[index];
+            element.removeAttribute("selected");
+        }
+     optionSort[3].setAttribute("selected","");
+    } else {
+        for (let index = 0; index < optionSort.length; index++) {
+            const element = optionSort[index];
+            element.removeAttribute("selected");
+        }
+     optionSort[0].setAttribute("selected","");
+    }
+    ///chon radio
+    $gender="<?=$gender?>";
+    $category="<?=$category?>";
+    function delRadio(){
+     let input= $("#sort-by-attr input");
+     for (let index = 0; index < input.length; index++) {
+        const element = input[index];
+        element.removeAttribute("checked");
+     }
+    }
+    var inputSort= $("#sort-by-attr input");
+    console.log($gender+$category);
+    
+if($gender == "woman" && $category == "shirt")
+{
+    
+   delRadio();
+   inputSort[0].setAttribute("checked","");
+   inputSort[2].setAttribute("checked","");
+}
+else if($gender == "woman" && $category == "polo")
+{
+    delRadio();
+   inputSort[0].setAttribute("checked","");
+   inputSort[3].setAttribute("checked","");
+}
+else if($gender == "woman" && $category == "shoes")
+{
+    delRadio();
+   inputSort[0].setAttribute("checked","");
+   inputSort[4].setAttribute("checked","");
+}
+else if($gender == "woman" && $category == "shorts")
+{
+    delRadio();
+   inputSort[0].setAttribute("checked","");
+   inputSort[5].setAttribute("checked","");  
+}
+else if($gender == "woman" && $category == "jeans")
+{
+    delRadio();
+   inputSort[0].setAttribute("checked","");
+   inputSort[6].setAttribute("checked","");
+}
+else
+{
+    
+}
+
+//men_sort
+if($gender == "man" && $category == "shirt")
+{
+    delRadio();
+   inputSort[1].setAttribute("checked","");
+   inputSort[2].setAttribute("checked","");
+}
+else if($gender == "man" && $category == "polo")
+{
+    delRadio();
+   inputSort[1].setAttribute("checked","");
+   inputSort[3].setAttribute("checked","");
+}
+else if($gender == "man" && $category == "shoes")
+{
+    delRadio();
+   inputSort[1].setAttribute("checked","");
+   inputSort[4].setAttribute("checked","");
+}
+else if($gender == "man" && $category == "shorts")
+{
+    delRadio();
+   inputSort[1].setAttribute("checked","");
+   inputSort[5].setAttribute("checked","");
+}
+else if($gender == "man" && $category == "jeans")
+{
+    delRadio();
+   inputSort[1].setAttribute("checked","");
+   inputSort[6].setAttribute("checked","");
+}
+else
+{
+    
+}
+
+    </script>
 </body>
 
 <!-- Mirrored from htmldemo.net/noraure/noraure/shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Oct 2022 16:44:32 GMT -->
