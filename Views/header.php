@@ -248,7 +248,7 @@
                                                                 </p>
                                                                 <?php 
                                                                 $size=null;
-                                                                if(isset($_SESSION["cart"][$row["id"]]["size"])==false|| (int) $_SESSION["cart"][$row["id"]]["size"]==0){
+                                                                if(isset($_SESSION["cart"][$row["id"]]["size"])==false||  $_SESSION["cart"][$row["id"]]["size"]=="0"){
                                                                    $size="<a href=\"shopping-cart.php\" style=\"color:red;text-decoration: underline;\">Choose size </a>";
                                                                 }
                                                                 else{

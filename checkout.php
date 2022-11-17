@@ -224,7 +224,8 @@
 
                                     <div class="col-md-12 text-center ">
                                         <p class="checkout-coupon">
-                                            <input type="submit" value="ORDER NOW">
+                                            <input type="submit" value="ORDER NOW" >
+                                          
                                         </p>
                                     </div>
 

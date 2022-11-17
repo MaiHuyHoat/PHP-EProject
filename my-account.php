@@ -216,8 +216,17 @@
                                                                     $orderDetails = $clsOrderDetail->getOrderDetail($order["id"]);
                                                                     foreach ($orderDetails as $orderDetail) {
 
-                                                                        $nameProduct = $clsOrderDetail->getNameProduct($orderDetail["product_id"]) ?>
-                                                                        <li><span> <?= $nameProduct ?></span> x <?= $orderDetail["num"] ?> | Size: <?= $orderDetail["size"] ?>
+                                                                        $nameProduct = $clsOrderDetail->getNameProduct($orderDetail["product_id"]) ;
+                                                                        $size= $orderDetail["size"] ;
+                                                                        switch($size){
+                                                                            
+                                                                            case 1: $size="S";break;
+                                                                            case 2: $size="M";break;
+                                                                            case 3: $size="L";break;
+                                                                       
+                                                                          }
+                                                                        ?>
+                                                                        <li><span> <?= $nameProduct ?></span> x <?= $orderDetail["num"] ?> | Size: <?= $size ?>
                                                                         <?php }
                                                                         ?>
 

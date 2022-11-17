@@ -46,7 +46,7 @@ class clsOrder{
     }
     function getAllOrder(){
         $clsDatabase= new clsDatabase();
-        $sql="SELECT * FROM `order` ";
+        $sql="SELECT * FROM `order` ORDER BY order_date DESC; ";
        $clsDatabase->executeQuery($sql);
         $rows=$clsDatabase->pdo_stm->fetchAll(PDO::FETCH_ASSOC);
         return $rows; 
@@ -59,10 +59,18 @@ class clsOrder{
      return $rows;
 
     }
+    function getOrderById($order_id){
+        $clsDatabase= new clsDatabase();
+        $sql="SELECT * FROM `order` WHERE id=$order_id;";
+        $clsDatabase->executeQuery($sql);
+        $row=$clsDatabase->pdo_stm->fetch(PDO::FETCH_ASSOC);
+        return $row;
+    }
     function updateStatusOrder($order_id,$status){
         $clsDatabase= new clsDatabase();
         $sql="UPDATE `order`SET status=$status WHERE id=$order_id ";
         $kq=$clsDatabase->executeQuery($sql);
+        
         return $kq;
     }
     
