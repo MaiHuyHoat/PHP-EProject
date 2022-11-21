@@ -8,6 +8,8 @@ $price = $_REQUEST["price"];
 $price_old = $_REQUEST["price_old"];
 $created_at = $_REQUEST["created_at"];
 $updated_at = $_REQUEST["updated_at"];
+$closed = $_REQUEST["closed"];
+$bought = $_REQUEST["bought"];
 
 $category = $_REQUEST["category"];
 $gender = $_REQUEST["gender"];
@@ -39,13 +41,12 @@ else
 }
 
 $sanpham = new clsSanpham();
-$ketqua = $sanpham->fixProduct($id,$category_id,$title,$price_old,$price,$description,$created_at,$updated_at);
+$ketqua = $sanpham->fixProduct($id,$category_id,$title,$price_old,$price,$description,$closed,$bought,$created_at,$updated_at);
 if($ketqua==FALSE)
     die("<h3>FAILURE TO FIX DATA</h3>");
 else
 {
     echo "<h3>SUCCESS TO FIX DATA</h3>";
-    $link = "products.php";
-    echo "<a href=".$link.">RETURN TO PRODUCTS</a>";
+    header("Location:http://localhost:8080/project2/admin_page/products.php?login=true");
 }
 ?>

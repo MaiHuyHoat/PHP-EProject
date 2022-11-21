@@ -21,12 +21,15 @@
 	Product Admin CSS Template
 	https://templatemo.com/tm-524-product-admin
 	-->
+    <?php
+    require("Views_admin/head.php");
+    ?>
   </head>
 
   <body>
     <!-- navigation bar -->
     <?php
-      require("Views/header.php");
+      require("Views_admin/header.php");
     ?>
     <!-- navigation bar -->
     <div class="container tm-mt-big tm-mb-big">
@@ -119,7 +122,7 @@
                           <input
                             id="created_at"
                             name="created_at"
-                            type="datetime-local"
+                            type="date"
                             class="form-control validate"
                             data-large-mode="true"
                           />
@@ -132,7 +135,7 @@
                           <input
                             id="updated_at"
                             name="updated_at"
-                            type="datetime-local"
+                            type="date"
                             class="form-control validate"
                             required
                           />
@@ -140,21 +143,31 @@
                   </div>
 </div>
                   <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
-                    <div class="tm-product-img-dummy mx-auto">
-                      <i
-                        class="fas fa-cloud-upload-alt tm-upload-icon"
-                        onclick="document.getElementById('fileInput').click();"
-                      ></i>
-                    </div>
-                    <div class="custom-file mt-3 mb-3">
-                      <input id="fileInput" type="file" style="display:none;" />
-                      <input
-                        type="button"
-                        class="btn btn-primary btn-block mx-auto"
-                        value="UPLOAD PRODUCT IMAGE"
-                        onclick="document.getElementById('fileInput').click();"
-                      />
-                    </div>
+                    <div class="form-group mb-3 col-xs-12 col-sm-6">
+                          <label
+                            for="closed"
+                            >Closed
+                          </label>
+                          <input
+                            id="closed"
+                            name="closed"
+                            type="text"
+                            class="form-control validate"
+                            required
+                          />
+                        </div>
+                        <div class="form-group mb-3 col-xs-12 col-sm-6">
+                          <label
+                            for="bought"
+                            >Bought
+                          </label>
+                          <input
+                            id="bought"
+                            name="bought"
+                            type="text"
+                            class="form-control validate"
+                          />
+                        </div>
                     <div class="custom-file mt-3 mb-3" style="color:white">
                       <label>Link Image</label>
                       <input id="image_1" type="text" name="image_1" class="form-control validate">
@@ -175,7 +188,7 @@
     </div>
     <!-- Footer -->
     <?php
-        require("Views/footer.php");
+        require("Views_admin/footer.php");
     ?>
     <!-- Footer -->
 

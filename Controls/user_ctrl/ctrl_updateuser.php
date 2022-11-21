@@ -12,8 +12,7 @@ $email=$_REQUEST["email"];
 $password=$_REQUEST["password"];
 $id=$_SESSION["user"]["id"];// lay id tu bien sesssion;
 if(isset($imageUser) && $imageUser["error"]==0){// upload file ảnh sang thư mục Upload/images.
-    $kq= move_uploaded_file($imageUser["tmp_name"],"../../Upload/imagesUser/$imageNameConvert");
-    
+    $kq = move_uploaded_file($imageUser["tmp_name"],"../../Upload/imagesUser/$imageNameConvert");
  }
  else{
      echo "Lỗi upload ảnh vào serrver";
@@ -22,11 +21,11 @@ $ketqua=$clsUser->updateUser($id, $password, $fullName, $email, $phoneNumber, $a
 
 if($ketqua==true){
  
-    $olderUrl="http://localhost/Project_T3/my-account.php" ;
+    $olderUrl="http://localhost:8080/project2/my-account.php" ;
  header("Location:$olderUrl?UpdAcountSuccess=1");
 }
 else{
-    $olderUrl="http://localhost/Project_T3/my-account.php" ;
+    $olderUrl="http://localhost:8080/project2/my-account.php" ;
     header("Location:$olderUrl?UpdAcountSuccess=-1");
 }
 ?>

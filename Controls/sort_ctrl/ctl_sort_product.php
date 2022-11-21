@@ -7,9 +7,7 @@ $first_price="";
 $last_price="";
 
 if(isset($_REQUEST["gender"]))
-{
     $gender = $_REQUEST["gender"];
-}
 if(isset($_REQUEST["category"]))
     $category = $_REQUEST["category"];
 if(isset($_REQUEST["first_price"]))
@@ -29,7 +27,8 @@ else
     $last_price = 150;
 }
 
-//women_sort
+//gender_sort
+//woman_sort
 if($gender == "woman" && $category == "shirt")
 {
     $sanpham = new clsSanpham();
@@ -55,14 +54,8 @@ else if($gender == "woman" && $category == "jeans")
     $sanpham = new clsSanpham();
     $rows = $sanpham->getListProduct("AND category_id=5 AND product.price BETWEEN $first_price AND $last_price");
 }
-else
-{
-    $sanpham = new clsSanpham();
-    $rows = $sanpham->getListProduct();
-}
-
-//men_sort
-if($gender == "man" && $category == "shirt")
+//man_sort
+else if($gender == "man" && $category == "shirt")
 {
     $sanpham = new clsSanpham();
     $rows = $sanpham->getListProduct("AND category_id=6 AND product.price BETWEEN $first_price AND $last_price");

@@ -14,15 +14,14 @@ $password=$_REQUEST["password"];
 
 if(isset($imageUser) && $imageUser["error"]==0){// upload file ảnh sang thư mục Upload/images.
    $kq= move_uploaded_file($imageUser["tmp_name"],"../../Upload/imagesUser/$imageNameConvert");
-   
 }
 else{
-    echo "Lỗi upload ảnh vào serrver";
+    echo "Lỗi upload ảnh vào server";
 }
 if($clsUser->checkUser($userName)){
 
-    $olderUrl="http://localhost/Project_T3/register.php";
-     header("Location:$olderUrl?ErrorCreAcount=1");
+    $olderUrl="http://localhost:8080/project2/register.php";
+    header("Location:$olderUrl?ErrorCreAcount=1");
 }
 else{
     // $cslDatabase= new clsDatabase();
@@ -30,11 +29,11 @@ else{
    
     $ketqua=$clsUser->addUser($userName,$password,$fullName,$email,$phoneNumber,$address,$imageNameConvert);
     if($ketqua==true){
-        $olderUrl="http://localhost/Project_T3/register.php" ;
+        $olderUrl="http://localhost:8080/project2/register.php" ;
      header("Location:$olderUrl?CreAcountSuccess=1");
     }
     else{
-        $olderUrl="http://localhost/Project_T3/register.php" ;
+        $olderUrl="http://localhost:8080/project2/register.php" ;
         header("Location:$olderUrl?CreAcountSuccess=-1");
     }
 }

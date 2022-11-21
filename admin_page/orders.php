@@ -20,15 +20,19 @@
 	Product Admin CSS Template
 	https://templatemo.com/tm-524-product-admin
 	-->
+    <?php
+    session_start();
+    ?>
 </head>
 
 <body id="reportsPage">
     <div class="" id="home">
         <!-- navigation bar -->
         <?php
-        require("Views/header.php");
+        require("Views_admin/header.php");
         ?>
         <!-- navigation bar -->
+        <div class="container tm-mt-big tm-mb-big" style="height:550px">
         <div class="tm-block-col">
             <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
                 <h2 class="tm-block-title">Orders List</h2>
@@ -158,24 +162,23 @@
                                                   
                                 </td>
 
-                                <td><a href="#" class="link-info">Detail</a></td>
+                                <td><a href="testdata.php?order_id=<?=$row["id"]?>" class="link-info">Detail</a></td>
 
                             </tr>
                         <?php }
                         ?>
 
-                    
-
                     </tbody>
                 </table>
             </div>
+        </div>
         </div>
     </div>
 
     </div>
     <!-- Footer -->
     <?php
-    require("Views/footer.php");
+    require("Views_admin/footer.php");
     ?>
     <!-- Footer -->
     </div>

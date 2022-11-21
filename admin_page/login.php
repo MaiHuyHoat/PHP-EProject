@@ -19,18 +19,39 @@
 	Product Admin CSS Template
 	https://templatemo.com/tm-524-product-admin
 	-->
+    <?php
+      session_start();
+      require_once("Models/clsLogin.php");
+      $login = "";
+      if(isset($_REQUEST["login"])==true)
+      {
+        $login = $_REQUEST["login"];
+      }
+      if($login==false)
+      {
+    ?>
+    <script>
+      var login = document.getElementById("loginPage");
+      login.onload = function()
+      {
+        confirm("PLEASE ENTER AGAIN!");
+      }
+    </script>
+    <?php
+      }
+    ?>
   </head>
 
-  <body>
+  <body id="loginPage">
     <div>
       <!-- navigation bar -->
       <?php
-            require("Views/header.php");
+            require("Views_admin/header.php");
       ?>
       <!-- navigation bar -->
     </div>
 
-    <div class="container tm-mt-big tm-mb-big">
+    <div class="container tm-mt-big tm-mb-big" style="height:550px">
       <div class="row">
         <div class="col-12 mx-auto tm-login-col">
           <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
@@ -41,26 +62,24 @@
             </div>
             <div class="row mt-2">
               <div class="col-12">
-                <form action="index.html" method="post" class="tm-login-form">
+                <form action="ctrl_login.php" method="post" class="tm-login-form">
                   <div class="form-group">
-                    <label for="username">Username</label>
+                    <label for="admin_name">Admin Name</label>
                     <input
-                      name="username"
+                      name="admin_name"
                       type="text"
                       class="form-control validate"
-                      id="username"
-                      value=""
+                      id="admin_name"
                       required
                     />
                   </div>
                   <div class="form-group mt-3">
-                    <label for="password">Password</label>
+                    <label for="admin_password">Password</label>
                     <input
-                      name="password"
+                      name="admin_password"
                       type="password"
                       class="form-control validate"
-                      id="password"
-                      value=""
+                      id="admin_password"
                       required
                     />
                   </div>
@@ -72,9 +91,6 @@
                       Login
                     </button>
                   </div>
-                  <button class="mt-5 btn btn-primary btn-block text-uppercase">
-                    Forgot your password?
-                  </button>
                 </form>
               </div>
             </div>
@@ -84,8 +100,13 @@
     </div>
     <!-- Footer -->
     <?php
-        require("Views/footer.php");
+        require("Views_admin/footer.php");
     ?>
+
+    <script>
+      var hd = document.getElementById("header_section");
+      hd.innerHTML='<div style="width:1140px;height:100px"></div>'
+    </script>
     <!-- Footer -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <!-- https://jquery.com/download/ -->

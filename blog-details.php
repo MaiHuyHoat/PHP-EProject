@@ -59,7 +59,7 @@
                     <div class="col-md-12 text-center">
                         <div class="con-text">
                             <h2 class="page-title">Take Interior Design to a New Level</h2>
-                            <p><a href="#">Home </a> | <a href="#">Consectetur </a> | Take Interior Design to a New Level</p>
+                            <p><a href="index.php">Home </a> | <a href="#">Consectetur </a> | Take Interior Design to a New Level</p>
                         </div>
                     </div>
                 </div>

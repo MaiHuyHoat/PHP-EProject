@@ -41,6 +41,9 @@
         <link rel="stylesheet" href="css/responsive.css">
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <?php
+        require("Views/head.php");
+        ?>
     </head>
     <body>
     
@@ -54,11 +57,11 @@
                     <div class="comming-soon-wrap text-center">
                         <div class="comming-soon-top">
                             <div class="logo">
-                                <a href="index.html">
+                                <a href="index.php">
                                     <img src="img/logo/logo.png" alt="">
                                 </a>
                             </div>
-                            <h3>We are coming verry soon...</h3>
+                            <h3>We are coming very soon...</h3>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p>
                         </div>
                         <div class="DateCountdown" data-date="2019-05-01 00:00:00"></div>

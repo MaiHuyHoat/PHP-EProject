@@ -79,7 +79,7 @@ else if($creatAccount==-1){
         <div class="col-md-12 text-center">
           <div class="con-text">
             <h2 class="page-title">Login Or Register</h2>
-            <p><a href="#">Home</a> | Login Or Register</p>
+            <p><a href="index.php">Home</a> | Login Or Register</p>
           </div>
         </div>
       </div>

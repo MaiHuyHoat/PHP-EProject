@@ -1,9 +1,13 @@
 <?php
     session_start();
-    require("../../Models/clsOrder.php");
-    require_once("../../Models/clsOrderDetail.php");
+    require("../Models/clsOrder.php");
+    require_once("../Models/clsOrderDetail.php");
     
-    $order_id=$_SESSION["order"]["id"];
+    $order_id = "";
+    if(isset($_REQUEST["order_id"]))
+    {
+      $order_id=$_REQUEST["order_id"];
+    }
     $clsOrder = new clsOrder();
     $order=$clsOrder->getOrderById($order_id);
     $clsOrderDetail=new clsOrderDetail();
@@ -158,7 +162,7 @@ $allProduct.='<tr>
           <font color="#333333"><font face="Times New Roman, serif"><font size="3" style="font-size: 13pt"><b>GI&Aacute;M
           &#272;&#7888;C</b></font></font></font></p>
           <p class="western"><br/>
-                 Team 3 Project
+                           Team 2 Project
           </p>
         </td>
       </tr>

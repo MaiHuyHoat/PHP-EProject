@@ -110,7 +110,6 @@
 
                                                                     <img src="Upload/imagesUser/<?= $clsUser->image ?>" class="rounded-circle" alt="example placeholder" style="width: 100px;" />
                                                                 </div>
-
                                                             </div>
                                                         </div>
                                                     </div>

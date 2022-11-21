@@ -46,9 +46,9 @@ if ($kq == true) {
 
 
     }
-    $olderUrl = "http://localhost/Project_T3/checkout.php";
+    $olderUrl = "http://localhost:8080/project2/checkout.php";
     header("Location:$olderUrl?SuccessOrder=1");
 } else {
-    $olderUrl = "http://localhost/Project_T3/checkout.php";
+    $olderUrl = "http://localhost:8080/project2/checkout.php";
     header("Location:$olderUrl?SuccessOrder=-1");
 }

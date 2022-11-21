@@ -91,11 +91,10 @@
                                     <h3 class="wg-title">Connect Us</h3>
                                     <div class="textwid">
                                         <ul class="socials">
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-map-marker"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-envelope"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-phone"></i></a></li>
                                             <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>

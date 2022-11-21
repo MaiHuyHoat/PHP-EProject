@@ -43,8 +43,11 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <!-- CSS only -->
-    <?php require("Views/head.php");
-    require_once("Controls/sort_ctrl/ctl_sort_product.php"); ?>
+    <?php
+    require("Views/head.php");
+    require_once("Controls/sort_ctrl/ctl_sort_product.php");
+    include_once("Controls/sort_ctrl/ctl_search_product.php");
+    ?>
 </head>
 
 <body>
@@ -64,8 +67,8 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="con-text">
-                        <h2 class="page-title">Men</h2>
-                        <p><a href="#">Home</a> | Men</p>
+                        <h2 class="page-title">Store</h2>
+                        <p><a href="index.php">Home</a> | Store</p>
                     </div>
                 </div>
             </div>
@@ -83,7 +86,7 @@
                             <form action="shop-list.php" method="get" id="sort-by-attr">
                                 <h3 class="wg-title2">Genders</h3><br>
                                 <input type="radio" name="gender" class="cat-item form-check-input" value="woman">Woman<br>
-                                <input type="radio" name="gender" class="cat-item form-check-input" value="man">Men<br>
+                                <input type="radio" name="gender" class="cat-item form-check-input" value="man">Man<br>
 
                                 <h3 class="wg-title2">Categories</h3><br>
                                 <input type="radio" name="category" class="cat-item form-check-input" value="shirt">Shirt<br>
@@ -158,7 +161,7 @@
                                     <h5>WOMEN'S FASHION</h5>
                                     <h3>MID SEASON SALE</h3>
                                     <h6>
-                                        <a href="#">SHOP NOW</a>
+                                        <a href="shop-list.php">SHOP NOW</a>
                                     </h6>
                                 </div>
                             </div>
@@ -173,14 +176,14 @@
                                 <div class="shop-all-tab">
                                     <div class="two-part">
                                         <ul class="nav tabs" role="tablist">
-                                            <li class="vali">View as:</li>
+                                            <li class="vali">View as: </li>
                                             <li role="presentation"><a href="#home" class="active" aria-controls="home" role="tab" data-bs-toggle="tab"><i class="fa fa-th-large"></i></a></li>
                                             <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-bs-toggle="tab"><i class="fa fa-align-justify"></i></a></li>
                                         </ul>
                                         <div class="sort-by">
                                             <div class="shop6">
                                                 <form action="shop-list.php" method="get" id="sort-form">
-                                                    <label>Sort By :</label>
+                                                    <label>Sort By: </label>
                                                     <select name="drop_sort" id="drop_sort">
                                                         <option>Default sorting</option>
                                                         <option>Sort by alphabet</option>
@@ -188,12 +191,18 @@
                                                         <option>Sort by price: high to low</option>
 
                                                     </select>
-                                                    <button class="button-shop" type="submit"><i class="fa fa-search search-icon"></i></button>
+                                                    <button class="btn btn-outline-warning btn-sm" type="submit">Sort</i></button>
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
-                                    
+                                    <div class="" style="float:right">
+                                            <form method="get" action="shop-list.php">
+                                                <label>Search: </label>
+                                                <input style="border: 0.5px solid #ce9634;border-radius:5px" type="text" placeholder="Search" name="search">
+                                                <button class="button-shop"><i class="fa fa-search search-icon"></i></button>
+                                            </form>
+                                    </div>
                                 </div>
                                 <!-- Tab panes -->
                                 <div class="tab-content">
@@ -223,7 +232,7 @@
                                                     <div class="col-lg-6 col-xl-4 col-md-6 col-sm-12">
                                                         <a href="single-product.php?id=<?= $row["id"] ?>">
                                                             <div class="tb-product-item-inner tb2 pct-last">
-                                                                <img alt="" src="<?= $row["thumbnail"][0] ?>">
+                                                                <img alt="" src="<?= $row["thumbnail"][0] ?>" style="width:264px;height:264px">
                                                                 <a class="la-icon" href="#productModal" onclick="showDetails(this.getAttribute('data-id'));" data-id="<?= $row["id"] ?>" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
                                                                 <div class="tb-content">
                                                                     <div class="tb-it">
@@ -238,7 +247,7 @@
                                                                         </div>
                                                                         <div class="last-cart l-mrgn">
                                                                             <a class="las3" href="#"><i class="fa fa-heart"></i></a>
-                                                                            <a class="las4" href="Controls/cart_ctrl/ctrl_addcart.php/?product=<?= $row["id"] ?>">Add To Cart</a>
+                                                                            <a class="las4" href="Controls/cart_ctrl/ctrl_addcart.php?product=<?= $row["id"] ?>">Add To Cart</a>
                                                                             <a class="las3 las7" href="#"><i class="fa fa-retweet"></i></a>
                                                                         </div>
                                                                     </div>
@@ -264,7 +273,7 @@
                                                         <div class="col-lg-4 col-md-4">
                                                             <div class="tb-product-item-inner tb2 pct-last">
                                                                 <span class="onsale two">Sale!</span>
-                                                                <img alt="" src="<?= $row["thumbnail"][0] ?>">
+                                                                <img alt="" src="<?= $row["thumbnail"][0] ?>" style="width:264px;height:264px">
                                                                 <a class="la-icon ts" href="#productModal" onclick="showDetails(this.getAttribute('data-id'));" data-id="<?= $row["id"] ?>" title="Quick View" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
                                                             </div>
                                                         </div>
@@ -281,7 +290,7 @@
                                                                 </div>
                                                                 <p class="desc"><?= $row["description"] ?></p>
                                                                 <div class="last-cart l-mrgn ns">
-                                                                    <a class="las4" href="Controls/cart_ctrl/ctrl_addcart.php/?product=<?= $row["id"] ?>">Add To Cart</a>
+                                                                    <a class="las4" href="Controls/cart_ctrl/ctrl_addcart.php?product=<?= $row["id"] ?>">Add To Cart</a>
                                                                 </div>
                                                                 <div class="tb-product-btn">
                                                                     <a href="#">
@@ -373,7 +382,7 @@
                                                 <input id="qty" class="input-text qty" type="text" name="qty" maxlength="12" value="1" title="Qty">
                                             </div>
                                             <div class="last-cart">
-                                                <a class="last1" href="Controls/cart_ctrl/ctrl_addcart.php/?product=<?= $row["id"] ?>">Add To Cart</a>
+                                                <a class="last1" id="addcart_click" href="">Add To Cart</a>
                                             </div>
                                         </div>
                                     </div>
@@ -407,6 +416,7 @@
                     $("#price_old_click").text("£" + response.price_old);
                     $("#price_click").text("£" + response.price);
                     $("#description_click").text(response.description);
+                    $("#addcart_click").attr("href", "Controls/cart_ctrl/ctrl_addcart.php?product=" + response.id);
                 }
             });
         }

@@ -40,6 +40,9 @@
         <link rel="stylesheet" href="css/responsive.css">
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <?php
+        require("Views/head.php");
+        ?>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -59,7 +62,7 @@
                     <div class="col-md-12 text-center">
                         <div class="con-text">
                             <h2 class="page-title">Blog</h2>
-                            <p><a href="#">Home</a> | Blog</p>
+                            <p><a href="index.php">Home</a> | Blog</p>
                         </div>
                     </div>
                 </div>
@@ -77,7 +80,7 @@
                                 </div>
                             </a>
                             <div class="tb-content7">
-                                <a href="#"><h4 class="tb-titlel">Take Interior Design to a New Level</h4></a>
+                                <a href="blog-details.php"><h4 class="tb-titlel">Take Interior Design to a New Level</h4></a>
                                 <div class="blog-info">
                                     <span class="author-name">
                                         <i class="fa fa-user"></i>
@@ -96,7 +99,7 @@
                                     </span>
                                 </div>
                                 <div class="tb-excerpt"> Aenean id tellus justo elit, sit amet sodales purus vulputate non. Nullam lorem eros, posuere nec sodales at, aliquet. Ut luctus justo elit, sit amet sodales purus vulputate non. Nullam lorem eros, posuere nec sodales at, aliquet gravida dui. Aenean id tellus in libero porta ultricies. Donec viverra interdum... </div>
-                                <a class="blog7" href="#">READ MORE</a>
+                                <a class="blog7" href="blog-details.php">READ MORE</a>
                             </div>
                         </div>
                        <div class="tb-post-item">
@@ -107,7 +110,7 @@
                                 </div>
                             </a>
                             <div class="tb-content7">
-                                <a href="#"><h4 class="tb-titlel">Photography Tips From Wai Su</h4></a>
+                                <a href="blog-details.php"><h4 class="tb-titlel">Photography Tips From Wai Su</h4></a>
                                 <div class="blog-info">
                                     <span class="author-name">
                                         <i class="fa fa-user"></i>
@@ -126,7 +129,7 @@
                                     </span>
                                 </div>
                                 <div class="tb-excerpt"> Aenean id tellus justo elit, sit amet sodales purus vulputate non. Nullam lorem eros, posuere nec sodales at, aliquet. Ut luctus justo elit, sit amet sodales purus vulputate non. Nullam lorem eros, posuere nec sodales at, aliquet gravida dui. Aenean id tellus in libero porta ultricies. Donec viverra interdum... </div>
-                                <a class="blog7" href="#">READ MORE</a>
+                                <a class="blog7" href="blog-details.php">READ MORE</a>
                             </div>
                         </div>
                        <div class="tb-post-item ma-nn">
@@ -137,7 +140,7 @@
                                 </div>
                             </a>
                             <div class="tb-content7">
-                                <a href="#"><h4 class="tb-titlel">Summer Classics in Positano</h4></a>
+                                <a href="blog-details.php"><h4 class="tb-titlel">Summer Classics in Positano</h4></a>
                                 <div class="blog-info">
                                     <span class="author-name">
                                         <i class="fa fa-user"></i>
@@ -156,7 +159,7 @@
                                     </span>
                                 </div>
                                 <div class="tb-excerpt"> Aenean id tellus justo elit, sit amet sodales purus vulputate non. Nullam lorem eros, posuere nec sodales at, aliquet. Ut luctus justo elit, sit amet sodales purus vulputate non. Nullam lorem eros, posuere nec sodales at, aliquet gravida dui. Aenean id tellus in libero porta ultricies. Donec viverra interdum... </div>
-                                <a class="blog7" href="#">READ MORE</a>
+                                <a class="blog7" href="blog-details.php">READ MORE</a>
                             </div>
                         </div>
                        <nav class="pagination tb-pagination text-right">
@@ -177,7 +180,7 @@
                            <ul>
                                <li>
                                     <div class="tb-recent-thumbb">
-                                        <a href="#">
+                                        <a href="blog-details.php">
                                             <img class="attachment" src="img/banner/s1.jpg" alt="">
                                         </a>
                                         <div class="recent-thumb-overlay"></div>
@@ -193,7 +196,7 @@
                                 </li>
                                <li>
                                     <div class="tb-recent-thumbb">
-                                        <a href="#">
+                                        <a href="blog-details.php">
                                             <img class="attachment" src="img/banner/s2.jpg" alt="">
                                         </a>
                                         <div class="recent-thumb-overlay"></div>
@@ -209,7 +212,7 @@
                                 </li>
                                <li>
                                     <div class="tb-recent-thumbb">
-                                        <a href="#">
+                                        <a href="blog-details.php">
                                             <img class="attachment" src="img/banner/s3.jpg" alt="">
                                         </a>
                                         <div class="recent-thumb-overlay"></div>

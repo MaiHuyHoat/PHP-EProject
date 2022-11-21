@@ -29,7 +29,7 @@ class clsSanpham{
     {
      
         $sql = "SELECT product.id,product.category_id,product.title,product.price_old,product.price,
-                product.description,galery.thumbnail,product.created_at,product.updated_at
+                product.description,product.closed,product.bought,galery.thumbnail,product.created_at,product.updated_at
                 FROM product INNER JOIN galery WHERE galery.product_id=product.id AND deleted=0 ";
         if(empty($bonus_data)==false)
         {
@@ -61,14 +61,16 @@ class clsSanpham{
         }  
     }
 
-    function addProduct($category_id,$title,$price_old,$price,$description,$created_at,$updated_at)
+    function addProduct($category_id,$title,$price_old,$price,$description,$closed,$bought,$created_at,$updated_at)
     {
-        $sql = "INSERT INTO product VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, 0)";
+        $sql = "INSERT INTO product VALUES (NULL, ?, ?, ?, ?, ?, 0, 0, ?, ?, ?, 0)";
         $data[] = $category_id;
         $data[] = $title;
         $data[] = $price_old;
         $data[] = $price;
         $data[] = $description;
+        $data[] = $closed;
+        $data[] = $bought;
         $data[] = $created_at;
         $data[] = $updated_at;
 
@@ -123,14 +125,16 @@ class clsSanpham{
         }
     }
 
-    function fixProduct($id,$category_id,$title,$price_old,$price,$description,$created_at,$updated_at)
+    function fixProduct($id,$category_id,$title,$price_old,$price,$description,$closed,$bought,$created_at,$updated_at)
     {
-        $sql = "UPDATE product SET category_id=?, title=?, price_old=?, price=?, description=?, created_at=?, updated_at=? WHERE id=$id";
+        $sql = "UPDATE product SET category_id=?, title=?, price_old=?, price=?, description=?, closed=?, bought=?, created_at=?, updated_at=? WHERE id=$id";
         $data[] = $category_id;
 		$data[] = $title;
 		$data[] = $price_old;
         $data[] = $price;
         $data[] = $description;
+        $data[] = $closed;
+        $data[] = $bought;
         $data[] = $created_at;
         $data[] = $updated_at;
 

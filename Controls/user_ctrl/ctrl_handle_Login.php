@@ -11,10 +11,10 @@ if($clsUser->checkAccount($userName,$userPassword)==true){
    $_SESSION["logined"]=true;// dang nhap thanh cong
   $_SESSION["user"]["id"]= $clsUser->getUserId($userName);
   $olderUrl=$_SERVER["HTTP_REFERER"];
-  if($olderUrl=="http://localhost/Project_T3/login.php" || $olderUrl=="http://localhost/Project_T3/login.php?loginFalse=1")
-  header("Location:http://localhost/Project_T3/index.php");// quay tro lai trang home
-  else if($olderUrl=="http://localhost/Project_T3/checkout.php?loginFalse=1"||$olderUrl=="http://localhost/Project_T3/checkout.php"){
-   header("Location:http://localhost/Project_T3/checkout.php ");
+  if($olderUrl=="http://localhost:8080/project2/login.php" || $olderUrl=="http://localhost:8080/project2/login.php?loginFalse=1")
+  header("Location:http://localhost:8080/project2/index.php");// quay tro lai trang home
+  else if($olderUrl=="http://localhost:8080/project2/checkout.php?loginFalse=1"||$olderUrl=="http://localhost:8080/project2/checkout.php"){
+   header("Location:http://localhost:8080/project2/checkout.php ");
   }
 
 
@@ -22,10 +22,10 @@ if($clsUser->checkAccount($userName,$userPassword)==true){
 else{
    $_SESSION["logined"]=false;
     $olderUrl=$_SERVER["HTTP_REFERER"];
-    if($olderUrl=="http://localhost/Project_T3/login.php?loginFalse=1"||$olderUrl=="http://localhost/Project_T3/login.php")
-    header("Location: http://localhost/Project_T3/login.php?loginFalse=1");
-    else if($olderUrl=="http://localhost/Project_T3/checkout.php?loginFalse=1"||$olderUrl=="http://localhost/Project_T3/checkout.php"){
-      header("Location:http://localhost/Project_T3/checkout.php?loginFalse=1 ");
+    if($olderUrl=="http://localhost:8080/project2/login.php?loginFalse=1"||$olderUrl=="http://localhost:8080/project2/login.php")
+    header("Location: http://localhost:8080/project2/login.php?loginFalse=1");
+    else if($olderUrl=="http://localhost:8080/project2/checkout.php?loginFalse=1"||$olderUrl=="http://localhost:8080/project2/checkout.php"){
+      header("Location:http://localhost:8080/project2/checkout.php?loginFalse=1 ");
     }
 }
 ?>

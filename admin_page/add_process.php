@@ -7,6 +7,8 @@ $price = "";
 $price_old = "";
 $created_at = "";
 $updated_at = "";
+$closed = "";
+$bought = "";
 
 if(isset($_REQUEST["title"])) {$title = $_REQUEST["title"];}
 if(isset($_REQUEST["description"])) {$description = $_REQUEST["description"];}
@@ -14,6 +16,8 @@ if(isset($_REQUEST["price"])) {$price = $_REQUEST["price"];}
 if(isset($_REQUEST["price_old"])) {$price_old = $_REQUEST["price_old"];}
 if(isset($_REQUEST["created_at"])) {$created_at = $_REQUEST["created_at"];}
 if(isset($_REQUEST["updated_at"])) {$updated_at = $_REQUEST["updated_at"];}
+if(isset($_REQUEST["closed"])) {$closed = $_REQUEST["closed"];}
+if(isset($_REQUEST["bought"])) {$bought = $_REQUEST["bought"];}
 
 $category = "";
 $gender = "";
@@ -55,9 +59,11 @@ $image_3 = "";
 if(isset($_REQUEST["image_3"])) {$image_3 = $_REQUEST["image_3"];}
 
 $sanpham = new clsSanpham();
-$ketqua = $sanpham->addProduct($category_id,$title,$price_old,$price,$description,$created_at,$updated_at);
+$ketqua = $sanpham->addProduct($category_id,$title,$price_old,$price,$description,$closed,$bought,$created_at,$updated_at);
 if($ketqua==FALSE)
+{
     die("<h3>FAILURE TO ADD DATA</h3>");
+}
 else
 {
     $product = new clsSanpham();
@@ -67,8 +73,7 @@ else
     else
     {
         echo "<h3>SUCCESS TO ADD DATA</h3>";
-        $link = "products.php";
-        echo "<a href=".$link.">RETURN TO PRODUCTS</a>";
+        header("Location:http://localhost:8080/project2/admin_page/products.php?login=true");
     }
 }
 ?>

@@ -19,12 +19,15 @@
 	Product Admin CSS Template
 	https://templatemo.com/tm-524-product-admin
 	-->
+    <?php
+    require("Views_admin/head.php");
+    ?>
   </head>
 
   <body id="reportsPage">
     <!-- navigation bar -->
     <?php
-      require("Views/header.php");
+      require("Views_admin/header.php");
     ?>
     <!-- navigation bar -->
     <div class="container mt-5">
@@ -35,7 +38,6 @@
               <table class="table table-hover tm-table-small tm-product-table">
                 <thead>
                   <tr>
-                    <th scope="col">&nbsp;</th>
                     <th scope="col">PRODUCT NAME</th>
                     <th scope="col">PRODUCT ID</th>
                     <th scope="col">PRICE</th>
@@ -56,7 +58,6 @@
                   {
                   ?>
                   <tr>
-                    <th scope="row"><input type="checkbox" /></th>
                     <td class="tm-product-name"><?=$row["title"]?></td>
                     <td><?=$row["id"]?></td>
                     <td><?=$row["price"]?></td>
@@ -68,7 +69,7 @@
                       </a>
                     </td>
                     <td>
-                      <a onclick="return confirm('ban co muon xoa a')" href="delete_process.php?id=<?=$row["id"]?>" class="tm-product-delete-link">
+                      <a onclick="return confirm('DO YOU WANT TO DELETE PRODUCT?');" href="delete_process.php?id=<?=$row["id"]?>" class="tm-product-delete-link">
                         <i class="far fa-trash-alt tm-product-delete-icon"></i>
                       </a>
                     </td>
@@ -83,19 +84,16 @@
             <a
               href="add_product.php"
               class="btn btn-primary btn-block text-uppercase mb-3">Add new product</a>
-            <button class="btn btn-primary btn-block text-uppercase">
-              Delete selected products
-            </button>
           </div>
         </div>
       </div>
     </div>
     <!-- Footer -->
     <?php
-        require("Views/footer.php");
+        require("Views_admin/footer.php");
     ?>
     <!-- Footer -->
-
+    
     <script src="js/jquery-3.3.1.min.js"></script>
     <!-- https://jquery.com/download/ -->
     <script src="js/bootstrap.min.js"></script>

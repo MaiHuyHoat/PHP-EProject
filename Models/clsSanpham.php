@@ -89,7 +89,6 @@ class clsSanpham{
        else return 0;
     }
     function getBoughtProduct($id){
-    
         $sql="SELECT product.bought FROM product WHERE id=$id;";
         $ketqua =$this->clsDatabase->executeQuery($sql);
         if($ketqua==true){

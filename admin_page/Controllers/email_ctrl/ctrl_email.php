@@ -19,20 +19,25 @@ use PHPMailer\PHPMailer\Exception;
     function sendEmailOrder($id){
                              // Passing `true` enables exceptions
                              try {
+                              $order_id=$id;// taoj $order_id bang gia tri id don hang truyen vao
+                              $clsOrder = new clsOrder();
+                              $order=$clsOrder->getOrderById($order_id);
+                              $clsOrderDetail=new clsOrderDetail();
+                              $orderDetail=$clsOrderDetail->getOrderDetail($order_id);
                               //Server settings
                               $mail=$this->mail;
                               $mail->SMTPDebug = 2;                                 // Enable verbose debug output
                               $mail->isSMTP();                                      // Set mailer to use SMTP
                               $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
                               $mail->SMTPAuth = true;                               // Enable SMTP authentication
-                              $mail->Username = 'hoatmhth2106010@fpt.edu.vn';                 // SMTP username
-                              $mail->Password = 'msrsuozlqtakkfqk';                           // SMTP password
+                              $mail->Username = 'tungnlmth2109055@fpt.edu.vn';                 // SMTP username
+                              $mail->Password = 'bhsdtazjxfceniuf';                           // SMTP password
                               $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
                               $mail->Port = 587;                                    // TCP port to connect to
                            
                               //Recipients
-                              $mail->setFrom('hoatmhth2106010@fpt.edu.vn', 'Project Team 3');
-                              $mail->addAddress('hoatdfk2001@gmail.com', 'Joe User');     // Add a recipient
+                              $mail->setFrom('tungnlmth2109055@fpt.edu.vn', 'Your order was confimed');// nghe 
+                              $mail->addAddress($order["email"], $order["fullname"]);     // Add a recipient
                               // $mail->addAddress('ellen@example.com');               // Name is optional
                               // $mail->addReplyTo('info@example.com', 'Information');
                               // $mail->addCC('cc@example.com');
@@ -48,11 +53,7 @@ use PHPMailer\PHPMailer\Exception;
                           
                           
                               
-                              $order_id=$id;// taoj $order_id bang gia tri id don hang truyen vao
-                              $clsOrder = new clsOrder();
-                              $order=$clsOrder->getOrderById($order_id);
-                              $clsOrderDetail=new clsOrderDetail();
-                              $orderDetail=$clsOrderDetail->getOrderDetail($order_id);
+                              
                               $allProduct='';
                               foreach ($orderDetail as $value) {
                                 $nameProduct = $clsOrderDetail->getNameProduct($value["product_id"]) ;

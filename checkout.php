@@ -73,7 +73,7 @@
                 <div class="col-md-12 text-center">
                     <div class="con-text">
                         <h2 class="page-title">Checkout</h2>
-                        <p><a href="#">Home</a> | Checkout</p>
+                        <p><a href="index.php">Home</a> | Checkout</p>
                     </div>
                 </div>
             </div>
@@ -248,7 +248,7 @@
                                 ?>
                                     <div>
                                         <p style="text-align:center">You don't have any product in the cart</p>
-                                        <a href="shop.php"> <button type="button" class="btn btn-warning">Buy</button> </a>
+                                        <a href="shop-list.php"> <button type="button" class="btn btn-warning">Buy</button> </a>
                                     </div>
                                     <?php
                                 } else {

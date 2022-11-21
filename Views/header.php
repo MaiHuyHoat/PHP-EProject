@@ -60,47 +60,10 @@
                             <div class="muti_menu floatleft">
                                 <nav>
                                     <ul>
-                                        <li><a class="fast active" href="index.php">home </a>
-
-                                        </li>
-                                        <li><a href="shop.php">Men <i class="fa fa-angle-down"></i></a>
-                                            <div class="mega-menu menu-minus">
-                                                <div class="tas1">
-                                                    <div class="tas">
-                                                        <h3 class="hedding-border">
-                                                            <a href="#">Shirts</a>
-                                                        </h3>
-                                                        <a href="#">Polo</a>
-                                                        <a href="#">Casual tops</a>
-                                                        <a href="#">Chinos</a>
-                                                    </div>
-                                                    <div class="tas">
-                                                        <h3 class="hedding-border">
-                                                            <a href="#">Trousers</a>
-                                                        </h3>
-                                                        <a href="#">Jeans</a>
-                                                        <a href="#">Chinos</a>
-
-                                                        <a href="#">Rings</a>
-                                                    </div>
-                                                    <div class="tas">
-                                                        <h3 class="hedding-border">
-                                                            <a href="#">Shoes</a>
-                                                        </h3>
-                                                        <a href="#">Formals</a>
-                                                        <a href="#">Nike</a>
-                                                        <a href="#">Reebok</a>
-                                                    </div>
-                                                </div>
-                                                <div class="tas2">
-                                                    <div class=" menu-img ist">
-                                                        <a href="#"><img alt="" src="img/banner/bg_menu1.jpg"></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li><a href="shop.php">Women <i class="fa fa-angle-down"></i></a>
-                                            <div class="mega-menu menu-minus">
+                                        <li><a class="fast" href="index.php">Home </a></li>
+                                        <li><a class="fast" href="shop-list.php">Store </a>
+                                        <!-- <i class="fa fa-angle-down"></i> -->
+                                            <!-- <div class="mega-menu menu-minus">
                                                 <div class="tas1 tas3">
                                                     <div class="tas">
                                                         <h3 class="hedding-border">
@@ -159,10 +122,10 @@
                                                         <a href="#"><img alt="" src="img/banner/bg_menu3.jpg"></a>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </li>
 
-                                        <li><a class="fast" href="index.php">Pages <i class="fa fa-angle-down"></i></a>
+                                        <li><a class="fast" href="index.php" style="display:none">Pages <i class="fa fa-angle-down"></i></a>
                                             <div class="rayed ru">
                                                 <div class="tas menu-last2">
                                                     <a href="register.php">Register</a>
@@ -182,8 +145,9 @@
                                             </div>
                                         </li>
 
-                                        <li><a href="blog.php">Blog</a></li>
-                                        <li><a href="contact.php">Contact</a></li>
+                                        <li><a class="fast" href="blog.php">Blog </a></li>
+                                        <li><a class="fast" href="coming-soon.php">Coming Soon </a></li>
+                                        <li><a class="fast" href="contact.php">Contact </a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -193,9 +157,9 @@
                                         <i class="fa fa-search search-icon"></i>
                                     </a>
                                     <div class="widget_searchform_content">
-                                        <form action="#">
-                                            <input type="text" placeholder="Search" name="s" value="">
-                                            <input type="submit" value="Search">
+                                        <form action="shop-list.php">
+                                            <input type="text" placeholder="Search" name="search">
+                                            <input type="submit">
                                         </form>
                                     </div>
                                 </div>
@@ -313,7 +277,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="shop.php">Women</a>
+                                        <a href="shop-list.php">Women</a>
                                         <ul class="main-menu2">
                                             <li>
                                                 <a href="#">Clothings</a>
@@ -347,7 +311,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="shop.php">Men</a>
+                                        <a href="shop-list.php">Men</a>
                                         <ul class="main-menu2">
                                             <li>
                                                 <a href="#">Clothing</a>
@@ -409,7 +373,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a href="shop.php">Jewelry</a></li>
+                                    <li><a href="shop-list.php">Jewelry</a></li>
                                     <li>
                                         <a href="#">Pages</a>
                                         <ul>
@@ -420,7 +384,7 @@
                                                 <a href="contact.php">Contacts</a>
                                                 <a href="login.php">Login</a>
                                                 <a href="my-account.php">My Account</a>
-                                                <a href="shop.php">shop</a>
+                                                <a href="shop-list.php">shop</a>
                                                 <a href="shop-list.php">shop List</a>
                                                 <a href="single-product.php">single-product</a>
                                                 <a href="shopping-cart.php">shopping-cart</a>
@@ -429,7 +393,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a href="shop.php">Watches</a></li>
+                                    <li><a href="shop-list.php">Watches</a></li>
                                     <li><a href="blog.php">Blog</a></li>
                                     <li><a href="contact.php">Contact</a></li>
                                 </ul>

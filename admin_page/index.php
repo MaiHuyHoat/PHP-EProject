@@ -17,13 +17,16 @@
 	Product Admin CSS Template
 	https://templatemo.com/tm-524-product-admin
 	-->
+    <?php
+    require("Views_admin/head.php");
+    ?>
 </head>
 
 <body id="reportsPage">
     <div class="" id="home">
         <!-- navigation bar -->
         <?php
-            require("Views/header.php");
+            require("Views_admin/header.php");
         ?>
         <!-- navigation bar -->
         <div class="container">
@@ -137,7 +140,7 @@
         </div>
         <!-- Footer -->
         <?php
-        require("Views/footer.php");
+        require("Views_admin/footer.php");
         ?>
         <!-- Footer -->
     </div>
@@ -176,6 +179,25 @@
             });
         })
     </script>
+    <?php
+    if(isset($_SESSION["logined"])==false || $_SESSION["logined"]=false)
+    {
+    ?>
+        <script>
+        var body = document.getElementById("reportsPage");
+        body.onload = function()
+        {
+            var result = confirm("PLEASE LOGIN TO CONTINUE THE PROCESS");
+            if(result == false || result == true){
+                window.location="http://localhost:8080/project2/admin_page/login.php";
+            }
+        }
+        </script>
+    <?php
+    }else{
+        return null;
+    }
+    ?>
 </body>
 
 </html>

@@ -30,56 +30,47 @@
       require("Views_admin/header.php");
     ?>
     <!-- navigation bar -->
-
     <div class="container mt-5">
-        <div class="row tm-content-row">
-          <div class="col-12 tm-block-col">
-            <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
-              <h2 class="tm-block-title">List of Accounts</h2>
-              <form action="accounts.php">
-                <?php
-                $acc_type = "";
-                if(isset($_REQUEST["account_type"]))
-                  $acc_type = $_REQUEST["account_type"];
-                else
-                  $acc_type = null;
-                ?>
-                <p class="text-white">Accounts</p>
-                <input name="login" value="true" style="display:none">
-                <select class="custom-select" name="account_type">
-                  <option value="0">Select account</option>
-                  <option value="admin" <?php if($acc_type=="admin"){echo("selected");} ?>>Admin</option>
-                  <option value="customer" <?php if($acc_type=="customer"){echo("selected");} ?>>Customer</option>
-                </select>
-                <div style="padding-top:20px"></div>
-                <button class="btn btn-primary btn-block text-uppercase">
-                  Choose type of account
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
       <div class="row tm-content-row">
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 tm-block-col">
           <div class="tm-bg-primary-dark tm-block tm-block-products">
             <div class="tm-product-table-container">
               <table class="table table-hover tm-table-small tm-product-table">
-                <?php
-                require_once("account_type.php");
-                ?>
+                <thead>
+                  <tr>
+                    <th scope="col">&nbsp;</th>
+                    <th scope="col">FULL NAME</th>
+                    <th scope="col">EMAIL</th>
+                    <th scope="col">PHONE NUMBER</th>
+                    <th scope="col">SUBJECT</th>
+                    <th scope="col">Note</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  require_once("Models/clsFeedback.php");
+                  $feedback = new clsFeedback();
+                  $rows = $feedback->getListFeedback();
+                  if($rows == Null)
+                    die("<p>ERROR IN DATABASE</p>");
+                  foreach($rows as $row)
+                  {
+                  ?>
+                  <tr>
+                    <td></td>
+                    <td class="tm-product-name"><?=$row["fullname"]?></td>
+                    <td><?=$row["email"]?></td>
+                    <td><?=$row["phone_number"]?></td>
+                    <td><?=$row["subject_name"]?></td>
+                    <td><?=$row["note"]?></td>
+                  </tr>
+                  <?php
+                  }
+                  ?>
+                </tbody>
               </table>
             </div>
             <!-- table container -->
-            <?php
-            if($acc_type == "admin")
-            {
-            ?>
-            <a href="add_account.php?account_type=admin" class="btn btn-primary btn-block text-uppercase mb-3">
-              Add new account
-            </a>
-            <?php
-            }
-            ?>
           </div>
         </div>
       </div>
