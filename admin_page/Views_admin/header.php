@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-xl" id="header_section">
     <div class="container h-100">
         <a class="navbar-brand" href="index.php">
@@ -10,8 +11,9 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <?php
-            $logined = isset($_SESSION["logined"])==false? false: $_SESSION["logined"];
-            if($logined == true)
+         
+       
+            if($_SESSION['loginedAdmin'] == true)
             {
             ?>
             <ul class="navbar-nav mx-auto h-100">
@@ -60,7 +62,9 @@
             </ul>
 
             <?php
-            }else{
+            }else if($_SESSION['loginedAdmin']==false){
+           
+           
             ?>
             <ul class="navbar-nav mx-auto h-100">
                 <li class="nav-item">
@@ -107,7 +111,7 @@
                 </li>
             </ul>
             <?php
-            }
+         }
             ?>
         </div>
     </div>

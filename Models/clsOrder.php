@@ -39,7 +39,7 @@ class clsOrder{
             $this->phone_number=$phone_number;
             $this->address=$address;
             $this->note=$note;
-            $this->total_mone=$total_money;
+            $this->total_money=$total_money;
             $this->status=$status;
         }
           return $kq;
@@ -68,7 +68,7 @@ class clsOrder{
     }
     function updateStatusOrder($order_id,$status){
         $clsDatabase= new clsDatabase();
-        $sql="UPDATE `order`SET status=$status WHERE id=$order_id ";
+        $sql="UPDATE `order` SET status=$status WHERE id=$order_id ";
         $kq=$clsDatabase->executeQuery($sql);
         
         return $kq;

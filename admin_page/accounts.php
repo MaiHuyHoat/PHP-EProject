@@ -49,7 +49,7 @@
                 <select class="custom-select" name="account_type">
                   <option value="0">Select account</option>
                   <option value="admin" <?php if($acc_type=="admin"){echo("selected");} ?>>Admin</option>
-                  <option value="customer" <?php if($acc_type=="customer"){echo("selected");} ?>>Customer</option>
+                  <option value="customer" <?php if($acc_type=="customer"|| $acc_type==""|| $acc_type==null){echo("selected");} ?>>Customer</option>
                 </select>
                 <div style="padding-top:20px"></div>
                 <button class="btn btn-primary btn-block text-uppercase">

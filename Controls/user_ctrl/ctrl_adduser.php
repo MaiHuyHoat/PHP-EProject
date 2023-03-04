@@ -20,7 +20,7 @@ else{
 }
 if($clsUser->checkUser($userName)){
 
-    $olderUrl="http://localhost:8080/project2/register.php";
+    $olderUrl="http://localhost:8080/Noraute/register.php";
     header("Location:$olderUrl?ErrorCreAcount=1");
 }
 else{
@@ -29,11 +29,11 @@ else{
    
     $ketqua=$clsUser->addUser($userName,$password,$fullName,$email,$phoneNumber,$address,$imageNameConvert);
     if($ketqua==true){
-        $olderUrl="http://localhost:8080/project2/register.php" ;
+        $olderUrl="http://localhost:8080/Noraute/register.php" ;
      header("Location:$olderUrl?CreAcountSuccess=1");
     }
     else{
-        $olderUrl="http://localhost:8080/project2/register.php" ;
+        $olderUrl="http://localhost:8080/Noraute/register.php" ;
         header("Location:$olderUrl?CreAcountSuccess=-1");
     }
 }

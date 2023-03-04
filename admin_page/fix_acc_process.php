@@ -44,7 +44,7 @@ else if(isset($_REQUEST["fullname"]) && isset($_REQUEST["acc_name"]) && isset($_
     else
     {
         echo "<h3>SUCCESS TO ADD DATA</h3>";
-        header("Location:http://localhost:8080/project2/admin_page/accounts.php?login=true");
+        header("Location:http://localhost:8080/Noraute/admin_page/accounts.php?login=true");
     }
 }
 ?>

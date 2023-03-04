@@ -1,5 +1,5 @@
 <?php
-require_once("Models/clsDatabase.php");
+require_once('../Models/clsDatabase.php');
 class clsFeedback
 {
     public $clsDatabase= null;
@@ -21,6 +21,7 @@ class clsFeedback
              $sql.=$bonus_data;
            
         }
+        $this->clsDatabase= new clsDatabase();
         $ketqua =$this->clsDatabase->executeQuery($sql);
         if($ketqua==FALSE)
             return NULL;

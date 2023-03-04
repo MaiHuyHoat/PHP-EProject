@@ -180,17 +180,17 @@
         })
     </script>
     <?php
-    if(isset($_SESSION["logined"])==false || $_SESSION["logined"]=false)
+    if(isset($_SESSION["loginedAdmin"])==false || $_SESSION["loginedAdmin"]==false)
     {
+       
     ?>
         <script>
         var body = document.getElementById("reportsPage");
         body.onload = function()
         {
-            var result = confirm("PLEASE LOGIN TO CONTINUE THE PROCESS");
-            if(result == false || result == true){
-                window.location="http://localhost:8080/project2/admin_page/login.php";
-            }
+            
+                window.location="http://localhost:8080/Noraute/admin_page/login.php";
+           
         }
         </script>
     <?php

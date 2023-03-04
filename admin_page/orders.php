@@ -21,7 +21,7 @@
 	https://templatemo.com/tm-524-product-admin
 	-->
     <?php
-    session_start();
+        require("Views_admin/head.php");
     ?>
 </head>
 

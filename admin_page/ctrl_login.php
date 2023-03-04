@@ -8,20 +8,20 @@ $admin_password = $_REQUEST["admin_password"];
 
 if($clsAdmin->check_account_admin($admin_name,$admin_password)==true)
 {
-    $_SESSION["logined"] = true;//successfully logined
+    $_SESSION["loginedAdmin"] = true;//successfully logined
     $older_url = $_SERVER["HTTP_REFERER"];
-    if($older_url=="http://localhost:8080/project2/admin_page/login.php" || $older_url="http://localhost:8080/project2/admin_page/login.php?login=true")
+    if($older_url=="http://localhost:8080/Noraute/admin_page/login.php" || $older_url="http://localhost:8080/Noraute/admin_page/login.php?login=true")
     {
-        header("Location:http://localhost:8080/project2/admin_page/index.php?login=true");// quay tro lai trang home
+        header("Location:http://localhost:8080/Noraute/admin_page/index.php?login=true");// quay tro lai trang home
     }
 }
 else
 {
-    $_SESSION["logined"]=false;
+    $_SESSION["loginedAdmin"]=false;
     $older_url=$_SERVER["HTTP_REFERER"];
-    if($older_url=="http://localhost:8080/project2/admin_page/login.php" || $older_url="http://localhost:8080/project2/admin_page/login.php?login=false")
+    if($older_url=="http://localhost:8080/Noraute/admin_page/login.php" || $older_url="http://localhost:8080/Noraute/admin_page/login.php?login=false")
     {
-        header("Location:http://localhost:8080/project2/admin_page/login.php?login=false");// quay tro lai trang home
+        header("Location:http://localhost:8080/Noraute/admin_page/login.php?login=false");// quay tro lai trang home
     }
 }
 ?>

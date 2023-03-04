@@ -22,7 +22,7 @@
     <?php
       session_start();
       require_once("Models/clsLogin.php");
-      $login = "";
+      $login =false;
       if(isset($_REQUEST["login"])==true)
       {
         $login = $_REQUEST["login"];

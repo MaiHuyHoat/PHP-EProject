@@ -1,15 +1,15 @@
 <?php
-require_once("clsDatabase.php");
+require_once("../Models/clsDatabase.php");
 class clsSanpham{
  
     public $clsDatabase= null;
     function clsSanpham(){
 
-       $this->clsDatabase= new clsDatabase();
+      
           
     }
     function getImageById($id){
-        
+        $this->clsDatabase= new clsDatabase();
         $sql="SELECT thumbnail from galery WHERE galery.product_id=?";
         $data[]=$id;
         $ketqua =$this->clsDatabase->executeQuery($sql,$data);
@@ -37,6 +37,7 @@ class clsSanpham{
              $sql.=$bonus_data;
            
         }
+        $this->clsDatabase= new clsDatabase();
         $ketqua =$this->clsDatabase->executeQuery($sql);
         if($ketqua==FALSE)
             return NULL;
@@ -63,6 +64,7 @@ class clsSanpham{
 
     function addProduct($category_id,$title,$price_old,$price,$description,$closed,$bought,$created_at,$updated_at)
     {
+        $this->clsDatabase= new clsDatabase();
         $sql = "INSERT INTO product VALUES (NULL, ?, ?, ?, ?, ?, 0, 0, ?, ?, ?, 0)";
         $data[] = $category_id;
         $data[] = $title;
@@ -80,6 +82,7 @@ class clsSanpham{
 
     function addImage($image_1,$image_2,$image_3)
     {
+        $this->clsDatabase= new clsDatabase();
         $imgs[3] = [$image_1,$image_2,$image_3];
         $sql_product_id = "SELECT Max(id) FROM product";
         $ketqua = $this->clsDatabase->executeQuery($sql_product_id);
@@ -127,6 +130,7 @@ class clsSanpham{
 
     function fixProduct($id,$category_id,$title,$price_old,$price,$description,$closed,$bought,$created_at,$updated_at)
     {
+        $this->clsDatabase= new clsDatabase();
         $sql = "UPDATE product SET category_id=?, title=?, price_old=?, price=?, description=?, closed=?, bought=?, created_at=?, updated_at=? WHERE id=$id";
         $data[] = $category_id;
 		$data[] = $title;

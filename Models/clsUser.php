@@ -18,26 +18,27 @@ class clsUser
     public $deleted;
     function clsUser()
     {
-        $this->clsDatabase = new clsDatabase(); //ket noi den csdl;
+        //ket noi den csdl;
     }
     function checkUser($userName)
     { // hàm kiểm tra tài khoản đã tồn tại trong hệ thống hay chưa.
-        $cslDatabase = new clsDatabase();
+        $this->clsDatabase = new clsDatabase();
         $sqlCheck = "SELECT * FROM `user` WHERE user_name='$userName';";
-        $ketqua = $cslDatabase->executeQuery($sqlCheck);
+        $ketqua = $this->clsDatabase->executeQuery($sqlCheck);
         if ($ketqua == false) {
             echo "Lỗi truy vấn  SQL";
         } else {
-            $results = $cslDatabase->pdo_stm->fetchAll(PDO::FETCH_ASSOC);
+            $results =  $this->clsDatabase->pdo_stm->fetchAll(PDO::FETCH_ASSOC);
             if (count($results) > 0) return true; // Đã tồn tại tài khoản trong hệ thống
             else return false; // Không tồn tại tài khoản trong hệ thống
         }
     }
     function checkAccount($userName,$userPassword){// ham kiem tra dang nhap
-        $clsDatabase= new clsDatabase();
+   
         $sql="SELECT id FROM `user` WHERE user_name='$userName' AND user.password='$userPassword'";
-        $clsDatabase->executeQuery($sql);
-       $rows=$clsDatabase->pdo_stm->fetchAll();
+        $this->clsDatabase= new clsDatabase();
+        $this->clsDatabase->executeQuery($sql);
+       $rows=$this->clsDatabase->pdo_stm->fetchAll(PDO::FETCH_BOTH);
        if(empty($rows)){
         $_SESSION["account"]["login"]=false;
       
@@ -60,14 +61,17 @@ class clsUser
     }
     function getUserId($userName)
     { // Lấy id tài khoản của người dùng
-        $clsDatabase = new clsDatabase();
+ 
         $sql = "SELECT id FROM `user` WHERE user_name='$userName';";
-        $clsDatabase->executeQuery($sql);
-        $id = $clsDatabase->pdo_stm->fetch(PDO::FETCH_BOTH);
+$this->clsDatabase= new clsDatabase();
+        $this->clsDatabase->executeQuery($sql);
+        $id = $this->clsDatabase->pdo_stm->fetch(PDO::FETCH_BOTH);
         return $id[0];
     }
     function getUserInfo($id)
     {
+          
+        $this->clsDatabase= new clsDatabase();
         $sql = "SELECT * FROM `user` WHERE id=$id;";
 
         $kq = $this->clsDatabase->executeQuery($sql);

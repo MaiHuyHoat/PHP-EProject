@@ -11,10 +11,12 @@ if($clsUser->checkAccount($userName,$userPassword)==true){
    $_SESSION["logined"]=true;// dang nhap thanh cong
   $_SESSION["user"]["id"]= $clsUser->getUserId($userName);
   $olderUrl=$_SERVER["HTTP_REFERER"];
-  if($olderUrl=="http://localhost:8080/project2/login.php" || $olderUrl=="http://localhost:8080/project2/login.php?loginFalse=1")
-  header("Location:http://localhost:8080/project2/index.php");// quay tro lai trang home
-  else if($olderUrl=="http://localhost:8080/project2/checkout.php?loginFalse=1"||$olderUrl=="http://localhost:8080/project2/checkout.php"){
-   header("Location:http://localhost:8080/project2/checkout.php ");
+  echo $_SESSION["user"]["id"];
+ echo $olderUrl;
+  if($olderUrl=="http://localhost:8080/Noraute/login.php" || $olderUrl=="http://localhost:8080/Noraute/login.php?loginFalse=1")
+  header("Location:http://localhost:8080/Noraute/index.php");// quay tro lai trang home
+  else if($olderUrl=="http://localhost:8080/Noraute/checkout.php?loginFalse=1"||$olderUrl=="http://localhost:8080/Noraute/checkout.php"){
+   header("Location:http://localhost:8080/Noraute/checkout.php ");
   }
 
 
@@ -22,10 +24,10 @@ if($clsUser->checkAccount($userName,$userPassword)==true){
 else{
    $_SESSION["logined"]=false;
     $olderUrl=$_SERVER["HTTP_REFERER"];
-    if($olderUrl=="http://localhost:8080/project2/login.php?loginFalse=1"||$olderUrl=="http://localhost:8080/project2/login.php")
-    header("Location: http://localhost:8080/project2/login.php?loginFalse=1");
-    else if($olderUrl=="http://localhost:8080/project2/checkout.php?loginFalse=1"||$olderUrl=="http://localhost:8080/project2/checkout.php"){
-      header("Location:http://localhost:8080/project2/checkout.php?loginFalse=1 ");
+    if($olderUrl=="http://localhost:8080/Noraute/login.php?loginFalse=1"||$olderUrl=="http://localhost:8080/Noraute/login.php")
+    header("Location: http://localhost:8080/Noraute/login.php?loginFalse=1");
+    else if($olderUrl=="http://localhost:8080/Noraute/checkout.php?loginFalse=1"||$olderUrl=="http://localhost:8080/Noraute/checkout.php"){
+      header("Location:http://localhost:8080/Noraute/checkout.php?loginFalse=1 ");
     }
 }
 ?>

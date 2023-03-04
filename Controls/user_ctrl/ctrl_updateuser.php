@@ -21,11 +21,11 @@ $ketqua=$clsUser->updateUser($id, $password, $fullName, $email, $phoneNumber, $a
 
 if($ketqua==true){
  
-    $olderUrl="http://localhost:8080/project2/my-account.php" ;
+    $olderUrl="http://localhost:8080/Noraute/my-account.php" ;
  header("Location:$olderUrl?UpdAcountSuccess=1");
 }
 else{
-    $olderUrl="http://localhost:8080/project2/my-account.php" ;
+    $olderUrl="http://localhost:8080/Noraute/my-account.php" ;
     header("Location:$olderUrl?UpdAcountSuccess=-1");
 }
 ?>

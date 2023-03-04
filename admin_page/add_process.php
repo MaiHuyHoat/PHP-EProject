@@ -73,7 +73,7 @@ else
     else
     {
         echo "<h3>SUCCESS TO ADD DATA</h3>";
-        header("Location:http://localhost:8080/project2/admin_page/products.php?login=true");
+        header("Location:http://localhost:8080/Noraute/admin_page/products.php?login=true");
     }
 }
 ?>

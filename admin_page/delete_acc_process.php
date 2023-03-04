@@ -32,7 +32,7 @@ if(isset($_REQUEST["id"]))
             else
             {
                 echo "<h3>SUCCESS TO DELETE DATA</h3>";
-                header("Location:http://localhost:8080/project2/admin_page/accounts.php?login=true");
+                header("Location:http://localhost:8080/Noraute/admin_page/accounts.php?login=true");
             }
         }
     }

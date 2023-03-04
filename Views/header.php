@@ -9,13 +9,15 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-7 col-12">
                     <?php
+           
                     $logined=isset($_SESSION["logined"])==false? false: $_SESSION["logined"];
                     // kiem tra xem da dang nhap hay chua  va hien thong tin tai khoan
                     if ($logined == true) { ?>
 
                         <?php
                         $clsUser = new clsUser();
-                        $clsUser->getUserInfo($_SESSION["user"]["id"]) // lay thong tin tai khoan
+                      
+                        $clsUser->getUserInfo($_SESSION["user"]["id"]) ;// lay thong tin tai khoan
                         ?>
                         <div class="widget">
                             <ul>

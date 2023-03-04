@@ -1,5 +1,6 @@
 <?php
-require_once("Models/clsDatabase.php");
+require_once('../Models/clsDatabase.php');
+
 class clsLogin
 {
     public $clsDatabase= null;
@@ -42,6 +43,7 @@ class clsLogin
              $sql.=$bonus_data;
            
         }
+        $this->clsDatabase= new clsDatabase();
         $ketqua =$this->clsDatabase->executeQuery($sql);
         if($ketqua==FALSE)
             return NULL;
@@ -63,6 +65,7 @@ class clsLogin
              $sql.=$bonus_data;
            
         }
+        $this->clsDatabase= new clsDatabase();
         $ketqua =$this->clsDatabase->executeQuery($sql);
         if($ketqua==FALSE)
             return NULL;
@@ -85,13 +88,14 @@ class clsLogin
         $data[] = $image;
         $data[] = $created_at;
         $data[] = $updated_at;
-
+        $this->clsDatabase= new clsDatabase();
         $ketqua = $this->clsDatabase->executeQuery($sql,$data);
         return $ketqua;
     }
 
     function addAccount_admin($fullname,$user_name,$password,$image)
     {
+        $this->clsDatabase= new clsDatabase();
         $sql = "INSERT INTO admin VALUES (NULL, ?, ?, ?, ?, 0)";
         $data[] = $fullname;
         $data[] = $user_name;
@@ -104,6 +108,7 @@ class clsLogin
 
     function fixAccount_user($id,$user_name,$password,$fullname,$email,$phone_number,$address,$image,$created_at,$updated_at)
     {
+        $this->clsDatabase= new clsDatabase();
         $sql = "UPDATE user SET user_name=?, password=?, fullname=?, email=?, phone_number=?, address=?, image=?, created_at=?, updated_at=? WHERE id=$id";
         $data[] = $user_name;
         $data[] = $password;
@@ -121,6 +126,7 @@ class clsLogin
 
     function fixAccount_admin($id,$user_name,$password,$full_name,$image)
     {
+        $this->clsDatabase= new clsDatabase();
         $sql = "UPDATE admin SET user_name=?, password=?, full_name=?, image=? WHERE id=$id";
         $data[] = $user_name;
         $data[] = $password;
@@ -133,6 +139,7 @@ class clsLogin
 
     function deleteAccount_user($id)
     {
+        $this->clsDatabase= new clsDatabase();
         $sql = "UPDATE user SET deleted=1 WHERE id=$id";
         $result = $this->clsDatabase->executeQuery($sql);
         if($result==FALSE)
@@ -144,6 +151,7 @@ class clsLogin
 
     function deleteAccount_admin($id)
     {
+        $this->clsDatabase= new clsDatabase();
         $sql = "UPDATE admin SET deleted=1 WHERE id=$id";
         $result = $this->clsDatabase->executeQuery($sql);
         if($result==FALSE)

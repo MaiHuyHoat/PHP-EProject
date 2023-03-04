@@ -9,7 +9,7 @@ class clsSanpham{
           
     }
     function getImageById($id){
-        
+        $this->clsDatabase= new clsDatabase();
         $sql="SELECT thumbnail from galery WHERE galery.product_id=?";
         $data[]=$id;
         $ketqua =$this->clsDatabase->executeQuery($sql,$data);
@@ -26,6 +26,7 @@ class clsSanpham{
         }
     }
     function getProductById($id){
+        $this->clsDatabase= new clsDatabase();
         $sql="SELECT * FROM `product` WHERE id=$id;";
         $ketqua =$this->clsDatabase->executeQuery($sql);
         if($ketqua==true){
@@ -37,7 +38,7 @@ class clsSanpham{
     }
     function getListProduct($bonus_data=null)// mảng điều kiện để lấy danh sách sản phẩm
     {
-     
+        $this->clsDatabase= new clsDatabase();
         $sql = "SELECT product.id,product.category_id,product.title,product.price_old,product.price,product.description,galery.thumbnail
                 FROM product INNER JOIN galery WHERE galery.product_id=product.id ";
         if(empty($bonus_data)==false)
@@ -71,6 +72,7 @@ class clsSanpham{
         
     }
     function countProduct(){
+        $this->clsDatabase= new clsDatabase();
         $sql="SELECT COUNT(*) FROM `product`;";
         $ketqua =$this->clsDatabase->executeQuery($sql);
         if($ketqua==true){
@@ -80,6 +82,7 @@ class clsSanpham{
        else return 0; 
     }
     function getClosedProduct($id){
+        $this->clsDatabase= new clsDatabase();
         $sql="SELECT product.closed FROM product WHERE id=$id;";
         $ketqua =$this->clsDatabase->executeQuery($sql);
         if($ketqua==true){
@@ -89,6 +92,7 @@ class clsSanpham{
        else return 0;
     }
     function getBoughtProduct($id){
+        $this->clsDatabase= new clsDatabase();
         $sql="SELECT product.bought FROM product WHERE id=$id;";
         $ketqua =$this->clsDatabase->executeQuery($sql);
         if($ketqua==true){
@@ -98,6 +102,7 @@ class clsSanpham{
        else return 0; 
     }
     function updateCloseProduct($id,$qty){
+        $this->clsDatabase= new clsDatabase();
         $numOld=$this->getClosedProduct($id);
         $numNew=$numOld-$qty;
         $sql="UPDATE product SET closed=? WHERE id=?;";
@@ -107,6 +112,7 @@ class clsSanpham{
 
     }
     function updateBoughtProduct($id,$qty){
+        $this->clsDatabase= new clsDatabase();
         $numOld=$this->getBoughtProduct($id);
         $numNew=$numOld+$qty;
         $sql="UPDATE product SET bought=? WHERE id=?;";

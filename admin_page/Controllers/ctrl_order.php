@@ -8,10 +8,7 @@ $clsOderDetail= new clsOrderDetail();
 $clsSanpham= new clsSanpham();
 $order_id=$_REQUEST["order_id"] ;
 $numStatus=$_REQUEST["status_order"];
-if($numStatus==2){
-    $clsEmail= new clsEmail();
-    $clsEmail->sendEmailOrder($order_id);
-}
+
 $kq=$clsOrder->updateStatusOrder($order_id,$numStatus);
 
 if($kq==true){

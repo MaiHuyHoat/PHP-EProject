@@ -25,6 +25,7 @@ use PHPMailer\PHPMailer\Exception;
                               $clsOrderDetail=new clsOrderDetail();
                               $orderDetail=$clsOrderDetail->getOrderDetail($order_id);
                               //Server settings
+                              $this->mail=new PHPMailer(true);
                               $mail=$this->mail;
                               $mail->SMTPDebug = 2;                                 // Enable verbose debug output
                               $mail->isSMTP();                                      // Set mailer to use SMTP
